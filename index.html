@@ -1,5 +1,635 @@
-<!doctype html>
-<html>
-  <head><meta charset="utf-8"><title>Jameson Campbell</title></head>
-  <body><h1>Hello 👋</h1><p>Welcome to my site.</p></body>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jameson Campbell - Internal Tools Engineer, AI Productivity Builder, and Systems Integrator">
+    <title>Jameson Campbell | Internal Tools Engineer</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#2E9DFB',
+                        'accent-dark': '#1E7FC7',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+                        mono: ['SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo/Name -->
+                <a href="#hero" class="text-xl font-bold text-gray-900 dark:text-white hover:text-accent dark:hover:text-accent transition-colors">
+                    Jameson Campbell
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#philosophy" class="nav-link">Philosophy</a>
+                    <a href="#stack" class="nav-link">Stack</a>
+                    <a href="#writing" class="nav-link">Writing</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="#projects" class="nav-link-mobile">Projects</a>
+                    <a href="#about" class="nav-link-mobile">About</a>
+                    <a href="#philosophy" class="nav-link-mobile">Philosophy</a>
+                    <a href="#stack" class="nav-link-mobile">Stack</a>
+                    <a href="#writing" class="nav-link-mobile">Writing</a>
+                    <a href="#contact" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 px-6 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                        I build internal tools and AI-enabled systems that make teams move faster.
+                    </h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                        Sales Ops by title — Systems Builder by craft. I prototype, automate, and scale internal workflows that remove friction across sales, design, and ops.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects" class="btn-primary">
+                            See What I Build
+                        </a>
+                        <a href="#about" class="btn-secondary">
+                            About Me
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Visual Element -->
+                <div class="fade-in fade-in-delay">
+                    <div class="bg-gradient-to-br from-accent/10 to-accent/5 dark:from-accent/20 dark:to-accent/10 rounded-2xl p-8 border border-accent/20">
+                        <div class="aspect-video bg-white dark:bg-gray-800 rounded-lg shadow-lg flex items-center justify-center mb-4">
+                            <span class="text-gray-400 dark:text-gray-500 font-mono text-sm">
+                                [Visual Search Engine Screenshot]
+                            </span>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-bold text-lg mb-2">Visual Search</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                15 daily users. Semantic file search powered by Vertex AI, Pinecone, AWS.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Project Section -->
+    <section id="featured-project" class="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+        <div class="max-w-5xl mx-auto">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold mb-4 text-center">Featured Project</h2>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-3xl font-bold mb-4">Semantic Visual Search for Creative Teams</h3>
+                    
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                        Replaced chaotic Dropbox searches with a semantic, vibe-based search experience for 100k+ image assets.
+                    </p>
+                    
+                    <!-- Stack Badges -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="badge">Vertex AI Multimodal Embeddings</span>
+                        <span class="badge">Pinecone</span>
+                        <span class="badge">AWS Lambda</span>
+                        <span class="badge">React</span>
+                    </div>
+                    
+                    <!-- Impact Metrics -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-accent mb-2">15/50</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Team members use daily</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-accent mb-2">10x</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Faster search experience</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-accent mb-2">~40%</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Reduced lost-asset time</div>
+                        </div>
+                    </div>
+                    
+                    <!-- What I Learned -->
+                    <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-6 mb-8">
+                        <h4 class="font-bold text-lg mb-2">What I Learned</h4>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Building search taught me the value of observability, caching, and balancing latency with relevance.
+                        </p>
+                    </div>
+                    
+                    <!-- Outcome -->
+                    <div class="mb-8">
+                        <h4 class="font-bold text-lg mb-2">Outcome</h4>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Validated → scaled → became a daily workflow.
+                        </p>
+                    </div>
+                    
+                    <!-- Placeholder for screenshots -->
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 font-mono text-sm">[Screenshot]</span>
+                        </div>
+                        <div class="aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-400 font-mono text-sm">[Architecture Diagram]</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="inline-flex items-center text-accent hover:text-accent-dark transition-colors font-medium">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What I Build Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold mb-12 text-center">What I Build</h2>
+                
+                <!-- Work Projects -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-accent">Work Projects</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Visual Search Engine -->
+                        <div class="project-card">
+                            <h4 class="text-xl font-bold mb-3">Visual Search Engine</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Semantic search for 100k+ creative assets. Replaced Dropbox chaos with AI-powered discovery.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-sm">Vertex AI</span>
+                                <span class="badge-sm">Pinecone</span>
+                                <span class="badge-sm">AWS</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                        
+                        <!-- AI Email Triage Bot -->
+                        <div class="project-card">
+                            <h4 class="text-xl font-bold mb-3">AI Email Triage Bot</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Routes and drafts replies for inbound inquiries. Saves 10+ hours/week for support team.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-sm">OpenAI</span>
+                                <span class="badge-sm">Front API</span>
+                                <span class="badge-sm">Python</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                        
+                        <!-- Lead Scoring Model -->
+                        <div class="project-card">
+                            <h4 class="text-xl font-bold mb-3">Lead Scoring Model</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Identifies high-value leads from CRM and behavioral data. Increased conversion by 25%.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-sm">Python</span>
+                                <span class="badge-sm">HubSpot API</span>
+                                <span class="badge-sm">scikit-learn</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                        
+                        <!-- Data Validation Scripts -->
+                        <div class="project-card">
+                            <h4 class="text-xl font-bold mb-3">Data Validation Scripts</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Automate cleanups and migrations across CRM, databases, and spreadsheets.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-sm">Python</span>
+                                <span class="badge-sm">SQL</span>
+                                <span class="badge-sm">APIs</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Personal Tools -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-accent">Personal Tools & Experiments</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Prompt Workflow Designer -->
+                        <div class="project-card">
+                            <h4 class="text-xl font-bold mb-3">Prompt Workflow Designer</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Visual chain-builder for prompts and agents. Drag-and-drop interface for AI workflows.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-sm">React</span>
+                                <span class="badge-sm">LangChain</span>
+                                <span class="badge-sm">Next.js</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                        
+                        <!-- Agent Sandbox -->
+                        <div class="project-card">
+                            <h4 class="text-xl font-bold mb-3">Agent Sandbox</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Governance layer for running and testing AI agents safely. Logs, permissions, rollback.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-sm">Python</span>
+                                <span class="badge-sm">Docker</span>
+                                <span class="badge-sm">OpenAI</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                        
+                        <!-- DataSync Micro-App -->
+                        <div class="project-card">
+                            <h4 class="text-xl font-bold mb-3">DataSync Micro-App</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                Glue script that syncs two systems with retry and alert logic. Saves hours of manual work.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="badge-sm">Node.js</span>
+                                <span class="badge-sm">AWS Lambda</span>
+                                <span class="badge-sm">Slack API</span>
+                            </div>
+                            <a href="#" class="project-link">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Me Section -->
+    <section id="about" class="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold mb-12 text-center">About Me</h2>
+                
+                <div class="prose prose-lg dark:prose-invert max-w-none">
+                    <p class="text-xl leading-relaxed mb-6">
+                        I bridge the gap between operations and engineering.
+                    </p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+                        I'm most energized when I can talk to a teammate, spot a friction point, and ship something that fixes it.
+                    </p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
+                        I started in Sales Operations but quickly found myself building apps, bots, and data pipelines to automate repetitive work.
+                        Today, I'm focused on building tools that multiply people — internal search systems, triage assistants, and micro-apps that remove bottlenecks.
+                    </p>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 my-8 border border-gray-200 dark:border-gray-700">
+                        <h3 class="text-2xl font-bold mb-6">My approach:</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-accent text-2xl mr-4">→</span>
+                                <span class="text-lg text-gray-700 dark:text-gray-300">Start small, test with real users, iterate fast.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent text-2xl mr-4">→</span>
+                                <span class="text-lg text-gray-700 dark:text-gray-300">Measure what matters (adoption, time saved).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent text-2xl mr-4">→</span>
+                                <span class="text-lg text-gray-700 dark:text-gray-300">Kill what doesn't work. Scale what does.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        I'm currently exploring the intersection of internal tooling and AI augmentation, and building public proof-of-concepts to sharpen my craft.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold mb-4 text-center">Approach / Philosophy</h2>
+                <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+                    How I think about building internal tools
+                </p>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                        <thead class="bg-accent text-white">
+                            <tr>
+                                <th class="px-6 py-4 text-left font-bold">Step</th>
+                                <th class="px-6 py-4 text-left font-bold">What I Do</th>
+                                <th class="px-6 py-4 text-left font-bold">Mindset</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <span class="text-2xl mr-3">1️⃣</span>
+                                        <span class="font-bold text-lg">Discover</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                    Talk with teams, identify friction
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                    Empathy > assumptions
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <span class="text-2xl mr-3">2️⃣</span>
+                                        <span class="font-bold text-lg">Prototype</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                    Build minimal version in a few days
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                    Ship → feedback → iterate
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <span class="text-2xl mr-3">3️⃣</span>
+                                        <span class="font-bold text-lg">Validate</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                    Track usage, adoption, ROI
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                    Outcomes over output
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <span class="text-2xl mr-3">4️⃣</span>
+                                        <span class="font-bold text-lg">Scale or Kill</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                    Double-down or move on
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                                    Learn fast, waste little
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Optional Flow Diagram Placeholder -->
+                <div class="mt-12 bg-gradient-to-r from-accent/10 to-accent/5 dark:from-accent/20 dark:to-accent/10 rounded-xl p-8 text-center border border-accent/20">
+                    <span class="text-gray-400 dark:text-gray-500 font-mono">
+                        [Optional: Flow diagram visualization]
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stack & Skills Section -->
+    <section id="stack" class="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold mb-4 text-center">Stack & Skills</h2>
+                <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+                    My cross-disciplinary toolkit
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- AI & Data -->
+                    <div class="stack-category">
+                        <h3 class="text-xl font-bold mb-4 text-accent">AI & Data</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge">Vertex AI</span>
+                            <span class="badge">Pinecone</span>
+                            <span class="badge">OpenAI API</span>
+                            <span class="badge">LangChain</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Automation & Infra -->
+                    <div class="stack-category">
+                        <h3 class="text-xl font-bold mb-4 text-accent">Automation & Infra</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge">Python</span>
+                            <span class="badge">Node.js</span>
+                            <span class="badge">AWS (Lambda, S3, DynamoDB)</span>
+                            <span class="badge">Google Cloud</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Frontend / UI -->
+                    <div class="stack-category">
+                        <h3 class="text-xl font-bold mb-4 text-accent">Frontend / UI</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge">React</span>
+                            <span class="badge">Next.js</span>
+                            <span class="badge">Tailwind</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Integration / Ops -->
+                    <div class="stack-category">
+                        <h3 class="text-xl font-bold mb-4 text-accent">Integration / Ops</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge">HubSpot API</span>
+                            <span class="badge">Front API</span>
+                            <span class="badge">Slack bots</span>
+                            <span class="badge">RESTful services</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Philosophies -->
+                <div class="mt-8 text-center">
+                    <h3 class="text-xl font-bold mb-4">Philosophies</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="badge-philosophy">Internal Tools</span>
+                        <span class="badge-philosophy">Developer Productivity</span>
+                        <span class="badge-philosophy">Agentic Systems</span>
+                        <span class="badge-philosophy">Lean Prototyping</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Writing / Blog Section -->
+    <section id="writing" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold mb-4 text-center">Writing</h2>
+                <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+                    Coming Soon
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="blog-post-preview">
+                        <h3 class="font-bold text-lg mb-2">Why Every Company Needs an Internal Tools Builder</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Coming soon...</p>
+                    </div>
+                    
+                    <div class="blog-post-preview">
+                        <h3 class="font-bold text-lg mb-2">What I Learned from Killing Half My Projects</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Coming soon...</p>
+                    </div>
+                    
+                    <div class="blog-post-preview">
+                        <h3 class="font-bold text-lg mb-2">How I Built a Semantic Search Engine with AI Embeddings</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Coming soon...</p>
+                    </div>
+                    
+                    <div class="blog-post-preview">
+                        <h3 class="font-bold text-lg mb-2">AI as a Coworker, Not a Replacement</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Coming soon...</p>
+                    </div>
+                    
+                    <div class="blog-post-preview">
+                        <h3 class="font-bold text-lg mb-2">Rapid Internal Tooling: My 48-Hour Prototype Process</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Coming soon...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="fade-in">
+                <h2 class="text-4xl font-bold mb-6">Let's build something useful.</h2>
+                <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                    Whether it's AI-powered internal tools, workflow automation, or developer productivity systems — I love turning friction into leverage.
+                </p>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                    👇 Reach out, I'd love to chat.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <a href="mailto:jameson.campbell.me@gmail.com" class="btn-primary">
+                        Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/jameson-campbell/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/JamesonCodes" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto text-center text-gray-600 dark:text-gray-400">
+            <p>&copy; 2025 Jameson Campbell. Built with HTML, Tailwind CSS, and JavaScript.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
 </html>

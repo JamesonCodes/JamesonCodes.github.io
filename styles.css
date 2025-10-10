@@ -1,0 +1,186 @@
+/* Custom Styles and Animations */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    @apply px-6 py-3 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+    @apply px-6 py-3 bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-white font-semibold rounded-lg transition-all duration-300;
+}
+
+/* Navigation Links */
+.nav-link {
+    @apply text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors duration-200 font-medium;
+}
+
+.nav-link-mobile {
+    @apply text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors duration-200 font-medium py-2;
+}
+
+/* Badge Styles */
+.badge {
+    @apply inline-block px-4 py-2 bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent rounded-full text-sm font-medium border border-accent/20;
+}
+
+.badge-sm {
+    @apply inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium;
+}
+
+.badge-philosophy {
+    @apply inline-block px-5 py-2 bg-gradient-to-r from-accent/20 to-accent/10 dark:from-accent/30 dark:to-accent/20 text-accent dark:text-accent rounded-lg text-sm font-bold border border-accent/30;
+}
+
+/* Metric Cards */
+.metric-card {
+    @apply bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/20 rounded-lg p-6 text-center border border-accent/20;
+}
+
+/* Project Cards */
+.project-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:-translate-y-1;
+}
+
+/* Project Links */
+.project-link {
+    @apply inline-flex items-center text-accent hover:text-accent-dark transition-colors font-medium;
+}
+
+/* Stack Category */
+.stack-category {
+    @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-gray-200 dark:border-gray-700;
+}
+
+/* Blog Post Preview */
+.blog-post-preview {
+    @apply bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-accent dark:hover:border-accent transition-colors cursor-pointer;
+}
+
+/* Fade In Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-delay {
+    animation-delay: 0.2s;
+}
+
+/* Navbar Shadow on Scroll */
+.navbar-scrolled {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2E9DFB;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1E7FC7;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+    background: #2E9DFB;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #3DAEFF;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Link Underline Animation */
+a:not(.btn-primary):not(.btn-secondary):not(.nav-link):not(.nav-link-mobile):not(.project-link) {
+    position: relative;
+}
+
+/* Ensure images in placeholders are centered */
+.aspect-video {
+    position: relative;
+}
+
+/* Prose styling for About section */
+.prose {
+    max-width: 65ch;
+}
+
+.prose p {
+    margin-bottom: 1.25em;
+}
+
+.prose h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+}
+
+/* Hero gradient background subtle effect */
+#hero {
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(46, 157, 251, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(46, 157, 251, 0.03) 0%, transparent 50%);
+}
+
+.dark #hero {
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(46, 157, 251, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(46, 157, 251, 0.05) 0%, transparent 50%);
+}
+
+/* Smooth transitions for theme toggle */
+* {
+    transition-property: background-color, border-color, color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* Override for elements that shouldn't have transitions */
+.no-transition {
+    transition: none !important;
+}
+
+/* Focus styles for accessibility */
+a:focus,
+button:focus {
+    outline: 2px solid #2E9DFB;
+    outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+    background-color: rgba(46, 157, 251, 0.3);
+    color: inherit;
+}
+
+.dark ::selection {
+    background-color: rgba(46, 157, 251, 0.4);
+}
+
