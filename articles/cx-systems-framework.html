@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Designing Customer Experience Systems - A practical framework with real results from the HubSpot Admin Program by Jameson Campbell">
+    <title>Designing Customer Experience Systems | Jameson Campbell</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#2E9DFB',
+                        'accent-dark': '#1E7FC7',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+                        mono: ['SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo/Name -->
+                <a href="../index.html" class="text-xl font-bold text-gray-900 dark:text-white hover:text-accent dark:hover:text-accent transition-colors">
+                    Jameson Campbell
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html#projects" class="nav-link">Projects</a>
+                    <a href="../index.html#about" class="nav-link">About</a>
+                    <a href="../index.html#philosophy" class="nav-link">Philosophy</a>
+                    <a href="../index.html#writing" class="nav-link">Writing</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="../index.html#projects" class="nav-link-mobile">Projects</a>
+                    <a href="../index.html#about" class="nav-link-mobile">About</a>
+                    <a href="../index.html#philosophy" class="nav-link-mobile">Philosophy</a>
+                    <a href="../index.html#writing" class="nav-link-mobile">Writing</a>
+                    <a href="../index.html#contact" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Article Content -->
+    <article class="pt-24 pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="fade-in">
+                <!-- Article Header -->
+                <header class="mb-12">
+                    <div class="mb-6">
+                        <a href="../index.html#writing" class="inline-flex items-center text-accent hover:text-accent-dark transition-colors mb-4">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            Back to Writing
+                        </a>
+                        <span class="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium mb-6">Published</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        🎯 Designing Customer Experience Systems
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                        A practical framework with real results from the HubSpot Admin Program.
+                    </p>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            By <span class="font-semibold text-gray-900 dark:text-white">Jameson Campbell</span>
+                        </p>
+                    </div>
+                </header>
+                
+                <!-- Article Body -->
+                <div class="prose prose-lg dark:prose-invert max-w-none">
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Why CX as a System</h2>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Great customer experience isn't vibes — it's design. Map touchpoints, standardize delivery, automate the boring parts, and measure outcomes.</p>
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">The Problem with Ad-Hoc Service Delivery</h2>
+                    
+                    <ul class="space-y-4 text-lg text-gray-700 dark:text-gray-300 mb-8">
+                        <li><strong class="text-gray-900 dark:text-white">Custom every time</strong> → slow, inconsistent, hard to price</li>
+                        <li><strong class="text-gray-900 dark:text-white">No shared process</strong> → quality varies by person</li>
+                        <li><strong class="text-gray-900 dark:text-white">Unpredictable revenue</strong> → messy invoicing & scope creep</li>
+                    </ul>
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">The Framework (Repeat Quarterly)</h2>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">1. Map Touchpoints</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Purchase → onboarding → first 90 days</p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">2. Spot Frictions</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Where clients wait, guess, or re-explain</p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">3. Standardize</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Templates, SLAs, "in/out of scope," clear packages</p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">4. Automate</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Portal, intake, reminders, status updates, billing</p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">5. Measure & Iterate</h3>
+                            <p class="text-gray-700 dark:text-gray-300">Adoption, time-to-value, churn, NPS</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Our Implementation (HubSpot Admin Program)</h2>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-8 mb-10 border border-gray-200 dark:border-gray-700">
+                        <ul class="space-y-4 text-lg text-gray-700 dark:text-gray-300">
+                            <li><strong class="text-gray-900 dark:text-white">Portal & process:</strong> SPP for intake, tasks, messaging, billing</li>
+                            <li><strong class="text-gray-900 dark:text-white">Onboarding:</strong> welcome flow + short video + discovery + scheduled consults</li>
+                            <li><strong class="text-gray-900 dark:text-white">Boundaries:</strong> published scope, "Special Request" lane for edge cases</li>
+                            <li><strong class="text-gray-900 dark:text-white">Proactive guidance:</strong> monthly roadmapping email → curated task plan</li>
+                            <li><strong class="text-gray-900 dark:text-white">Ops assists:</strong> bulk dedup (Dedupely), programmable automation (OpsHub + JS)</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Portal Onboarding Screenshot -->
+                    <div class="my-12 text-center">
+                        <img src="../assets/portal_onboarding_screen.png" alt="Portal onboarding screen showing streamlined welcome flow and touchpoint mapping" class="mx-auto rounded-lg shadow-lg max-w-4xl w-full h-auto">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 italic">Portal onboarding experience — mapped and streamlined touchpoints for consistent client experience</p>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">We defined clear roles and established proactive communication channels to ensure clients always knew who to contact and what to expect at each stage.</p>
+                    
+                    <!-- Program Champion Slide -->
+                    <div class="my-12 text-center">
+                        <img src="../assets/program_chamption.jpg" alt="Program champion role definition and communication structure" class="mx-auto rounded-lg shadow-lg max-w-4xl w-full h-auto">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 italic">Program Champion role — defining ownership and proactive communication for consistent client support</p>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Structured planning and recurring improvement cycles kept the program evolving with client needs while maintaining consistency.</p>
+                    
+                    <!-- Program Roadmap Slide -->
+                    <div class="my-12 text-center">
+                        <img src="../assets/program_roadmap.jpg" alt="Program roadmap showing structured planning and recurring improvement process" class="mx-auto rounded-lg shadow-lg max-w-4xl w-full h-auto">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 italic">Program roadmap approach — structured planning and continuous improvement based on client feedback</p>
+                    </div>
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Results</h2>
+                    
+                    <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8">
+                        <li>• Shifted one-off work to recurring revenue</li>
+                        <li>• Cleaner cash flow with automated invoicing</li>
+                        <li>• Faster onboarding; fewer handoffs; consistent delivery</li>
+                        <li>• ~10% churn reduction early on; more referrals and "professional" kudos</li>
+                    </ul>
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Lessons</h2>
+                    
+                    <div class="space-y-6 mb-10">
+                        <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-6">
+                            <p class="text-lg font-semibold text-gray-900 dark:text-white">Productization isn't rigid — it's repeatable.</p>
+                        </div>
+                        
+                        <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-6">
+                            <p class="text-lg font-semibold text-gray-900 dark:text-white">Draw hard scope lines, then evolve with data and interviews.</p>
+                        </div>
+                        
+                        <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-6">
+                            <p class="text-lg font-semibold text-gray-900 dark:text-white">Ship the next small improvement; don't wait for perfect.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 my-10 border-2 border-accent">
+                        <p class="text-xl font-bold text-center text-gray-900 dark:text-white mb-4">Bottom Line</p>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 text-center">Treat CX like a system. Standardize, automate, measure, iterate — and watch retention, referrals, and revenue compound.</p>
+                    </div>
+                    
+                </div>
+                
+                <!-- Article Footer -->
+                <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                                Published by <span class="font-semibold text-gray-900 dark:text-white">Jameson Campbell</span>
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                                Sales Operations Manager & Internal Tools Builder
+                            </p>
+                        </div>
+                        <a href="../index.html#contact" class="btn-primary">
+                            Get in Touch
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </article>
+    
+    <!-- JavaScript -->
+    <script src="../script.js"></script>
+</body>
+</html>
