@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Behind the Scenes: The Trials and Triumphs of Creating Fitness Apps - Jameson Campbell's startup journey from Flexter to Toned">
+    <title>Behind the Scenes: Creating Fitness Apps | Jameson Campbell</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#2E9DFB',
+                        'accent-dark': '#1E7FC7',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+                        mono: ['SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo/Name -->
+                <a href="../index.html" class="text-xl font-bold text-gray-900 dark:text-white hover:text-accent dark:hover:text-accent transition-colors">
+                    Jameson Campbell
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html#projects" class="nav-link">Projects</a>
+                    <a href="../index.html#about" class="nav-link">About</a>
+                    <a href="../index.html#philosophy" class="nav-link">Philosophy</a>
+                    <a href="../index.html#writing" class="nav-link">Writing</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="../index.html#projects" class="nav-link-mobile">Projects</a>
+                    <a href="../index.html#about" class="nav-link-mobile">About</a>
+                    <a href="../index.html#philosophy" class="nav-link-mobile">Philosophy</a>
+                    <a href="../index.html#writing" class="nav-link-mobile">Writing</a>
+                    <a href="../index.html#contact" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Article Content -->
+    <article class="pt-24 pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="fade-in">
+                <!-- Article Header -->
+                <header class="mb-12">
+                    <div class="mb-6">
+                        <a href="../index.html#writing" class="inline-flex items-center text-accent hover:text-accent-dark transition-colors mb-4">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            Back to Writing
+                        </a>
+                        <span class="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium mb-6">Published</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                        🏋️‍♂️ Behind the Scenes: The Trials and Triumphs of Creating Fitness Apps
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                        The challenges faced — and overcome — while building my first startup.
+                    </p>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            By <span class="font-semibold text-gray-900 dark:text-white">Jameson Campbell</span>
+                        </p>
+                    </div>
+                </header>
+                
+                <!-- Article Body -->
+                <div class="prose prose-lg dark:prose-invert max-w-none">
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">💡 Introduction</h2>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">It was August 2013, and I remember it vividly — a late night in my living room with two college friends, Mike Xhaxho and Jonathan Ratcliff.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">We were brainstorming ideas when we landed on a problem we wanted to solve.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Finding new workout plans online was painfully slow. Even after finding one, we'd still need to write down reps, sets, and watch YouTube videos for form. It was tedious and fragmented.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">At the time, both fitness influencers and social media were exploding. We thought:</p>
+                    
+                    <blockquote class="border-l-4 border-accent pl-6 py-4 my-8 bg-gray-50 dark:bg-gray-800/50 rounded-r-lg">
+                        <p class="text-xl italic text-gray-900 dark:text-white">"What if we combined the two?"</p>
+                    </blockquote>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">That idea became Flexter — an app where users could find and purchase training plans from top trainers in one place. Trainers earned a cut of each sale.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">With zero experience but plenty of drive, we decided to build it ourselves.</p>
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">🧩 Building Flexter</h2>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">We pooled our savings and hired a designer from London named Daniel. He worked nights after his day job — and through the birth of his first child — to bring our vision to life. What was supposed to take two weeks stretched into two months of late-night Skype calls and revisions.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Our first developer, from China, quit two weeks in, demanding more money. After arbitration, we recovered most of our funds and hired a second developer, Jiang, under milestone-based payments.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Four months later — and with two additional part-timers — we had a working prototype.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Eventually, we ran out of money and brought in a local Austin developer, Anurag. After reviewing our code, he rated it a "2 out of 10." Painful, but fair. We decided to start over from scratch.</p>
+                    
+                    <!-- Flexter App Screenshots -->
+                    <div class="my-12 text-center">
+                        <img src="../assets/flexter.jpg" alt="Flexter app interface showing workout programs and exercise details" class="mx-auto rounded-lg shadow-lg max-w-4xl w-full h-auto">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 italic">The redesigned Flexter app interface — built from scratch after starting over</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 my-10 border border-gray-200 dark:border-gray-700">
+                        <p class="text-2xl font-bold text-center text-gray-900 dark:text-white">Flexter — Find Free Workouts, Fast.</p>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The app evolved into a library of free one-day workouts, with premium content planned for later. When Flexter finally launched, it was an incredible feeling. We even hosted a SXSW launch party at Rio.</p>
+                    
+                    <!-- Flexter Launch Party Video -->
+                    <div class="my-12">
+                        <div class="aspect-video bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+                            <iframe 
+                                src="https://www.youtube.com/embed/rfvHKE2w3aI" 
+                                title="Flexter Launch Party at SXSW" 
+                                class="w-full h-full"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 text-center italic">Flexter's SXSW launch party at Rio — celebrating our first app launch</p>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Our marketing strategy: have trainers promote their Flexter workouts on social media. Collectively, 50+ trainers had over 10 million followers. It worked — at first.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">But trainers weren't incentivized to keep posting without immediate income.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">That's when the next idea hit:</p>
+                    
+                    <blockquote class="border-l-4 border-accent pl-6 py-4 my-8 bg-gray-50 dark:bg-gray-800/50 rounded-r-lg">
+                        <p class="text-xl italic text-gray-900 dark:text-white">Instead of one app for many trainers, what if we built a standalone app for one trainer?</p>
+                    </blockquote>
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">💪 Toned — Home Workouts by Natalie Jill</h2>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Natalie specialized in at-home bodyweight workouts for women 30+. She was ranked #9 on Forbes' Top Fitness Influencers and featured on major networks like ABC, CBS, and NBC.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">After a month of discussions, we signed a licensing deal. Natalie owned the content and marketing; our company, Flexter Inc., owned the source code and handled design, development, and support.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">I taught myself Sketch on Udemy and designed her app from scratch.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">We launched Toned in March 2015. It quickly gained traction — at one point reaching <strong class="text-accent font-bold">#13 among top-grossing U.S. Health & Fitness apps</strong>.</p>
+                    
+                    <!-- Toned App Screenshots -->
+                    <div class="my-12 text-center">
+                        <img src="../assets/toned.jpg" alt="Toned app interface by Natalie Jill showing home workouts" class="mx-auto rounded-lg shadow-lg max-w-4xl w-full h-auto">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 italic">The Toned app interface — our successful partnership with Natalie Jill that reached #13 in the U.S. Health & Fitness charts</p>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Revenue grew enough to bootstrap operations and pay ourselves a small amount. That summer, we joined the Capital Factory Accelerator in Austin — an environment buzzing with founders, mentors, and investors. It was electric.</p>
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">🌱 Expanding the Portfolio — Get Loved Up by Koya Webb</h2>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">As the company grew, we partnered with Koya Webb, an internationally known yoga teacher and holistic health coach.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Together we created Get Loved Up — 28-Day Holistic Health Challenge, a vegan recipe and lifestyle app with daily meal plans and shopping lists.</p>
+                    
+                    <!-- Get Loved Up App Screenshots -->
+                    <div class="my-12 text-center">
+                        <img src="../assets/get_loved_up.jpg" alt="Get Loved Up app interface by Koya Webb showing holistic health challenge" class="mx-auto rounded-lg shadow-lg max-w-4xl w-full h-auto">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-4 italic">The Get Loved Up app interface — our partnership with Koya Webb for holistic health and vegan lifestyle</p>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">By then, Jon and I had learned app development end-to-end — managing remote teams, designing UI, and shipping multiple products from concept to App Store launch.</p>
+                    
+                    <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">🧭 Conclusion</h2>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">In 2019, we closed the business to pursue new paths.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Across all our apps, we generated <strong class="text-accent font-bold">300k+ downloads and $300k+ in sales</strong>.</p>
+                    
+                    <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Those years taught me more than any classroom could — how to start from zero, find answers, and stay persistent through uncertainty.</p>
+                    
+                    <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-8 my-10">
+                        <p class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Biggest lesson:</p>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">You don't need all the answers to start — just the persistence to keep building until you find them.</p>
+                    </div>
+                    
+                </div>
+                
+                <!-- Article Footer -->
+                <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                                Published by <span class="font-semibold text-gray-900 dark:text-white">Jameson Campbell</span>
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                                Sales Operations Manager & Internal Tools Builder
+                            </p>
+                        </div>
+                        <a href="../index.html#contact" class="btn-primary">
+                            Get in Touch
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </article>
+    
+    <!-- JavaScript -->
+    <script src="../script.js"></script>
+</body>
+</html>
