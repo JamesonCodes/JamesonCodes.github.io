@@ -179,10 +179,13 @@
                         </div>
                     </div>
                     
-                    <!-- Placeholder for screenshots -->
+                    <!-- Screenshots -->
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                            <span class="text-gray-400 font-mono text-sm">[Screenshot]</span>
+                        <div class="relative aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden cursor-pointer group" onclick="openGallery(0)">
+                            <img src="assets/sock_scout_1-min.png" alt="Sock Scout visual search interface" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">View Gallery</span>
+                            </div>
                         </div>
                         <div class="aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
                             <span class="text-gray-400 font-mono text-sm">[Architecture Diagram]</span>
@@ -629,7 +632,96 @@
         </div>
     </footer>
     
+    <!-- Image Gallery Modal -->
+    <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+        <div class="relative max-w-7xl max-h-full mx-4">
+            <!-- Close Button -->
+            <button onclick="closeGallery()" class="absolute top-4 right-4 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 transition-all duration-200">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <!-- Previous Button -->
+            <button onclick="previousImage()" class="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-3 transition-all duration-200">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            
+            <!-- Next Button -->
+            <button onclick="nextImage()" class="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-3 transition-all duration-200">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            
+            <!-- Image -->
+            <img id="galleryImage" src="" alt="Sock Scout visual search interface" class="max-w-full max-h-full object-contain rounded-lg">
+            
+            <!-- Image Counter -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
+                <span id="imageCounter">1 / 3</span>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="script.js"></script>
+    
+    <!-- Gallery JavaScript -->
+    <script>
+        const galleryImages = [
+            'assets/sock_scout_1-min.png',
+            'assets/sock_scout_2-min.png',
+            'assets/sock_scout_3-min.png'
+        ];
+        
+        let currentImageIndex = 0;
+        
+        function openGallery(index) {
+            currentImageIndex = index;
+            updateGalleryImage();
+            document.getElementById('galleryModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeGallery() {
+            document.getElementById('galleryModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateGalleryImage();
+        }
+        
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateGalleryImage();
+        }
+        
+        function updateGalleryImage() {
+            const image = document.getElementById('galleryImage');
+            const counter = document.getElementById('imageCounter');
+            image.src = galleryImages[currentImageIndex];
+            counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('galleryModal');
+            if (!modal.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeGallery();
+                if (e.key === 'ArrowLeft') previousImage();
+                if (e.key === 'ArrowRight') nextImage();
+            }
+        });
+        
+        // Click outside to close
+        document.getElementById('galleryModal').addEventListener('click', function(e) {
+            if (e.target === this) closeGallery();
+        });
+    </script>
 </body>
 </html>
