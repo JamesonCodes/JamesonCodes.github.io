@@ -179,6 +179,22 @@ Changes are live at `https://jamesoncodes.github.io` within minutes.
 
 MIT License - Feel free to use this as inspiration for your own portfolio!
 
+## SEO & Indexing
+
+This portfolio is optimized for search engines with:
+- Comprehensive meta tags and Open Graph tags
+- XML sitemap at `/sitemap.xml`
+- robots.txt configuration
+- Semantic HTML structure
+- Mobile-responsive design
+
+### Google Search Console Setup
+1. Visit [Google Search Console](https://search.google.com/search-console/)
+2. Add property: `https://jamesoncodes.github.io`
+3. Verify ownership using HTML tag method
+4. Submit sitemap: `https://jamesoncodes.github.io/sitemap.xml`
+5. Request indexing for main pages
+
 ## 🤝 Contributing
 
 This is a personal portfolio, but feedback and suggestions are welcome via issues.
