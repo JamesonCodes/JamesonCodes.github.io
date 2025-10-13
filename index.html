@@ -185,8 +185,11 @@
                                 <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">View Gallery</span>
                             </div>
                         </div>
-                        <div class="aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                            <span class="text-gray-400 font-mono text-sm">[Architecture Diagram]</span>
+                        <div class="relative aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden cursor-pointer group" onclick="openArchitectureModal()">
+                            <img src="assets/diagrams/sock-scout-architecture-diagram.PNG" alt="Sock Scout architecture diagram showing system components and data flow" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">View Full Size</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -668,6 +671,21 @@
         </div>
     </div>
 
+    <!-- Architecture Diagram Modal -->
+    <div id="architectureModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+        <div class="relative max-w-7xl max-h-full mx-4">
+            <!-- Close Button -->
+            <button onclick="closeArchitectureModal()" class="absolute top-4 right-4 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 transition-all duration-200">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <!-- Architecture Diagram -->
+            <img src="assets/diagrams/sock-scout-architecture-diagram.PNG" alt="Sock Scout architecture diagram showing system components and data flow" class="max-w-full max-h-full object-contain rounded-lg">
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="script.js"></script>
     
@@ -723,6 +741,30 @@
         // Click outside to close
         document.getElementById('galleryModal').addEventListener('click', function(e) {
             if (e.target === this) closeGallery();
+        });
+        
+        // Architecture Modal Functions
+        function openArchitectureModal() {
+            document.getElementById('architectureModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeArchitectureModal() {
+            document.getElementById('architectureModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Architecture modal keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('architectureModal');
+            if (!modal.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeArchitectureModal();
+            }
+        });
+        
+        // Click outside to close architecture modal
+        document.getElementById('architectureModal').addEventListener('click', function(e) {
+            if (e.target === this) closeArchitectureModal();
         });
     </script>
 </body>
