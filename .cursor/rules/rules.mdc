@@ -1,0 +1,75 @@
+---
+description: Portfolio development workflow, content creation, and code consistency. Helps maintain standards when adding new articles, projects, or features to ensure consistent structure, SEO optimization, and professional presentation.
+alwaysApply: false
+---
+# Portfolio Development Rules
+
+## SEO Requirements
+- Every new HTML page MUST include comprehensive SEO meta tags
+- Update sitemap.xml when adding new articles/pages
+- Follow the SEO template in .cursor/seo-guidelines.mdc
+- Update README.md if adding new sections or major features
+
+## File Structure
+- Articles go in `/articles/` directory
+- Images go in `/assets/` with descriptive filenames
+- Always use semantic HTML elements
+- Include alt text for all images
+
+## Content Standards
+- Use consistent emoji prefixes for article titles
+- Include "By Jameson Campbell" in article headers
+- Add favicon links to all new HTML pages
+- Use Tailwind CSS classes for styling consistency
+
+## Commit Standards
+- Use conventional commit messages (feat:, fix:, docs:, etc.)
+- Be descriptive but concise
+- Include scope when relevant (e.g., "feat(seo): add meta tags to new article")
+
+## Image Optimization
+- Use descriptive alt text for accessibility and SEO
+- Optimize images before adding to assets
+- Use consistent naming conventions (kebab-case)
+- Include captions for complex diagrams
+
+## Article Structure
+- Follow the established template with proper heading hierarchy
+- Include author byline and publication info
+- Add proper internal linking between related articles
+- Use consistent styling classes from existing articles# Portfolio Development Rules
+
+## SEO Requirements
+- Every new HTML page MUST include comprehensive SEO meta tags
+- Update sitemap.xml when adding new articles/pages
+- Follow the SEO template in .cursor/seo-guidelines.mdc
+- Update README.md if adding new sections or major features
+
+## File Structure
+- Articles go in `/articles/` directory
+- Images go in `/assets/` with descriptive filenames
+- Always use semantic HTML elements
+- Include alt text for all images
+
+## Content Standards
+- Use consistent emoji prefixes for article titles
+- Include "By Jameson Campbell" in article headers
+- Add favicon links to all new HTML pages
+- Use Tailwind CSS classes for styling consistency
+
+## Commit Standards
+- Use conventional commit messages (feat:, fix:, docs:, etc.)
+- Be descriptive but concise
+- Include scope when relevant (e.g., "feat(seo): add meta tags to new article")
+
+## Image Optimization
+- Use descriptive alt text for accessibility and SEO
+- Optimize images before adding to assets
+- Use consistent naming conventions (kebab-case)
+- Include captions for complex diagrams
+
+## Article Structure
+- Follow the established template with proper heading hierarchy
+- Include author byline and publication info
+- Add proper internal linking between related articles
+- Use consistent styling classes from existing articles

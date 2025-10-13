@@ -1,0 +1,209 @@
+---
+description: SEO optimization and search engine indexing. Provides templates and checklists for adding meta tags, updating sitemaps, and ensuring new content follows SEO best practices for better Google visibility and social media sharing.
+alwaysApply: false
+---
+# SEO Guidelines for New Articles
+
+## Required Meta Tags Template
+
+Add these meta tags to the `<head>` section of every new HTML page:
+
+```html
+<!-- SEO Meta Tags -->
+<meta name="keywords" content="[topic-specific keywords]">
+<meta name="author" content="Jameson Campbell">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Social Media -->
+<meta property="og:title" content="[Article Title]">
+<meta property="og:description" content="[Article description]">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jamesoncodes.github.io/articles/[filename].html">
+<meta property="og:image" content="https://jamesoncodes.github.io/assets/profile.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[Article Title]">
+<meta name="twitter:description" content="[Article description]">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://jamesoncodes.github.io/articles/[filename].html">
+```
+
+## Keyword Guidelines
+
+### Homepage Keywords
+- Primary: "sales operations, internal tools builder, AI pair programming, automation, startups, semantic search, productivity tools"
+- Focus on: role, skills, industry terms
+
+### Article Keywords (examples)
+- **Internal Tools**: "internal tools, vibe coding, AI pair programming, RevOps, automation, organizational leverage"
+- **HubSpot**: "HubSpot, productization, service business, recurring revenue, automation, client portal"
+- **Customer Experience**: "customer experience, CX systems, client onboarding, process design, HubSpot, automation"
+- **Fitness Apps**: "fitness apps, mobile app development, startup journey, Flexter, Toned, health and fitness, app store"
+
+## Sitemap Update Checklist
+
+When adding new content:
+
+- [ ] Add new URL to `sitemap.xml`
+- [ ] Set appropriate priority:
+  - Homepage: 1.0
+  - Main articles: 0.9
+  - Secondary articles: 0.8
+- [ ] Set changefreq:
+  - Homepage: "weekly"
+  - Articles: "monthly"
+- [ ] Update lastmod date to current date (YYYY-MM-DD format)
+
+## README Update Triggers
+
+Update README.md when:
+- [ ] Adding new article → Update published articles section
+- [ ] Adding new project → Update project listings
+- [ ] Major feature addition → Update feature list
+- [ ] Changing site structure → Update navigation info
+
+## Article SEO Best Practices
+
+### Title Structure
+- Use emoji prefix for visual consistency
+- Keep under 60 characters for optimal display
+- Include relevant keywords naturally
+
+### Description Guidelines
+- 150-160 characters for optimal snippet display
+- Include primary keywords naturally
+- Make it compelling and descriptive
+- Avoid keyword stuffing
+
+### Content Structure
+- Use proper heading hierarchy (H1, H2, H3)
+- Include internal links to related articles
+- Add alt text to all images
+- Use semantic HTML elements
+
+## Favicon Requirements
+
+Every new HTML page must include:
+```html
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../favicon.svg">
+```
+
+## Quality Checklist
+
+Before publishing new content:
+
+- [ ] All meta tags present and accurate
+- [ ] Sitemap updated
+- [ ] Images have descriptive alt text
+- [ ] Internal links added where relevant
+- [ ] Favicon links included
+- [ ] Mobile responsive design verified
+- [ ] No broken links
+- [ ] Consistent styling with existing content# SEO Guidelines for New Articles
+
+## Required Meta Tags Template
+
+Add these meta tags to the `<head>` section of every new HTML page:
+
+```html
+<!-- SEO Meta Tags -->
+<meta name="keywords" content="[topic-specific keywords]">
+<meta name="author" content="Jameson Campbell">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Social Media -->
+<meta property="og:title" content="[Article Title]">
+<meta property="og:description" content="[Article description]">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jamesoncodes.github.io/articles/[filename].html">
+<meta property="og:image" content="https://jamesoncodes.github.io/assets/profile.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[Article Title]">
+<meta name="twitter:description" content="[Article description]">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://jamesoncodes.github.io/articles/[filename].html">
+```
+
+## Keyword Guidelines
+
+### Homepage Keywords
+- Primary: "sales operations, internal tools builder, AI pair programming, automation, startups, semantic search, productivity tools"
+- Focus on: role, skills, industry terms
+
+### Article Keywords (examples)
+- **Internal Tools**: "internal tools, vibe coding, AI pair programming, RevOps, automation, organizational leverage"
+- **HubSpot**: "HubSpot, productization, service business, recurring revenue, automation, client portal"
+- **Customer Experience**: "customer experience, CX systems, client onboarding, process design, HubSpot, automation"
+- **Fitness Apps**: "fitness apps, mobile app development, startup journey, Flexter, Toned, health and fitness, app store"
+
+## Sitemap Update Checklist
+
+When adding new content:
+
+- [ ] Add new URL to `sitemap.xml`
+- [ ] Set appropriate priority:
+  - Homepage: 1.0
+  - Main articles: 0.9
+  - Secondary articles: 0.8
+- [ ] Set changefreq:
+  - Homepage: "weekly"
+  - Articles: "monthly"
+- [ ] Update lastmod date to current date (YYYY-MM-DD format)
+
+## README Update Triggers
+
+Update README.md when:
+- [ ] Adding new article → Update published articles section
+- [ ] Adding new project → Update project listings
+- [ ] Major feature addition → Update feature list
+- [ ] Changing site structure → Update navigation info
+
+## Article SEO Best Practices
+
+### Title Structure
+- Use emoji prefix for visual consistency
+- Keep under 60 characters for optimal display
+- Include relevant keywords naturally
+
+### Description Guidelines
+- 150-160 characters for optimal snippet display
+- Include primary keywords naturally
+- Make it compelling and descriptive
+- Avoid keyword stuffing
+
+### Content Structure
+- Use proper heading hierarchy (H1, H2, H3)
+- Include internal links to related articles
+- Add alt text to all images
+- Use semantic HTML elements
+
+## Favicon Requirements
+
+Every new HTML page must include:
+```html
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="apple-touch-icon" href="../favicon.svg">
+```
+
+## Quality Checklist
+
+Before publishing new content:
+
+- [ ] All meta tags present and accurate
+- [ ] Sitemap updated
+- [ ] Images have descriptive alt text
+- [ ] Internal links added where relevant
+- [ ] Favicon links included
+- [ ] Mobile responsive design verified
+- [ ] No broken links
+- [ ] Consistent styling with existing content
