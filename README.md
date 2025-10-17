@@ -28,22 +28,36 @@ This website establishes credibility as a builder of internal tools and AI-enabl
 ├── script.js                     # JavaScript functionality
 ├── favicon.svg                   # Custom gradient favicon
 ├── favicon.ico                   # Browser compatibility fallback
-├── assets/                       # Image assets
-│   ├── sock_scout_1-min.png     # Featured project screenshots
-│   ├── sock_scout_2-min.png     
-│   ├── sock_scout_3-min.png     
-│   ├── flexter.jpg              # Fitness apps journey images
-│   ├── toned.jpg                
-│   ├── get_loved_up.jpg         
-│   ├── portal_onboarding_screen.png # CX systems article assets
-│   ├── program_chamption.jpg    
-│   ├── program_roadmap.jpg      
-│   ├── projects/                # Additional project assets
-│   └── diagrams/                # Architecture diagrams
+├── assets/                       # Organized image assets
+│   ├── profile.jpg              # Personal profile photo
+│   ├── articles/                # Article images
+│   │   ├── flexter.jpg          # Fitness apps journey images
+│   │   ├── toned.jpg            
+│   │   ├── get_loved_up.jpg     
+│   │   ├── portal_onboarding_screen.png # CX systems assets
+│   │   ├── program_chamption.jpg    
+│   │   └── program_roadmap.jpg      
+│   ├── projects/                # Project screenshots
+│   │   ├── sock_scout_1-min.png # Featured project gallery
+│   │   ├── sock_scout_2-min.png     
+│   │   └── sock_scout_3-min.png     
+│   ├── diagrams/                # Architecture diagrams
+│   │   └── sock-scout-architecture-diagram.PNG
+│   └── logos/                   # Brand logos with theme switching
+│       ├── cursor-dark.svg      # AI development tools
+│       ├── cursor-light.svg     
+│       ├── openai-dark.svg      
+│       ├── openai-light.svg     
+│       ├── n8n-dark.svg         
+│       ├── n8n-light.svg        
+│       ├── pinecone-dark.svg    
+│       ├── pinecone-light.svg   
+│       └── vertex-ai.svg        
 ├── articles/                    # Blog posts and case studies
 │   ├── fitness-apps-journey.html # Startup journey story
 │   ├── hubspot-productization.html # Service productization case study
-│   └── cx-systems-framework.html  # Customer experience framework
+│   ├── cx-systems-framework.html  # Customer experience framework
+│   └── internal-tools-builder.html # Internal tools thought leadership
 └── README.md                    # This file
 ```
 
@@ -57,8 +71,9 @@ This website establishes credibility as a builder of internal tools and AI-enabl
 - **Performance Optimized** - Debounced scroll events, efficient animations
 
 ### Content & Navigation
-- **Professional Writing** - Three published articles with detailed case studies
+- **Professional Writing** - Four published articles with detailed case studies
 - **Project Showcases** - Featured project with interactive gallery
+- **AI Arsenal** - Theme-aware brand logos with external links
 - **Mobile-Optimized Philosophy** - Responsive table/card layout for mobile
 - **Custom Favicon** - Professional gradient "J" monogram
 
@@ -75,8 +90,9 @@ This website establishes credibility as a builder of internal tools and AI-enabl
 3. **What I Build** - Work projects and personal experiments with live demos
 4. **About Me** - Personal story, background, and approach to building
 5. **Philosophy** - 4-step process (Discover → Prototype → Validate → Scale/Kill)
-6. **Writing** - Published articles with detailed case studies and frameworks
-7. **Contact** - Clear CTAs with professional contact information
+6. **AI Arsenal** - Curated AI pair programming tools with theme-aware logos
+7. **Writing** - Published articles with detailed case studies and frameworks
+8. **Contact** - Clear CTAs with professional contact information and location
 
 ## 📝 Published Articles
 
