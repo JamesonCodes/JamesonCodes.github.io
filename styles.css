@@ -46,6 +46,11 @@ html {
     @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:-translate-y-1;
 }
 
+/* Tool Cards */
+.tool-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:-translate-y-1 hover:border-accent/30 dark:hover:border-accent/30;
+}
+
 /* Project Links */
 .project-link {
     @apply inline-flex items-center text-accent hover:text-accent-dark transition-colors font-medium;
