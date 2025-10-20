@@ -1,5 +1,11 @@
 # Jameson Campbell - Portfolio & Writing
 
+# Jameson Campbell - Portfolio & Writing
+
+<p align="center">
+  <img src="assets/timetrackr-logo-full.svg" alt="TimeTrackr logo and tagline" width="600" />
+</p>
+
 A modern, professional portfolio showcasing internal tools engineering, AI productivity projects, and thought leadership through detailed case studies and frameworks.
 
 ## 🌐 Live Site
