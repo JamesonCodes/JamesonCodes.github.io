@@ -1,7 +1,5 @@
 # Jameson Campbell - Portfolio & Writing
 
-# Jameson Campbell - Portfolio & Writing
-
 <p align="center">
   <img src="assets/timetrackr-logo-full.svg" alt="TimeTrackr logo and tagline" width="600" />
 </p>
