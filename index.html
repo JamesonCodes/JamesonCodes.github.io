@@ -203,7 +203,7 @@
                     <!-- Screenshots -->
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="relative aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden cursor-pointer group" onclick="openGallery(0)">
-                            <img src="assets/projects/ss-home-dark.png" alt="Sock Scout home interface with search functionality" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <img src="assets/projects/SS_Badge_Dark_Mode.png" alt="Sock Scout badge interface" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                                 <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">View Gallery</span>
                             </div>
@@ -861,12 +861,27 @@
     
     <!-- Gallery JavaScript -->
     <script>
-        const galleryImages = [
-            'assets/projects/ss-home-dark.png',
-            'assets/projects/ss-results-dark.png',
-            'assets/projects/ss-modal-dark.png',
-            'assets/projects/ss-flag-dark.png'
-        ];
+        const galleryImages = {
+            dark: [
+                'assets/projects/SS_Badge_Dark_Mode.png',
+                'assets/projects/SS_Home_Dark_Mode.png',
+                'assets/projects/SS_Results_Dark_Mode.png',
+                'assets/projects/SS_Modal_Dark_Mode.png',
+                'assets/projects/SS_Flag_Dark_Mode.png'
+            ],
+            light: [
+                'assets/projects/SS_Badge_Light_Mode.png',
+                'assets/projects/SS_Home_Light_Mode.png',
+                'assets/projects/SS_Results_Light_Mode.png',
+                'assets/projects/SS_Modal_Light_Mode.png',
+                'assets/projects/SS_Flag_Light_Mode.png'
+            ]
+        };
+        
+        function getCurrentGalleryImages() {
+            const isDark = document.documentElement.classList.contains('dark');
+            return isDark ? galleryImages.dark : galleryImages.light;
+        }
         
         let currentImageIndex = 0;
         
@@ -883,20 +898,23 @@
         }
         
         function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            const currentImages = getCurrentGalleryImages();
+            currentImageIndex = (currentImageIndex + 1) % currentImages.length;
             updateGalleryImage();
         }
         
         function previousImage() {
-            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            const currentImages = getCurrentGalleryImages();
+            currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
             updateGalleryImage();
         }
         
         function updateGalleryImage() {
+            const currentImages = getCurrentGalleryImages();
             const image = document.getElementById('galleryImage');
             const counter = document.getElementById('imageCounter');
-            image.src = galleryImages[currentImageIndex];
-            counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+            image.src = currentImages[currentImageIndex];
+            counter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
         }
         
         // Keyboard navigation
@@ -986,14 +1004,28 @@
         // Update logos on page load
         updateThemeLogos();
         
-        // Update logos when theme changes
+        // Update logos and featured project image when theme changes
+        function updateFeaturedProjectImage() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const featuredImage = document.querySelector('#featured-project img[alt*="Sock Scout"]');
+            if (featuredImage) {
+                featuredImage.src = isDark ? 'assets/projects/SS_Badge_Dark_Mode.png' : 'assets/projects/SS_Badge_Light_Mode.png';
+                featuredImage.alt = isDark ? 'Sock Scout badge interface' : 'Sock Scout badge interface';
+            }
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
             const themeToggle = document.getElementById('theme-toggle');
             if (themeToggle) {
                 themeToggle.addEventListener('click', function() {
-                    setTimeout(updateThemeLogos, 100); // Small delay to ensure theme class is applied
+                    setTimeout(() => {
+                        updateThemeLogos();
+                        updateFeaturedProjectImage();
+                    }, 100); // Small delay to ensure theme class is applied
                 });
             }
+            // Update featured project image on page load
+            updateFeaturedProjectImage();
         });
     </script>
 </body>
