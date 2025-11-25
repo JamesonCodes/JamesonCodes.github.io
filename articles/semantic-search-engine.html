@@ -306,6 +306,11 @@
                 
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Users can flag assets with four predefined reasons explaining why an item should no longer be used. This helped maintain quality, prevent outdated designs from resurfacing, and gave designers clear visibility into assets that required review or removal.</p>
                 
+                <div class="my-8">
+                    <img id="flaggingSystemImage" src="../assets/projects/SS_Flag_Dark_Mode.png" alt="Asset flagging system interface showing predefined flagging reasons" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Asset flagging system interface</p>
+                </div>
+                
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Real time search</h3>
                 
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Debouncing gave the system enough breathing room while still feeling instant.</p>
@@ -481,6 +486,37 @@
         // Click outside to close architecture modal
         document.getElementById('architectureModal').addEventListener('click', function(e) {
             if (e.target === this) closeArchitectureModal();
+        });
+        
+        // Update flagging system image based on theme
+        function updateFlaggingSystemImage() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const flaggingImage = document.getElementById('flaggingSystemImage');
+            if (flaggingImage) {
+                flaggingImage.src = isDark 
+                    ? '../assets/projects/SS_Flag_Dark_Mode.png' 
+                    : '../assets/projects/SS_Flag_Light_Mode.png';
+            }
+        }
+        
+        // Update image on page load and theme changes
+        document.addEventListener('DOMContentLoaded', function() {
+            updateFlaggingSystemImage();
+            
+            // Watch for theme changes via MutationObserver
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        updateFlaggingSystemImage();
+                    }
+                });
+            });
+            
+            // Observe changes to the html element's class attribute
+            observer.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
         });
     </script>
 </body>
