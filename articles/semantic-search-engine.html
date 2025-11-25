@@ -307,6 +307,15 @@
                     <li>• Preview modal</li>
                 </ul>
                 
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Search results example</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Users can search using conceptual queries like "playful but professional" and receive visually similar results based on semantic understanding rather than filename matching.</p>
+                
+                <div class="my-8">
+                    <img id="searchResultsImage" src="../assets/projects/SS_Results_Dark_Mode.png" alt="Semantic search results showing assets matching playful but professional query" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Search results for "playful but professional" query</p>
+                </div>
+                
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Full screen preview modal</h3>
                 
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Users can view images on a full-screen canvas with relevant metadata and actions, providing a detailed view of each asset without leaving the search interface.</p>
@@ -528,6 +537,14 @@
                 previewModalImage.src = isDark 
                     ? '../assets/projects/SS_Modal_Dark_Mode.png' 
                     : '../assets/projects/SS_Modal_Light_Mode.png';
+            }
+            
+            // Update search results image
+            const searchResultsImage = document.getElementById('searchResultsImage');
+            if (searchResultsImage) {
+                searchResultsImage.src = isDark 
+                    ? '../assets/projects/SS_Results_Dark_Mode.png' 
+                    : '../assets/projects/SS_Results_Light_Mode.png';
             }
         }
         
