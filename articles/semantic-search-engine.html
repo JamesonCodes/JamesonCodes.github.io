@@ -192,7 +192,8 @@
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">System components</h3>
                 
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Next.js and FastAPI backend deployed on Vercel</li>
+                    <li>• All application code (Next.js and FastAPI) is deployed on Vercel</li>
+                    <li>• FastAPI backend runs as serverless functions using Vercel's Python runtime, with API routes proxied through Next.js rewrites</li>
                     <li>• Vertex AI embedding service</li>
                     <li>• Pinecone vector database</li>
                     <li>• AWS S3 for asset storage</li>
@@ -238,6 +239,7 @@
                     <li>• Converting PSDs to PNGs for embedding compatibility</li>
                     <li>• Building the embedding script that processed PNGs from S3 and upserted embeddings to Pinecone</li>
                     <li>• Detecting and skipping PSDs that were more than 99 percent pure white during migration</li>
+                    <li>• Smart duplicate detection: Batch checks Pinecone before generating embeddings (1000 IDs per call) to skip already-processed files</li>
                 </ul>
                 
                 <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Setting Up the Vector Database (Pinecone)</h2>
@@ -249,6 +251,10 @@
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Index design</h3>
                 
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Cosine similarity, the model's native 1408 dimensional vectors, and rich metadata for filtering.</p>
+                
+                <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
+                    <li>• Vector ID strategy: Design assets use Dropbox IDs for stability across S3 reorganizations, while sales assets use S3 key hashes for backward compatibility. This prevents orphaned vectors and duplicate embeddings.</li>
+                </ul>
                 
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Ingesting embeddings</h3>
                 
