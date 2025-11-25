@@ -342,7 +342,46 @@
                 
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Cost considerations</h3>
                 
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Embedding and vector storage represent the bulk of cost, though embedding more than 100k assets cost roughly $20 total due to batching and efficient pipeline design.</p>
+                <h4 class="text-xl font-bold mb-3 mt-6 text-gray-900 dark:text-white">One-time embedding costs</h4>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Embedding more than 100k assets cost $8.23 total (after Google Cloud credits) due to batching and efficient pipeline design.</p>
+                
+                <h4 class="text-xl font-bold mb-3 mt-6 text-gray-900 dark:text-white">Ongoing monthly costs</h4>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full border-collapse bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                        <thead>
+                            <tr class="bg-gray-50 dark:bg-gray-700">
+                                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-600">Service</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-600">Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <tr>
+                                <td class="px-6 py-4 text-base text-gray-700 dark:text-gray-300">Pinecone</td>
+                                <td class="px-6 py-4 text-base text-gray-700 dark:text-gray-300">$50/month</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-base text-gray-700 dark:text-gray-300">Vercel</td>
+                                <td class="px-6 py-4 text-base text-gray-700 dark:text-gray-300">$20/month</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-base text-gray-700 dark:text-gray-300">Vertex AI embeddings</td>
+                                <td class="px-6 py-4 text-base text-gray-700 dark:text-gray-300">$0.01-$0.05/month</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 text-base text-gray-700 dark:text-gray-300">AWS S3 storage</td>
+                                <td class="px-6 py-4 text-base text-gray-700 dark:text-gray-300">~$1-2/month</td>
+                            </tr>
+                            <tr class="bg-gray-50 dark:bg-gray-700/50">
+                                <td class="px-6 py-4 text-base font-semibold text-gray-900 dark:text-white">Total</td>
+                                <td class="px-6 py-4 text-base font-semibold text-gray-900 dark:text-white">~$71-72/month</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 italic">Note: Vertex AI embedding costs shown are after Google Cloud credits. Total embedding cost was $8.23 for 253,657 image units and 24,047 text units. S3 storage costs vary by usage.</p>
                 
                 <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Results and Impact</h2>
                 
