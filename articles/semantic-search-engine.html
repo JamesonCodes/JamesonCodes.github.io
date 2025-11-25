@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How I Built a Semantic Search Engine with AI Embeddings - How I turned 100k+ creative assets into a system you can search by vibe instead of filename by Jameson Campbell">
+    <title>How I Built a Semantic Search Engine with AI Embeddings | Jameson Campbell</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="semantic search, AI embeddings, vector database, Pinecone, Vertex AI, internal tools, semantic visual search">
+    <meta name="author" content="Jameson Campbell">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="How I Built a Semantic Search Engine with AI Embeddings">
+    <meta property="og:description" content="How I turned 100k+ creative assets into a system you can search by vibe instead of filename.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jamesoncodes.github.io/articles/semantic-search-engine.html">
+    <meta property="og:image" content="https://jamesoncodes.github.io/assets/profile.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How I Built a Semantic Search Engine with AI Embeddings">
+    <meta name="twitter:description" content="How I turned 100k+ creative assets into a system you can search by vibe instead of filename.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jamesoncodes.github.io/articles/semantic-search-engine.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../favicon.svg">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#2E9DFB',
+                        'accent-dark': '#1E7FC7',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+                        mono: ['SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo/Name -->
+                <a href="../index.html" class="text-xl font-bold text-gray-900 dark:text-white hover:text-accent dark:hover:text-accent transition-colors">
+                    Jameson Campbell
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html#projects" class="nav-link">Projects</a>
+                    <a href="../index.html#about" class="nav-link">About</a>
+                    <a href="../index.html#philosophy" class="nav-link">Philosophy</a>
+                    <a href="../index.html#writing" class="nav-link">Writing</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="../index.html#projects" class="nav-link-mobile">Projects</a>
+                    <a href="../index.html#about" class="nav-link-mobile">About</a>
+                    <a href="../index.html#philosophy" class="nav-link-mobile">Philosophy</a>
+                    <a href="../index.html#writing" class="nav-link-mobile">Writing</a>
+                    <a href="../index.html#contact" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Article Content -->
+    <article class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Article Header -->
+            <header class="mb-12">
+                <div class="mb-6">
+                    <a href="../index.html#writing" class="inline-flex items-center text-accent hover:text-accent-dark transition-colors mb-4">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Writing
+                    </a>
+                    <span class="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium mb-6">Published</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                    🌅 How I Built a Semantic Search Engine with AI Embeddings
+                </h1>
+                
+                <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                    How I turned 100k+ creative assets into a system you can search by "vibe" instead of filename.
+                </p>
+                
+                <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        By <span class="font-semibold text-gray-900 dark:text-white">Jameson Campbell</span>
+                    </p>
+                </div>
+            </header>
+            
+            <!-- Article Body -->
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">The Problem: Why Dropbox Search Wasn't Enough</h2>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Who I Built This For</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300"><strong class="text-gray-900 dark:text-white">Designers.</strong> They needed a fast way to find PSDs from past client work so they didn't have to recreate assets already completed.</p>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300"><strong class="text-gray-900 dark:text-white">Sales.</strong> They needed quick access to past work PNG examples to inspire potential clients without pulling designers away from their workflow.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">The pain</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Our design team had more than 100k+ creative assets stored across Dropbox. Filenames, metadata, and tags varied wildly, and searching for anything required either tribal knowledge or pure guesswork. Designers and the sales team weren't searching for filenames. They were searching for concepts.</p>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">And the more the library grew, the harder it became to navigate.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Real scenarios</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Two problems appeared constantly for the design team:</p>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">A past client would email a photo of a sock they wanted to recreate. Designers needed to find the original PSD fast so they could update it rather than rebuild it from scratch.</p>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">A past client would send a logo, and the team needed to know if it had ever been bitmapped or used before. Finding that answer meant digging through years of archived projects.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Time lost</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Team members were spending 15 to 30 minutes digging through nested folders for every search. Many would ask a more tenured designer if they remembered where a file lived or would eventually just recreate the asset because too much time had been lost.</p>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">This wasn't a small annoyance. It caused constant interruptions, slowed sales conversations, and quietly drained energy from the design team.</p>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">The Solution: Semantic Search with AI Embeddings</h2>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">What semantic search is</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Semantic search finds items based on meaning instead of text. Embeddings convert images or text into mathematical representations that cluster similar concepts together.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Why embeddings work for creative content</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Embeddings capture themes like color, composition, and mood, letting users search using concepts instead of filenames.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">High level approach</h3>
+                
+                <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
+                    <li>• Convert every image into an embedding vector.</li>
+                    <li>• Store vectors in a vector database.</li>
+                    <li>• Convert user queries into embeddings.</li>
+                    <li>• Return the closest matches using cosine similarity.</li>
+                </ul>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Architecture Overview</h2>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">System components</h3>
+                
+                <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
+                    <li>• Next.js and FastAPI backend deployed on Vercel</li>
+                    <li>• Vertex AI embedding service</li>
+                    <li>• Pinecone vector database</li>
+                    <li>• AWS S3 for asset storage</li>
+                    <li>• AWS Cognito for authentication and authorization</li>
+                    <li>• HubSpot integration for linking assets directly to Deals and internal records</li>
+                </ul>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Data flow</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Files are migrated from Dropbox into S3, converted when needed, embedded by Vertex AI, and stored in Pinecone with metadata. Search queries follow the same flow in reverse by embedding the query and retrieving closest matches.</p>
+                
+                <div class="my-8">
+                    <div class="relative bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden cursor-pointer group" onclick="openArchitectureModal()">
+                        <img src="../assets/diagrams/sock-scout-architecture-diagram.PNG" alt="Sock Scout architecture diagram showing system components and data flow" class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">View Full Size</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Click to view full-size architecture diagram</p>
+                </div>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Building the Embedding Pipeline</h2>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Choosing the model</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Vertex AI's multimodal model delivered stable, high quality embeddings for both images and text, and at the time ranked as one of the top performing embedding models on the MTEB (Massive Text Embedding Benchmark) leaderboard.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Processing 100k+ assets</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The pipeline ran in batches with configurable worker concurrency, retry logic, exponential backoff, progress tracking, and logging. It also skipped any files already migrated or embedded.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Generating embeddings</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Images were converted to PNG when needed, processed through Vertex AI to generate high dimensional vectors, and then upserted into Pinecone.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Challenges</h3>
+                
+                <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
+                    <li>• Model rate limits</li>
+                    <li>• Corrupt file handling</li>
+                    <li>• Keeping long batch runs recoverable</li>
+                    <li>• Building a Dropbox to S3 migration script</li>
+                    <li>• Converting PSDs to PNGs for embedding compatibility</li>
+                    <li>• Building the embedding script that processed PNGs from S3 and upserted embeddings to Pinecone</li>
+                    <li>• Detecting and skipping PSDs that were more than 99 percent pure white during migration</li>
+                </ul>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Setting Up the Vector Database (Pinecone)</h2>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Why Pinecone</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Pinecone handles vector indexing and similarity search with almost no operational overhead.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Index design</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Cosine similarity, the model's native 1408 dimensional vectors, and rich metadata for filtering.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Ingesting embeddings</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Batch upserts kept ingestion fast and reduced network overhead.</p>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Building the Search API (FastAPI)</h2>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Endpoint design</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The API takes a text or image query, embeds it, and returns the closest matches.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Query processing</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Same model, same dimensions, consistent vector space.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Similarity search</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Top 100 cosine similarity results, optionally filtered by metadata.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Response formatting</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Each result returns an ID, similarity score, preview URL, and asset metadata, along with a direct link into the associated HubSpot Deal and internal portal link for more context. It also includes a download button so designers receive the original PSD rather than the PNG used for embedding. Download access is protected through Cognito authorization rules to ensure only internal users can retrieve original client files.</p>
+                
+                <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-6 my-8">
+                    <p class="text-lg font-semibold text-gray-900 dark:text-white">FastAPI made it easy to keep latency low while supporting real time search.</p>
+                </div>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Creating the Frontend (Next.js)</h2>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">UI elements</h3>
+                
+                <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
+                    <li>• Search bar</li>
+                    <li>• Toggle for "Design" assets or "Sales" assets</li>
+                    <li>• Responsive grid</li>
+                    <li>• Preview modal</li>
+                </ul>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Asset Flagging System</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Users can flag assets with four predefined reasons explaining why an item should no longer be used. This helped maintain quality, prevent outdated designs from resurfacing, and gave designers clear visibility into assets that required review or removal.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Real time search</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Debouncing gave the system enough breathing room while still feeling instant.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Similarity-Based Exploration</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Users have access to an "Explore Similar Designs" feature. When clicked, the API used the selected asset itself as the image query to retrieve visually similar results.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Dark mode</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Handled through theme variables.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Mobile optimization</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The entire interface was optimized for mobile so sales reps could pull examples during client calls and designers could review assets away from their desks.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Performance</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Lazy loading and Next.js image optimization made the experience smooth even on large result sets.</p>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Deployment and Infrastructure</h2>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Hosting strategy</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">All application code (Next.js and FastAPI) is deployed on Vercel. Asset storage lives in AWS S3, and vectors live in Pinecone.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Environment setup</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Secure key storage across services, along with Cognito user pools and app client configuration to protect internal access to proprietary assets. The system also used separate environments for local development, preview deployments, and production to ensure safe testing, isolation, and reliable rollout of new features.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Monitoring</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Error tracking, logging, and usage analytics.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Cost considerations</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Embedding and vector storage represent the bulk of cost, though embedding more than 100k assets cost roughly $20 total due to batching and efficient pipeline design.</p>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Results and Impact</h2>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Metrics</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Search became ten times faster. Lost asset time dropped by forty percent.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Adoption</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Half the team uses it daily.</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">User feedback</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Designers repeatedly said: "I can search by vibe now."</p>
+                
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Time saved</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Meaningful reduction in hours lost every week.</p>
+                
+                <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-6 my-8">
+                    <p class="text-lg font-semibold text-gray-900 dark:text-white">The biggest validation: people used it without being asked.</p>
+                </div>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Lessons Learned</h2>
+                
+                <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
+                    <li>• Start with a small dataset.</li>
+                    <li>• Model choice matters.</li>
+                    <li>• Metadata is your friend.</li>
+                    <li>• Ship early, iterate often.</li>
+                </ul>
+                
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Key Takeaways</h2>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Semantic search unlocks meaning based discovery. Modern AI tools make it achievable for any team. Prioritizing user experience ensures it becomes something people rely on every day.</p>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">This project showed how modern AI tools, paired with thoughtful UX, can transform internal workflows and give teams leverage they didn't have before.</p>
+
+            </div>
+            
+            <!-- Article Footer -->
+            <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Published by <span class="font-semibold text-gray-900 dark:text-white">Jameson Campbell</span>
+                        </p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Sales Operations Manager & Internal Tools Builder
+                        </p>
+                    </div>
+                    <a href="../index.html#contact" class="btn-primary">
+                        Get in Touch
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </article>
+    
+    <!-- Architecture Diagram Modal -->
+    <div id="architectureModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+        <div class="relative max-w-7xl max-h-full mx-4">
+            <!-- Close Button -->
+            <button onclick="closeArchitectureModal()" class="absolute top-4 right-4 z-10 bg-black bg-opacity-60 hover:bg-opacity-80 rounded-full p-2 transition-all duration-200 backdrop-blur-sm">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <!-- Architecture Diagram -->
+            <img src="../assets/diagrams/sock-scout-architecture-diagram.PNG" alt="Sock Scout architecture diagram showing system components and data flow" class="max-w-full max-h-full object-contain rounded-lg">
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="../script.js"></script>
+    <script>
+        // Architecture Modal Functions
+        function openArchitectureModal() {
+            document.getElementById('architectureModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeArchitectureModal() {
+            document.getElementById('architectureModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Architecture modal keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('architectureModal');
+            if (!modal.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeArchitectureModal();
+            }
+        });
+        
+        // Click outside to close architecture modal
+        document.getElementById('architectureModal').addEventListener('click', function(e) {
+            if (e.target === this) closeArchitectureModal();
+        });
+    </script>
+</body>
+</html>
+
