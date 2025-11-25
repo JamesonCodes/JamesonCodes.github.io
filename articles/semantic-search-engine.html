@@ -307,6 +307,15 @@
                     <li>• Preview modal</li>
                 </ul>
                 
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Full screen preview modal</h3>
+                
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Users can view images on a full-screen canvas with relevant metadata and actions, providing a detailed view of each asset without leaving the search interface.</p>
+                
+                <div class="my-8">
+                    <img id="previewModalImage" src="../assets/projects/SS_Modal_Dark_Mode.png" alt="Full screen preview modal showing image canvas with metadata and actions" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Full screen preview modal interface</p>
+                </div>
+                
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Asset Flagging System</h3>
                 
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Users can flag assets with four predefined reasons explaining why an item should no longer be used. This helped maintain quality, prevent outdated designs from resurfacing, and gave designers clear visibility into assets that required review or removal.</p>
@@ -511,6 +520,14 @@
                 homeScreenImage.src = isDark 
                     ? '../assets/projects/SS_Home_Dark_Mode.png' 
                     : '../assets/projects/SS_Home_Light_Mode.png';
+            }
+            
+            // Update preview modal image
+            const previewModalImage = document.getElementById('previewModalImage');
+            if (previewModalImage) {
+                previewModalImage.src = isDark 
+                    ? '../assets/projects/SS_Modal_Dark_Mode.png' 
+                    : '../assets/projects/SS_Modal_Light_Mode.png';
             }
         }
         
