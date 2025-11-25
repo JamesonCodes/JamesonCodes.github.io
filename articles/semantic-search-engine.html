@@ -295,6 +295,11 @@
                 
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">UI elements</h3>
                 
+                <div class="my-8">
+                    <img id="homeScreenImage" src="../assets/projects/SS_Home_Dark_Mode.png" alt="Sock Scout home screen showing search bar and interface" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Sock Scout home screen interface</p>
+                </div>
+                
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
                     <li>• Search bar</li>
                     <li>• Toggle for "Design" assets or "Sales" assets</li>
@@ -488,26 +493,36 @@
             if (e.target === this) closeArchitectureModal();
         });
         
-        // Update flagging system image based on theme
-        function updateFlaggingSystemImage() {
+        // Update theme-aware images based on current theme
+        function updateThemeAwareImages() {
             const isDark = document.documentElement.classList.contains('dark');
+            
+            // Update flagging system image
             const flaggingImage = document.getElementById('flaggingSystemImage');
             if (flaggingImage) {
                 flaggingImage.src = isDark 
                     ? '../assets/projects/SS_Flag_Dark_Mode.png' 
                     : '../assets/projects/SS_Flag_Light_Mode.png';
             }
+            
+            // Update home screen image
+            const homeScreenImage = document.getElementById('homeScreenImage');
+            if (homeScreenImage) {
+                homeScreenImage.src = isDark 
+                    ? '../assets/projects/SS_Home_Dark_Mode.png' 
+                    : '../assets/projects/SS_Home_Light_Mode.png';
+            }
         }
         
-        // Update image on page load and theme changes
+        // Update images on page load and theme changes
         document.addEventListener('DOMContentLoaded', function() {
-            updateFlaggingSystemImage();
+            updateThemeAwareImages();
             
             // Watch for theme changes via MutationObserver
             const observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
                     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                        updateFlaggingSystemImage();
+                        updateThemeAwareImages();
                     }
                 });
             });
