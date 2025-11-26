@@ -127,7 +127,7 @@
                 </h1>
                 
                 <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-                    How I transformed a chaotic Dropbox archive into an AI powered search system that understands concepts instead of filenames.
+                    How I transformed a chaotic Dropbox archive into an AI-powered search system that understands concepts instead of filenames.
                 </p>
                 
                 <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
@@ -151,7 +151,7 @@
                     <li>• Zero training required</li>
                 </ul>
                 
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">I built an end to end semantic search system that allows our teams to find past creative work using meaning based queries. The platform processes more than 100k assets, generates embeddings, stores vectors, and returns visually similar results with high accuracy and low latency. It eliminated the bottleneck of digging through nested folders and searching by filename guesswork.</p>
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">I built an end-to-end semantic search system that allows our teams to find past creative work using meaning based queries. The platform processes more than 100k assets, generates embeddings, stores vectors, and returns visually similar results with high accuracy and low latency. It eliminated the bottleneck of digging through nested folders and searching by filename guesswork.</p>
                 
                 <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">1. The Problem</h2>
                 
@@ -159,7 +159,7 @@
                 
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300"><a href="https://dash.dropbox.com/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark underline">Dropbox Dash</a> could not solve this because it was built for general file search, not semantic visual discovery across creative content.</p>
                 
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The consequences were clear. Designers recreated assets because finding originals took too long. Sales slowed down client calls while trying to find examples. Junior team members regularly pinged senior designers for help locating files.</p>
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The consequences were clear. Designers recreated assets because finding originals took too long. Sales slowed down client emails while trying to find examples. Junior team members regularly pinged senior designers for help locating files.</p>
                 
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">We needed meaning based search that understood visual similarity, aesthetic themes, and conceptual intent.</p>
                 
@@ -244,7 +244,7 @@
                     <li>• Progress tracking to support multi hour runs</li>
                 </ul>
                 
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The pipeline completed more than 253k embedding units with a total compute cost of about eight dollars after credits.</p>
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The pipeline completed more than 253k embedding units with a total compute cost of $25, reduced to $8 after Google Cloud credits.</p>
                 
                 <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">5. Vector Database Strategy</h2>
                 
@@ -253,7 +253,7 @@
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Why Pinecone</h3>
                 
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Zero maintenance</li>
+                    <li>• Serverless architecture with zero maintenance</li>
                     <li>• Metadata based filtering</li>
                     <li>• High read performance</li>
                     <li>• Smooth large scale upserts</li>
@@ -290,6 +290,7 @@
                     <li>• Same embedding space for text and images</li>
                     <li>• Strong performance on MTEB benchmarks</li>
                     <li>• Predictable latency</li>
+                    <li>• Cost effective at scale</li>
                 </ul>
                 
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The API consistently returns top results in under a second, helped by debouncing on the frontend.</p>
@@ -305,7 +306,7 @@
                     <li>• Clear concept based results</li>
                     <li>• Minimal learning curve</li>
                     <li>• Useful previews without losing context</li>
-                    <li>• Full mobile support for sales reps</li>
+                    <li>• Full mobile support</li>
                 </ul>
                 
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Features</h3>
@@ -314,9 +315,10 @@
                     <li>• Unified search bar</li>
                     <li>• Toggle for Design or Sales assets</li>
                     <li>• Responsive grid of results</li>
-                    <li>• Fullscreen preview viewer</li>
-                    <li>• Metadata and HubSpot links</li>
+                    <li>• Fullscreen preview modal</li>
+                    <li>• Asset metadata with HubSpot links and Internal Portal links</li>
                     <li>• Explore Similar Designs using the asset as the query</li>
+                    <li>• Asset flagging system for quality control</li>
                     <li>• Dark mode via theme variables</li>
                     <li>• Optimized mobile layout</li>
                     <li>• Lazy loaded result sets</li>
@@ -341,7 +343,7 @@
                 
                 <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">8. Asset Quality Control</h2>
                 
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">To maintain brand quality, I built a flagging system with four preset reasons. This hides outdated or unusable assets and gives designers a lightweight review workflow.</p>
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">To maintain brand quality, I built a flagging system with four preset reasons. This calls out outdated or unusable assets within searches and gives designers a lightweight review workflow.</p>
                 
                 <div class="my-8">
                     <img id="flaggingSystemImage" src="../assets/projects/SS_Flag_Dark_Mode.png" alt="Asset flagging system interface showing predefined flagging reasons" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
@@ -362,12 +364,12 @@
                 
                 <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">10. Cost Efficiency</h2>
                 
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The platform costs about seventy dollars a month to run.</p>
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The platform costs about $72 a month to run.</p>
                 
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Pinecone: 50 dollars</li>
-                    <li>• Vercel: 20 dollars</li>
-                    <li>• S3: about 1 to 2 dollars</li>
+                    <li>• Pinecone: $50</li>
+                    <li>• Vercel: $20</li>
+                    <li>• S3: about $1 to $2</li>
                     <li>• Vertex AI queries: effectively zero after credits</li>
                 </ul>
                 
@@ -379,10 +381,10 @@
                 
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
                     <li>• Search 10x faster</li>
-                    <li>• Forty percent reduction in lost asset time</li>
+                    <li>• 40% reduction in lost asset time</li>
                     <li>• Designers stopped recreating assets unnecessarily</li>
                     <li>• Fewer interruptions to senior team members</li>
-                    <li>• Faster sales responses during client calls</li>
+                    <li>• Faster sales responses for client emails</li>
                 </ul>
                 
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Adoption was organic. No training or rollout was required. People saw value immediately.</p>
@@ -396,11 +398,14 @@
                 <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">12. Lessons Learned</h2>
                 
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Small test sets accelerate iteration</li>
-                    <li>• Metadata quality directly affects search quality</li>
                     <li>• Pipelines must be resilient to failure</li>
                     <li>• UX drives adoption more than features</li>
                     <li>• Trust in search accuracy unlocks new workflows</li>
+                    <li>• Isolated environments enable safe experimentation</li>
+                    <li>• Each environment teaches you what to automate next</li>
+                    <li>• Dry-run mode prevents costly mistakes</li>
+                    <li>• Early architectural decisions have lasting impact</li>
+                    <li>• Building for scale means making systems adaptable to constraints, not just fast</li>
                 </ul>
                 
                 <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Final Takeaway</h2>
