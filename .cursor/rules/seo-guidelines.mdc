@@ -19,15 +19,92 @@ Add these meta tags to the `<head>` section of every new HTML page:
 <meta property="og:description" content="[Article description]">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jamesoncodes.github.io/articles/[filename].html">
-<meta property="og:image" content="https://jamesoncodes.github.io/assets/profile.jpg">
+<meta property="og:image" content="https://jamesoncodes.github.io/assets/og/[filename]-og.png">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="[Article Title]">
 <meta name="twitter:description" content="[Article description]">
+<meta name="twitter:image" content="https://jamesoncodes.github.io/assets/og/[filename]-og.png">
+
+<!-- Article Meta Tags -->
+<meta property="article:published_time" content="[YYYY-MM-DD]T00:00:00+00:00">
+<meta property="article:modified_time" content="[YYYY-MM-DD]T00:00:00+00:00">
+<meta property="article:author" content="Jameson Campbell">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://jamesoncodes.github.io/articles/[filename].html">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[Article Title]",
+  "description": "[Article description]",
+  "image": "https://jamesoncodes.github.io/assets/og/[filename]-og.png",
+  "author": {
+    "@type": "Person",
+    "name": "Jameson Campbell",
+    "url": "https://jamesoncodes.github.io"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Jameson Campbell"
+  },
+  "datePublished": "[YYYY-MM-DD]",
+  "dateModified": "[YYYY-MM-DD]",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://jamesoncodes.github.io/articles/[filename].html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://jamesoncodes.github.io/"
+  }, {
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Writing",
+    "item": "https://jamesoncodes.github.io/#writing"
+  }, {
+    "@type": "ListItem",
+    "position": 3,
+    "name": "[Article Title]",
+    "item": "https://jamesoncodes.github.io/articles/[filename].html"
+  }]
+}
+</script>
+```
+
+## Homepage Structured Data Template
+
+For the homepage (`index.html`), add Person schema instead of Article schema:
+
+```html
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jameson Campbell",
+  "jobTitle": "Sales Operations Manager & Internal Tools Builder",
+  "url": "https://jamesoncodes.github.io",
+  "sameAs": [
+    "https://www.linkedin.com/in/jameson-campbell/",
+    "https://github.com/JamesonCodes",
+    "https://x.com/Jameson_C"
+  ],
+  "description": "Internal Tools Engineer, AI Productivity Builder, and Systems Integrator. Building AI-powered tools that multiply team productivity."
+}
+</script>
 ```
 
 ## Keyword Guidelines
@@ -41,6 +118,7 @@ Add these meta tags to the `<head>` section of every new HTML page:
 - **HubSpot**: "HubSpot, productization, service business, recurring revenue, automation, client portal"
 - **Customer Experience**: "customer experience, CX systems, client onboarding, process design, HubSpot, automation"
 - **Fitness Apps**: "fitness apps, mobile app development, startup journey, Flexter, Toned, health and fitness, app store"
+- **Semantic Search**: "semantic search, AI embeddings, vector database, Pinecone, Vertex AI, internal tools, semantic visual search"
 
 ## Sitemap Update Checklist
 
@@ -93,113 +171,25 @@ Every new HTML page must include:
 <link rel="apple-touch-icon" href="../favicon.svg">
 ```
 
-## Quality Checklist
+## Structured Data Requirements
 
-Before publishing new content:
+### For Articles
+- [ ] Article schema (JSON-LD) with headline, description, image, author, dates
+- [ ] BreadcrumbList schema (JSON-LD) for navigation hierarchy
+- [ ] Article date meta tags (article:published_time, article:modified_time, article:author)
 
-- [ ] All meta tags present and accurate
-- [ ] Sitemap updated
-- [ ] Images have descriptive alt text
-- [ ] Internal links added where relevant
-- [ ] Favicon links included
-- [ ] Mobile responsive design verified
-- [ ] No broken links
-- [ ] Consistent styling with existing content# SEO Guidelines for New Articles
-
-## Required Meta Tags Template
-
-Add these meta tags to the `<head>` section of every new HTML page:
-
-```html
-<!-- SEO Meta Tags -->
-<meta name="keywords" content="[topic-specific keywords]">
-<meta name="author" content="Jameson Campbell">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph / Social Media -->
-<meta property="og:title" content="[Article Title]">
-<meta property="og:description" content="[Article description]">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jamesoncodes.github.io/articles/[filename].html">
-<meta property="og:image" content="https://jamesoncodes.github.io/assets/profile.jpg">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="[Article Title]">
-<meta name="twitter:description" content="[Article description]">
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://jamesoncodes.github.io/articles/[filename].html">
-```
-
-## Keyword Guidelines
-
-### Homepage Keywords
-- Primary: "sales operations, internal tools builder, AI pair programming, automation, startups, semantic search, productivity tools"
-- Focus on: role, skills, industry terms
-
-### Article Keywords (examples)
-- **Internal Tools**: "internal tools, vibe coding, AI pair programming, RevOps, automation, organizational leverage"
-- **HubSpot**: "HubSpot, productization, service business, recurring revenue, automation, client portal"
-- **Customer Experience**: "customer experience, CX systems, client onboarding, process design, HubSpot, automation"
-- **Fitness Apps**: "fitness apps, mobile app development, startup journey, Flexter, Toned, health and fitness, app store"
-
-## Sitemap Update Checklist
-
-When adding new content:
-
-- [ ] Add new URL to `sitemap.xml`
-- [ ] Set appropriate priority:
-  - Homepage: 1.0
-  - Main articles: 0.9
-  - Secondary articles: 0.8
-- [ ] Set changefreq:
-  - Homepage: "weekly"
-  - Articles: "monthly"
-- [ ] Update lastmod date to current date (YYYY-MM-DD format)
-
-## README Update Triggers
-
-Update README.md when:
-- [ ] Adding new article → Update published articles section
-- [ ] Adding new project → Update project listings
-- [ ] Major feature addition → Update feature list
-- [ ] Changing site structure → Update navigation info
-
-## Article SEO Best Practices
-
-### Title Structure
-- Use emoji prefix for visual consistency
-- Keep under 60 characters for optimal display
-- Include relevant keywords naturally
-
-### Description Guidelines
-- 150-160 characters for optimal snippet display
-- Include primary keywords naturally
-- Make it compelling and descriptive
-- Avoid keyword stuffing
-
-### Content Structure
-- Use proper heading hierarchy (H1, H2, H3)
-- Include internal links to related articles
-- Add alt text to all images
-- Use semantic HTML elements
-
-## Favicon Requirements
-
-Every new HTML page must include:
-```html
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="icon" type="image/x-icon" href="../favicon.ico">
-<link rel="apple-touch-icon" href="../favicon.svg">
-```
+### For Homepage
+- [ ] Person schema (JSON-LD) with name, jobTitle, url, sameAs (social profiles), description
 
 ## Quality Checklist
 
 Before publishing new content:
 
 - [ ] All meta tags present and accurate
+- [ ] Article date meta tags included (published_time, modified_time, author)
+- [ ] Structured data (JSON-LD) added (Article + BreadcrumbList for articles, Person for homepage)
+- [ ] OG image uses assets/og/[filename]-og.png format (not assets/profile.jpg)
+- [ ] Twitter Card image included
 - [ ] Sitemap updated
 - [ ] Images have descriptive alt text
 - [ ] Internal links added where relevant
