@@ -52,8 +52,8 @@ Add these meta tags to the `<head>` section of every new HTML page:
     "@type": "Person",
     "name": "Jameson Campbell"
   },
-  "datePublished": "[YYYY-MM-DD]",
-  "dateModified": "[YYYY-MM-DD]",
+  "datePublished": "[YYYY-MM-DD]T00:00:00+00:00",
+  "dateModified": "[YYYY-MM-DD]T00:00:00+00:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://jamesoncodes.github.io/articles/[filename].html"
