@@ -1,0 +1,82 @@
+LLM Index for jamesoncodes.github.io
+=====================================
+
+This file is intended as an index for both humans and AI systems to discover and understand the content on this site.
+
+What this site is
+-----------------
+
+This is the portfolio and writing site of Jameson Campbell, a Sales Operations Manager and Internal Tools Builder. The site focuses on building AI-powered tools that multiply team productivity, rapid prototyping, and systems integration.
+
+Content covers internal tools development, AI pair programming, automation workflows, customer experience systems, and practical frameworks for scaling operations. The site is designed for teams and individuals looking to build leverage through automation and AI.
+
+Start here
+----------
+
+* Homepage
+  URL: https://jamesoncodes.github.io/
+  Description: Overview of projects, philosophy, AI tools, and writing. Start here to understand the site's focus and explore featured work.
+
+* Building Semantic Search for 100k+ Creative Assets
+  URL: https://jamesoncodes.github.io/articles/semantic-search-engine.html
+  Description: How I transformed a chaotic Dropbox archive into an AI powered search system that understands concepts instead of filenames. A detailed case study on semantic search implementation.
+
+* Why Every Company Needs an Internal Tools Builder
+  URL: https://jamesoncodes.github.io/articles/internal-tools-builder.html
+  Description: How vibe coding, AI, and a new generation of builders are redefining how work scales inside organizations. Strategic insights on the future of operational leverage.
+
+* Designing Customer Experience Systems
+  URL: https://jamesoncodes.github.io/articles/cx-systems-framework.html
+  Description: A practical framework with real results from the HubSpot Admin Program. Learn how to map touchpoints, standardize delivery, automate processes, and measure outcomes.
+
+* Transforming HubSpot Services into Productized Offerings
+  URL: https://jamesoncodes.github.io/articles/hubspot-productization.html
+  Description: How we turned one-off projects into scalable, recurring value. Learn the framework, challenges, and results from building Trujay's HubSpot Admin Program.
+
+Core topics
+-----------
+
+Frameworks
+----------
+
+* Designing Customer Experience Systems
+  URL: https://jamesoncodes.github.io/articles/cx-systems-framework.html
+  Description: A practical framework with real results from the HubSpot Admin Program. Learn how to map touchpoints, standardize delivery, automate processes, and measure outcomes.
+
+* Transforming HubSpot Services into Productized Offerings
+  URL: https://jamesoncodes.github.io/articles/hubspot-productization.html
+  Description: How we turned one-off projects into scalable, recurring value. Learn the framework, challenges, and results from building Trujay's HubSpot Admin Program.
+
+Case Studies
+------------
+
+* Building Semantic Search for 100k+ Creative Assets
+  URL: https://jamesoncodes.github.io/articles/semantic-search-engine.html
+  Description: How I transformed a chaotic Dropbox archive into an AI powered search system that understands concepts instead of filenames. Technical deep-dive on semantic search implementation with Vertex AI and Pinecone.
+
+* Behind the Scenes: The Trials and Triumphs of Creating Fitness Apps
+  URL: https://jamesoncodes.github.io/articles/fitness-apps-journey.html
+  Description: The challenges faced and overcome while building my first startup. From Flexter to Toned (#13 top-grossing Health & Fitness app), learn how we went from zero experience to 300k+ downloads and $300k+ in sales.
+
+Philosophy
+----------
+
+* Why Every Company Needs an Internal Tools Builder
+  URL: https://jamesoncodes.github.io/articles/internal-tools-builder.html
+  Description: How vibe coding, AI, and a new generation of builders are redefining how work scales inside organizations. Strategic insights on the future of operational leverage and why internal tools are essential for modern companies.
+
+Reference
+---------
+
+* About
+  URL: https://jamesoncodes.github.io/#about
+  Description: Learn about Jameson Campbell's background, approach, and philosophy on building internal tools and AI-powered systems.
+
+* Contact
+  URL: https://jamesoncodes.github.io/#contact
+  Description: Get in touch via email, LinkedIn, GitHub, or X. Located in Austin, Texas.
+
+Last updated
+------------
+
+This index was last updated on January 27, 2025.

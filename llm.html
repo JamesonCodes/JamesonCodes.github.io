@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LLM Index - A comprehensive index of content on Jameson Campbell's portfolio site, designed for both humans and AI systems to discover and understand the site's focus on internal tools, AI productivity, and systems integration.">
+    <title>LLM Index | Jameson Campbell</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="LLM index, AI index, site map, content index, internal tools, AI productivity, systems integration">
+    <meta name="author" content="Jameson Campbell">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="LLM Index | Jameson Campbell">
+    <meta property="og:description" content="A comprehensive index of content designed for both humans and AI systems to discover internal tools, AI productivity, and systems integration resources.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jamesoncodes.github.io/llm.html">
+    <meta property="og:image" content="https://jamesoncodes.github.io/assets/og/main-og.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LLM Index | Jameson Campbell">
+    <meta name="twitter:description" content="A comprehensive index of content designed for both humans and AI systems.">
+    <meta name="twitter:image" content="https://jamesoncodes.github.io/assets/og/main-og.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jamesoncodes.github.io/llm.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "LLM Index",
+      "description": "A comprehensive index of content designed for both humans and AI systems to discover internal tools, AI productivity, and systems integration resources.",
+      "url": "https://jamesoncodes.github.io/llm.html",
+      "author": {
+        "@type": "Person",
+        "name": "Jameson Campbell",
+        "url": "https://jamesoncodes.github.io"
+      }
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#2E9DFB',
+                        'accent-dark': '#1E7FC7',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
+                        mono: ['SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo/Name -->
+                <a href="index.html" class="text-xl font-bold text-gray-900 dark:text-white hover:text-accent dark:hover:text-accent transition-colors">
+                    Jameson Campbell
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#projects" class="nav-link">Projects</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#philosophy" class="nav-link">Philosophy</a>
+                    <a href="index.html#writing" class="nav-link">Writing</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html#projects" class="nav-link-mobile">Projects</a>
+                    <a href="index.html#about" class="nav-link-mobile">About</a>
+                    <a href="index.html#philosophy" class="nav-link-mobile">Philosophy</a>
+                    <a href="index.html#writing" class="nav-link-mobile">Writing</a>
+                    <a href="index.html#contact" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <header class="mb-12">
+                <div class="mb-6">
+                    <a href="index.html" class="inline-flex items-center text-accent hover:text-accent-dark transition-colors mb-4">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Home
+                    </a>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                    LLM Index
+                </h1>
+                
+                <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                    This page is intended as an index for both humans and AI systems to discover and understand the content on this site.
+                </p>
+            </header>
+            
+            <!-- What this site is -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">What this site is</h2>
+                <div class="prose prose-lg dark:prose-invert max-w-none">
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                        This is the portfolio and writing site of Jameson Campbell, a Sales Operations Manager and Internal Tools Builder. The site focuses on building AI-powered tools that multiply team productivity, rapid prototyping, and systems integration.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+                        Content covers internal tools development, AI pair programming, automation workflows, customer experience systems, and practical frameworks for scaling operations. The site is designed for teams and individuals looking to build leverage through automation and AI.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Start here -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Start here</h2>
+                <ul class="space-y-4">
+                    <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                        <a href="/" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                            Homepage
+                        </a>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Overview of projects, philosophy, AI tools, and writing. Start here to understand the site's focus and explore featured work.
+                        </p>
+                    </li>
+                    
+                    <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                        <a href="/articles/semantic-search-engine.html" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                            Building Semantic Search for 100k+ Creative Assets
+                        </a>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            How I transformed a chaotic Dropbox archive into an AI powered search system that understands concepts instead of filenames. A detailed case study on semantic search implementation.
+                        </p>
+                    </li>
+                    
+                    <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                        <a href="/articles/internal-tools-builder.html" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                            Why Every Company Needs an Internal Tools Builder
+                        </a>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            How vibe coding, AI, and a new generation of builders are redefining how work scales inside organizations. Strategic insights on the future of operational leverage.
+                        </p>
+                    </li>
+                    
+                    <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                        <a href="/articles/cx-systems-framework.html" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                            Designing Customer Experience Systems
+                        </a>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            A practical framework with real results from the HubSpot Admin Program. Learn how to map touchpoints, standardize delivery, automate processes, and measure outcomes.
+                        </p>
+                    </li>
+                    
+                    <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                        <a href="/articles/hubspot-productization.html" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                            Transforming HubSpot Services into Productized Offerings
+                        </a>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            How we turned one-off projects into scalable, recurring value. Learn the framework, challenges, and results from building Trujay's HubSpot Admin Program.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Core topics -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Core topics</h2>
+                
+                <!-- Frameworks -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-accent">Frameworks</h3>
+                    <ul class="space-y-4">
+                        <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <a href="/articles/cx-systems-framework.html" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                                Designing Customer Experience Systems
+                            </a>
+                            <p class="text-gray-700 dark:text-gray-300 mb-2">
+                                A practical framework with real results from the HubSpot Admin Program. Learn how to map touchpoints, standardize delivery, automate processes, and measure outcomes.
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-mono">
+                                URL: /articles/cx-systems-framework.html
+                            </p>
+                        </li>
+                        
+                        <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <a href="/articles/hubspot-productization.html" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                                Transforming HubSpot Services into Productized Offerings
+                            </a>
+                            <p class="text-gray-700 dark:text-gray-300 mb-2">
+                                How we turned one-off projects into scalable, recurring value. Learn the framework, challenges, and results from building Trujay's HubSpot Admin Program.
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-mono">
+                                URL: /articles/hubspot-productization.html
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Case Studies -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-accent">Case Studies</h3>
+                    <ul class="space-y-4">
+                        <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <a href="/articles/semantic-search-engine.html" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                                Building Semantic Search for 100k+ Creative Assets
+                            </a>
+                            <p class="text-gray-700 dark:text-gray-300 mb-2">
+                                How I transformed a chaotic Dropbox archive into an AI powered search system that understands concepts instead of filenames. Technical deep-dive on semantic search implementation with Vertex AI and Pinecone.
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-mono">
+                                URL: /articles/semantic-search-engine.html
+                            </p>
+                        </li>
+                        
+                        <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <a href="/articles/fitness-apps-journey.html" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                                Behind the Scenes: The Trials and Triumphs of Creating Fitness Apps
+                            </a>
+                            <p class="text-gray-700 dark:text-gray-300 mb-2">
+                                The challenges faced and overcome while building my first startup. From Flexter to Toned (#13 top-grossing Health & Fitness app), learn how we went from zero experience to 300k+ downloads and $300k+ in sales.
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-mono">
+                                URL: /articles/fitness-apps-journey.html
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Philosophy -->
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-accent">Philosophy</h3>
+                    <ul class="space-y-4">
+                        <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                            <a href="/articles/internal-tools-builder.html" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                                Why Every Company Needs an Internal Tools Builder
+                            </a>
+                            <p class="text-gray-700 dark:text-gray-300 mb-2">
+                                How vibe coding, AI, and a new generation of builders are redefining how work scales inside organizations. Strategic insights on the future of operational leverage and why internal tools are essential for modern companies.
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 font-mono">
+                                URL: /articles/internal-tools-builder.html
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Reference -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Reference</h2>
+                <ul class="space-y-4">
+                    <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                        <a href="/#about" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                            About
+                        </a>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Learn about Jameson Campbell's background, approach, and philosophy on building internal tools and AI-powered systems.
+                        </p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 font-mono mt-2">
+                            URL: /#about
+                        </p>
+                    </li>
+                    
+                    <li class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                        <a href="/#contact" class="text-xl font-bold text-accent hover:text-accent-dark transition-colors block mb-2">
+                            Contact
+                        </a>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Get in touch via email, LinkedIn, GitHub, or X. Located in Austin, Texas.
+                        </p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 font-mono mt-2">
+                            URL: /#contact
+                        </p>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Last updated -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Last updated</h2>
+                <p class="text-lg text-gray-700 dark:text-gray-300">
+                    This index was last updated on <time datetime="2025-01-27">January 27, 2025</time>.
+                </p>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center text-gray-600 dark:text-gray-400">
+                <p>&copy; 2025 Jameson Campbell. Built with HTML, Tailwind CSS, and JavaScript.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
