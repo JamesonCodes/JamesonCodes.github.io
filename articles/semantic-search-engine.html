@@ -193,280 +193,260 @@
             
             <!-- Article Body -->
             <div class="prose prose-lg dark:prose-invert max-w-none">
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Executive Summary</h2>
-                
-                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Impact</h3>
-                
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The problem wasn’t a lack of assets. It was a lack of discoverability.</p>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">At <a href="https://custom.sockclub.com/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark underline">Sock Club</a>, we had more than 100,000 creative assets sitting in Dropbox. Years of beautiful work that was effectively invisible. Finding a specific legacy design meant digging through deeply nested folders, guessing filenames, or relying on tribal knowledge.</p>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Designers searched by concept. Sales searched under pressure, often mid-email or mid-call. The system only understood filenames.</p>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">This is the story of how I turned that functionally locked archive into a semantic visual search system that understands conceptual meaning. By moving away from rigid folder structures and toward a system that can actually “see” our work, we replaced hours of redundant recreation with seconds of discovery.</p>
+
+                <p class="text-sm text-gray-500 dark:text-gray-400 italic mb-10">Logo credit: Baylor Meche &amp; Rachal Berry</p>
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">The Problem</h2>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">While the archive was large, it was functionally locked. Filenames were inconsistent. Folder structures varied depending on who created them and when. Over time, this created a real operational bottleneck.</p>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Search time reduced from twenty minutes to under two minutes</li>
-                    <li>• Lost asset time down forty percent</li>
-                    <li>• Adopted daily across design and sales</li>
-                    <li>• Zero training required</li>
+                    <li>• Designers regularly recreated assets because finding originals took too long</li>
+                    <li>• Sales had to interrupt designers to find relevant past work for clients</li>
+                    <li>• New hires relied on tribal knowledge just to locate basic brand files</li>
                 </ul>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">I built an end-to-end semantic search system that allows our teams to find past creative work using meaning based queries. The platform processes more than 100k assets, generates embeddings, stores vectors, and returns visually similar results with high accuracy and low latency. It eliminated the bottleneck of digging through nested folders and searching by filename guesswork.</p>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">1. The Problem</h2>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">At <a href="https://custom.sockclub.com/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark underline">Sock Club</a>, our creative archive lived in Dropbox with more than 100k PSDs and exports accumulated over years. Filenames were inconsistent, folder structures varied, and searching depended on tribal knowledge. Designers searched for concepts, not file names. Sales needed examples for live client conversations.</p>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300"><a href="https://dash.dropbox.com/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark underline">Dropbox Dash</a> could not solve this because it was built for general file search, not semantic visual discovery across creative content.</p>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The consequences were clear. Designers recreated assets because finding originals took too long. Sales slowed down client emails while trying to find examples. Junior team members regularly pinged senior designers for help locating files.</p>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">We needed meaning based search that understood visual similarity, aesthetic themes, and conceptual intent.</p>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">2. Requirements</h2>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">After working with designers and sales reps, I defined the core needs.</p>
-                
-                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">User Requirements</h3>
-                
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">We tested Dropbox Dash hoping for a quick fix, but it lacked the depth required for nuanced, semantic discovery of visual assets. It provided a search bar, not conceptual understanding.</p>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">To truly unlock the archive, we needed something purpose-built: an internal system that recognized meaning, not just metadata.</p>
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Requirements</h2>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">After working closely with designers and sales, I defined a small set of non-negotiable requirements.</p>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">User requirements</h3>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
                     <li>• Search by concept, not filename</li>
                     <li>• Fast results across the entire library</li>
                     <li>• Support PSDs, PNGs, and exports</li>
-                    <li>• Direct access to original files with secure authentication</li>
-                    <li>• Integration with HubSpot Deals</li>
-                    <li>• A pipeline that processes more than 100k assets without manual intervention</li>
+                    <li>• Secure access to original files</li>
+                    <li>• Integration with HubSpot deals</li>
+                    <li>• A pipeline that could process 100k+ assets without manual intervention</li>
                 </ul>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The system needed to be simple, intuitive, and reliable.</p>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">3. Architecture Overview</h2>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The platform uses a unified embedding space for images and text to power semantic similarity search.</p>
-                
-                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Tech Stack</h3>
-                
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The system needed to be simple, intuitive, and reliable. If it required training, it would fail.</p>
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Architecture Overview</h2>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The system uses a shared mathematical “language” for both images and text, allowing users to search visual assets using natural language descriptions.</p>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Tech stack</h3>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
                     <li>• Next.js frontend on Vercel</li>
-                    <li>• FastAPI backend on Vercel serverless Python runtime</li>
-                    <li>• Vertex AI multimodal embeddings</li>
-                    <li>• Pinecone for vector search</li>
+                    <li>• FastAPI backend on Vercel’s serverless Python runtime</li>
+                    <li>• Google Cloud Vertex AI multimodal embeddings</li>
+                    <li>• Pinecone for serverless vector search</li>
                     <li>• AWS S3 for asset storage</li>
                     <li>• AWS Cognito for authentication</li>
-                    <li>• HubSpot API integration</li>
+                    <li>• HubSpot API for CRM integration</li>
+                    <li>• PostHog for usage analytics</li>
                 </ul>
-                
+
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Data flow</h3>
-                
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Assets migrate from Dropbox to S3.</li>
-                    <li>• Files convert to PNG when needed.</li>
-                    <li>• Vertex AI generates embeddings.</li>
-                    <li>• Pinecone stores vectors with metadata.</li>
-                    <li>• Search requests embed the query and retrieve nearest matches.</li>
-                    <li>• The UI displays results with metadata, previews, and PSD downloads.</li>
+                    <li>• Assets migrate from Dropbox to S3</li>
+                    <li>• Files are converted to PNG for previews and embedding</li>
+                    <li>• Vertex AI generates high-dimensional embeddings</li>
+                    <li>• Pinecone indexes vectors with rich metadata</li>
+                    <li>• User queries are embedded and matched semantically</li>
+                    <li>• The UI surfaces results with direct downloads and HubSpot context</li>
                 </ul>
-                
-                <div class="my-8">
-                    <div class="relative bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden cursor-pointer group" onclick="openArchitectureModal()">
-                        <img src="../assets/diagrams/sock-scout-architecture-diagram.PNG" alt="Sock Scout architecture diagram showing system components and data flow" class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                            <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">View Full Size</span>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Click to view full-size architecture diagram</p>
-                </div>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">4. Ingestion and Embedding Pipeline</h2>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Processing more than 100k assets required a durable, recoverable ingestion pipeline.</p>
-                
-                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Key Pipeline Challenges</h3>
-                
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Ingestion and Embedding Pipeline</h2>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Processing more than 100k assets required a pipeline that could survive failure.</p>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Key challenges</h3>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
                     <li>• Staying within model rate limits</li>
                     <li>• Converting PSDs reliably</li>
-                    <li>• Skipping corrupt files</li>
+                    <li>• Skipping corrupt or unusable files</li>
                     <li>• Recovering from long batch interruptions</li>
                     <li>• Detecting duplicates before embedding</li>
-                    <li>• Migrating from Dropbox to S3 cleanly</li>
-                    <li>• Handling PSDs that were 99 percent white</li>
+                    <li>• Handling PSDs that were effectively blank</li>
                 </ul>
-                
+
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Design choices</h3>
-                
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
                     <li>• Batch execution with adjustable concurrency</li>
                     <li>• Exponential backoff and retry logic</li>
-                    <li>• PNG conversion pipeline for PSDs</li>
-                    <li>• Pinecone pre checks to avoid duplicate embeddings</li>
+                    <li>• Dedicated PNG conversion pipeline</li>
+                    <li>• Pinecone pre-checks to avoid duplicate vectors</li>
                     <li>• Metadata mapping for HubSpot integration</li>
-                    <li>• Progress tracking to support multi hour runs</li>
+                    <li>• Progress tracking for multi-hour runs</li>
                 </ul>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The pipeline completed more than 253k embedding units with a total compute cost of $25, reduced to $8 after Google Cloud credits.</p>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">5. Vector Database Strategy</h2>
-                
+
+                <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-6 my-8">
+                    <p class="text-lg text-gray-700 dark:text-gray-300">The pipeline processed more than 253k embedding units. Total compute cost was $25, reduced to about $8 after credits.</p>
+                </div>
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Vector Database Strategy</h2>
+
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Pinecone provided fast similarity search with minimal operational overhead.</p>
-                
+
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Why Pinecone</h3>
-                
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Serverless architecture with zero maintenance</li>
-                    <li>• Metadata based filtering</li>
+                    <li>• Serverless architecture</li>
+                    <li>• Metadata-based filtering</li>
                     <li>• High read performance</li>
-                    <li>• Smooth large scale upserts</li>
+                    <li>• Smooth large-scale upserts</li>
                 </ul>
-                
+
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Index structure</h3>
-                
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• <a href="https://www.pinecone.io/learn/vector-similarity/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark underline">Cosine similarity</a> with 1408 dimension vectors</li>
-                    <li>• Rich metadata for filtering</li>
-                    <li>• Dropbox ID based keys for designer assets to ensure long term consistency</li>
-                    <li>• S3 hash keys for sales assets for backward compatibility</li>
+                    <li>• <a href="https://www.pinecone.io/learn/vector-similarity/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark underline">Cosine similarity</a> with 1,408-dimensional vectors</li>
+                    <li>• Each asset receives a “digital fingerprint” representing its visual and semantic essence</li>
                 </ul>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">This eliminated duplicate vectors and prevented orphaned entries during S3 reorganizations.</p>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">6. Search API</h2>
-                
+
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Conceptual vector example</h3>
+
+                <pre class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto text-sm leading-relaxed text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700">[0.021, -0.114, 0.893, 0.004, -0.672, 0.318, … , 0.057]</pre>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Values capture latent features so similar designs remain mathematically close, even when filenames and folders are unrelated.</p>
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Search API</h2>
+
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The FastAPI service handles:</p>
-                
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Text or image queries</li>
+                    <li>• Text and image queries</li>
                     <li>• Embedding generation</li>
                     <li>• Vector retrieval</li>
                     <li>• Metadata hydration</li>
                     <li>• Authorization checks</li>
                     <li>• Secure access to original PSDs</li>
                 </ul>
-                
+
                 <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Why Vertex AI</h3>
-                
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• High quality multimodal embeddings</li>
-                    <li>• Same embedding space for text and images</li>
-                    <li>• Strong performance on MTEB benchmarks</li>
+                    <li>• High-quality multimodal embeddings</li>
+                    <li>• Shared embedding space for text and images</li>
+                    <li>• Strong benchmark performance</li>
                     <li>• Predictable latency</li>
-                    <li>• Cost effective at scale</li>
+                    <li>• Cost efficiency at scale</li>
                 </ul>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The API consistently returns top results in under a second, helped by debouncing on the frontend.</p>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">7. Frontend Experience</h2>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The Next.js interface makes searching feel instant and intuitive.</p>
-                
-                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">UX Priorities</h3>
-                
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Search results consistently return in under a second.</p>
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Frontend Experience and Workflow</h2>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The interface is not just a search bar. It’s an operational tool that connects creative assets to business context.</p>
+
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">High-value workflows</h3>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Fast feedback</li>
-                    <li>• Clear concept based results</li>
-                    <li>• Minimal learning curve</li>
-                    <li>• Useful previews without losing context</li>
-                    <li>• Full mobile support</li>
+                    <li>• Preventing redundant work by finding approved files instantly</li>
+                    <li>• Handling zero-context client requests by reverse-searching images</li>
+                    <li>• Surfacing complete brand histories for specific clients</li>
                 </ul>
-                
-                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Features</h3>
-                
+
+                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Core functionality</h3>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Unified search bar</li>
-                    <li>• Toggle for Design or Sales assets</li>
-                    <li>• Responsive grid of results</li>
-                    <li>• Fullscreen preview modal</li>
-                    <li>• Asset metadata with HubSpot links and Internal Portal links</li>
-                    <li>• Explore Similar Designs using the asset as the query</li>
-                    <li>• Asset flagging system for quality control</li>
-                    <li>• Dark mode via theme variables</li>
-                    <li>• Optimized mobile layout</li>
-                    <li>• Lazy loaded result sets</li>
+                    <li>• Unified search for text, images, and client names</li>
+                    <li>• Direct links to HubSpot deals and internal projects</li>
+                    <li>• "Explore similar designs" using embeddings</li>
+                    <li>• Built-in asset flagging for quality control</li>
                 </ul>
-                
+
                 <div class="my-8">
-                    <img id="homeScreenImage" src="../assets/projects/SS_Home_Dark_Mode.png" alt="Sock Scout home screen showing search bar and interface" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Home screen with unified search interface</p>
+                    <img id="homeScreenImage" src="../assets/projects/SS_Home_Dark_Mode.png" alt="Home screen with unified search experience" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Home screen with unified search experience</p>
                 </div>
-                
+
                 <div class="my-8">
-                    <img id="searchResultsImage" src="../assets/projects/SS_Results_Dark_Mode.png" alt="Semantic search results showing concept-based matches" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Concept-based search results</p>
+                    <img id="searchResultsImage" src="../assets/projects/SS_Results_Dark_Mode.png" alt="A simple search for Denver airport instantly surfaces years of brand history" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">A simple search for "Denver airport" instantly surfaces years of brand history, turning a needle-in-a-haystack search into a five-second win.</p>
                 </div>
-                
+
                 <div class="my-8">
-                    <img id="previewModalImage" src="../assets/projects/SS_Modal_Dark_Mode.png" alt="Full screen preview modal showing image canvas with metadata and actions" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Full screen preview with metadata and actions</p>
+                    <img id="previewModalImage" src="../assets/projects/SS_Modal_Dark_Mode.png" alt="A simple search for Denver airport instantly surfaces years of brand history" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">A simple search for "Denver airport" instantly surfaces years of brand history, turning a needle-in-a-haystack search into a five-second win.</p>
                 </div>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Users can search for terms like <em>playful geometric layout</em> or <em>vintage airport theme</em> and the system returns visually coherent matches.</p>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">8. Asset Quality Control</h2>
-                
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Asset Quality Control</h2>
+
                 <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">To maintain brand quality, I built a flagging system with four preset reasons. This calls out outdated or unusable assets within searches and gives designers a lightweight review workflow.</p>
-                
+
                 <div class="my-8">
-                    <img id="flaggingSystemImage" src="../assets/projects/SS_Flag_Dark_Mode.png" alt="Asset flagging system interface showing predefined flagging reasons" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">Asset flagging system for quality control</p>
+                    <img id="flaggingSystemImage" src="../assets/projects/SS_Flag_Dark_Mode.png" alt="The integrated flagging system allows designers to mark assets with knittability issues or outdated logos" class="w-full h-auto rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-2">The integrated flagging system allows designers to mark assets with knittability issues or outdated logos, ensuring the team only references production-ready files.</p>
                 </div>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">9. Performance and Reliability</h2>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The system meets the following internal targets:</p>
-                
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Performance and Reliability</h2>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Search results under 300 to 600 milliseconds</li>
-                    <li>• Efficient preview loading even in large result sets</li>
-                    <li>• Ingestion pipeline stable over many hours</li>
-                    <li>• Zero downtime deployments with Vercel</li>
+                    <li>• Search latency: 300–600 ms</li>
+                    <li>• Stable ingestion over multi-hour runs</li>
+                    <li>• Zero-downtime deployments</li>
                     <li>• Full analytics and error tracking via PostHog</li>
                 </ul>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">10. Cost Efficiency</h2>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The platform costs about $72 a month to run.</p>
-                
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Cost Efficiency</h2>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The system runs for about $72 per month:</p>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
                     <li>• Pinecone: $50</li>
                     <li>• Vercel: $20</li>
-                    <li>• S3: about $1 to $2</li>
-                    <li>• Vertex AI queries: effectively zero after credits</li>
+                    <li>• S3: $1–2</li>
+                    <li>• Vertex AI: effectively zero after credits</li>
                 </ul>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The architecture can scale with minimal changes while staying cost efficient.</p>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">11. Results</h2>
-                
-                <h3 class="text-2xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">Impact Metrics</h3>
-                
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">The architecture scales without major changes.</p>
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Results</h2>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Search 10x faster</li>
-                    <li>• 40% reduction in lost asset time</li>
-                    <li>• Designers stopped recreating assets unnecessarily</li>
+                    <li>• Search became ~10× faster</li>
+                    <li>• Designers stopped recreating work</li>
                     <li>• Fewer interruptions to senior team members</li>
-                    <li>• Faster sales responses for client emails</li>
+                    <li>• Faster, more relevant sales follow-ups</li>
                 </ul>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Adoption was organic. No training or rollout was required. People saw value immediately.</p>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300 italic">"Sock Scout is phenomenal, by the way. I've used it many times this week and it has saved me so much time already. Thanks for building such an amazing tool for us!!" - Taylor Spence, Senior Designer</p>
-                
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Adoption was organic. No training or rollout was required.</p>
+
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 my-10 border border-gray-200 dark:border-gray-700">
+                    <blockquote class="text-lg italic text-gray-900 dark:text-white mb-4">
+                        "Sock Scout is phenomenal, by the way. I've used it many times this week and it has saved me so much time already. Thanks for building such an amazing tool for us!!"
+                    </blockquote>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Taylor Spence, Senior Designer</p>
+                </div>
+
                 <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-6 my-8">
                     <p class="text-lg font-semibold text-gray-900 dark:text-white">The biggest validation: people used it without being asked.</p>
                 </div>
-                
-                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">12. Lessons Learned</h2>
-                
+
+                <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Lessons Learned</h2>
+
                 <ul class="space-y-3 text-lg text-gray-700 dark:text-gray-300 mb-8 ml-4">
-                    <li>• Pipelines must be resilient to failure</li>
+                    <li>• Metadata is a byproduct, not a requirement</li>
                     <li>• UX drives adoption more than features</li>
+                    <li>• Pipelines must be resilient by design</li>
                     <li>• Trust in search accuracy unlocks new workflows</li>
-                    <li>• Isolated environments enable safe experimentation</li>
-                    <li>• Each environment teaches you what to automate next</li>
-                    <li>• Dry-run mode prevents costly mistakes</li>
-                    <li>• Early architectural decisions have lasting impact</li>
-                    <li>• Building for scale means making systems adaptable to constraints, not just fast</li>
                 </ul>
-                
+
                 <h2 class="text-3xl font-bold mb-6 mt-12 text-gray-900 dark:text-white">Final Takeaway</h2>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Semantic search turns an archive into a discovery engine. This project showed how modern AI tooling, paired with simple UX, can give a small team the type of internal capability usually reserved for large engineering organizations.</p>
-                
-                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">It reflects how I approach internal tools work. I identify a real operational friction point, design a pragmatic architecture, build the solution end to end, and deliver measurable improvements in team productivity and decision making.</p>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">Semantic search turns a static archive into a discovery engine. With modern AI tooling and a simple interface, a small team can build internal capabilities usually reserved for large engineering organizations.</p>
+
+                <p class="text-lg leading-relaxed mb-6 text-gray-700 dark:text-gray-300">This project reflects how I like to work: identifying real bottlenecks, designing pragmatic systems, and building end-to-end solutions that quietly make people’s work easier.</p>
 
             </div>
             
