@@ -648,64 +648,22 @@
                                 My go-to for shipping and scaling. While I primarily use it for hosting Next.js apps, I'm actively integrating the Vercel AI SDK and exploring their newer agentic infrastructure like AI Gateway.
                             </p>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- AI Infrastructure -->
-                <div class="mb-12">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">⚡ AI Infrastructure</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="tool-card">
-                            <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
-                                    <a href="https://pinecone.io" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
-                                        <img src="assets/logos/pinecone-dark.svg" alt="Pinecone" class="w-8 h-8 pinecone-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                        <span class="text-2xl hidden">🔍</span>
-                                    </a>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg">Pinecone</h4>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Vector Database</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 dark:text-gray-300 text-sm">
-                                Serverless vector database for semantic search and AI-powered features. Powers intelligent search across documents and data.
-                            </p>
-                        </div>
                         
                         <div class="tool-card">
                             <div class="flex items-center mb-3">
                                 <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
-                                    <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
-                                        <img src="assets/logos/vertex-ai.svg" alt="Vertex AI" class="w-8 h-8" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                        <span class="text-2xl hidden">🧮</span>
+                                    <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+                                        <img src="assets/logos/lovable-dark.svg" alt="Lovable" class="w-8 h-8 lovable-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                        <span class="text-2xl hidden">✨</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg">Google Vertex AI</h4>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Embedding Models</p>
+                                    <h4 class="font-bold text-lg">Lovable</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Rapid Prototyping</p>
                                 </div>
                             </div>
                             <p class="text-gray-700 dark:text-gray-300 text-sm">
-                                High-quality embeddings for semantic understanding. The foundation that makes AI-powered search and classification possible.
-                            </p>
-                        </div>
-                        
-                        <div class="tool-card">
-                            <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
-                                    <a href="https://n8n.io" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
-                                        <img src="assets/logos/n8n-dark.svg" alt="n8n" class="w-8 h-8 n8n-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                        <span class="text-2xl hidden">🔗</span>
-                                    </a>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg">n8n</h4>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Agentic Automation</p>
-                                </div>
-                            </div>
-                            <p class="text-gray-700 dark:text-gray-300 text-sm">
-                                Visual workflow automation with AI nodes. Perfect for building intelligent AI agents, agentic workflows, data pipelines and automated business processes.
+                                I use Lovable to spin up functional, interactive prototypes that users can actually click through and test. It allows me to validate the user flow and interface in minutes, ensuring the logic is sound before I move the project into Cursor for custom engineering.
                             </p>
                         </div>
                     </div>
@@ -991,7 +949,7 @@
             if (e.target === this) closeArchitectureModal();
         });
         
-        // Theme-aware logo switching for Cursor, OpenAI, n8n, and Pinecone logos
+        // Theme-aware logo switching for Cursor, OpenAI, Vercel, and Lovable logos
         function updateThemeLogos() {
             const isDark = document.documentElement.classList.contains('dark');
             
@@ -1025,23 +983,13 @@
                 }
             });
             
-            // Update n8n logos
-            const n8nLogos = document.querySelectorAll('.n8n-logo');
-            n8nLogos.forEach(logo => {
+            // Update Lovable logos
+            const lovableLogos = document.querySelectorAll('.lovable-logo');
+            lovableLogos.forEach(logo => {
                 if (isDark) {
-                    logo.src = 'assets/logos/n8n-light.svg'; // Light logo on dark background
+                    logo.src = 'assets/logos/lovable-light.svg';
                 } else {
-                    logo.src = 'assets/logos/n8n-dark.svg'; // Dark logo on light background
-                }
-            });
-            
-            // Update Pinecone logos
-            const pineconeLogos = document.querySelectorAll('.pinecone-logo');
-            pineconeLogos.forEach(logo => {
-                if (isDark) {
-                    logo.src = 'assets/logos/pinecone-light.svg'; // Light logo on dark background
-                } else {
-                    logo.src = 'assets/logos/pinecone-dark.svg'; // Dark logo on light background
+                    logo.src = 'assets/logos/lovable-dark.svg';
                 }
             });
         }
