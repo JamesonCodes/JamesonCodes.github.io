@@ -103,23 +103,26 @@ window.addEventListener('scroll', () => {
 // Active Section Highlighting in Navigation
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
+const navLinksMobile = document.querySelectorAll('.nav-link-mobile');
 
 function highlightNavigation() {
     const scrollPosition = window.pageYOffset + 100;
+    let activeHref = null;
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
-        
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            navLinks.forEach(link => {
-                link.classList.remove('text-accent', 'dark:text-accent');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('text-accent', 'dark:text-accent');
-                }
-            });
+            activeHref = `#${sectionId}`;
         }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === activeHref);
+    });
+    navLinksMobile.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === activeHref);
     });
 }
 
@@ -133,22 +136,10 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Add smooth hover effects to project cards
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-8px)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0)';
-    });
-});
-
 // Console Easter Egg for fellow developers
-console.log('%c👋 Hey there, fellow builder!', 'font-size: 20px; font-weight: bold; color: #2E9DFB;');
+console.log('%c👋 Hey there, fellow builder!', 'font-size: 20px; font-weight: bold; color: #171717;');
 console.log('%cIf you\'re curious about how this site was built, check out the source on GitHub!', 'font-size: 14px; color: #666;');
-console.log('%chttps://github.com/JamesonCodes/JamesonCodes.github.io', 'font-size: 14px; color: #2E9DFB; text-decoration: underline;');
+console.log('%chttps://github.com/JamesonCodes/JamesonCodes.github.io', 'font-size: 14px; color: #52525b; text-decoration: underline;');
 
 // Performance: Debounce scroll events
 function debounce(func, wait) {
