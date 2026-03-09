@@ -49,6 +49,11 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="favicon.svg">
     
+    <!-- Typography: Geist Sans + Geist Mono (Vercel design system) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/geist-sans.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/geist-mono.css">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -59,12 +64,29 @@
             theme: {
                 extend: {
                     colors: {
-                        accent: '#2E9DFB',
-                        'accent-dark': '#1E7FC7',
+                        white: '#FFFFFF',
+                        alabaster: '#FAFAFA',
+                        codGray: '#171717',
+                        zinc: {
+                            100: '#f4f4f5',
+                            400: '#a1a1aa',
+                            800: '#27272a',
+                            900: '#18181b',
+                        },
+                        neutral: {
+                            50: '#FAFAFA',
+                            800: '#262626',
+                            900: '#171717',
+                            950: '#171717',
+                        }
                     },
                     fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'sans-serif'],
-                        mono: ['SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'monospace'],
+                        sans: ['Geist', 'Geist Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['Geist Mono', 'SF Mono', 'Monaco', 'monospace'],
+                    },
+                    fontSize: {
+                        'hero': ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '1.15' }],
+                        'section': ['clamp(1.75rem, 3vw, 2.25rem)', { lineHeight: '1.25' }],
                     }
                 }
             }
@@ -74,14 +96,14 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<body class="font-sans antialiased bg-white dark:bg-neutral-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-4">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-md z-50 border-b border-gray-200/80 dark:border-neutral-800 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-5">
             <div class="flex items-center justify-between">
                 <!-- Logo/Name -->
-                <a href="#hero" class="text-xl font-bold text-gray-900 dark:text-white hover:text-accent dark:hover:text-accent transition-colors">
+                <a href="#hero" class="text-xl font-bold text-gray-900 dark:text-white hover:opacity-90 transition-opacity">
                     Jameson Campbell
                 </a>
                 
@@ -95,7 +117,7 @@
                     <a href="#contact" class="nav-link">Contact</a>
                     
                     <!-- Dark Mode Toggle -->
-                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Toggle dark mode">
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
@@ -106,7 +128,7 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle mobile menu">
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Toggle mobile menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -129,18 +151,18 @@
     
     <main>
     <!-- Hero Section -->
-    <section id="hero" class="pt-32 pb-20 px-6 min-h-screen flex items-center">
+    <section id="hero" class="pt-36 pb-24 md:py-28 px-6 min-h-screen flex items-center">
         <div class="max-w-4xl mx-auto w-full text-center">
             <div class="fade-in">
                 <!-- Profile Photo -->
                 <div class="mb-8 flex justify-center">
-                    <div class="w-28 h-28 rounded-full border-4 border-accent/30 shadow-lg overflow-hidden">
+                    <div class="w-28 h-28 rounded-full border-2 border-gray-200 dark:border-neutral-800 shadow-md overflow-hidden">
                         <img src="assets/profile.jpg" alt="Jameson Campbell" class="w-full h-full object-cover">
                     </div>
                 </div>
                 
                 <!-- Headline -->
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 px-4">
+                <h1 class="text-hero font-bold text-gray-900 dark:text-white mb-6 px-4">
                     I build AI-enabled internal tools & systems that help teams move faster.
                 </h1>
                 
@@ -149,7 +171,7 @@
                     Sales Ops by title, Systems Builder by craft. I prototype, automate, and scale solutions that remove friction across marketing, sales, design, and ops.                </p>
                 
                 <!-- CTA Buttons -->
-                <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex flex-wrap justify-center gap-4 mt-2">
                     <a href="#projects" class="btn-primary">
                         See What I Build
                     </a>
@@ -162,11 +184,11 @@
     </section>
     
     <!-- Featured Project Section -->
-    <section id="featured-project" class="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+    <section id="featured-project" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03]">
         <div class="max-w-5xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-center">Featured Project</h2>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 border border-gray-200 dark:border-gray-700">
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center">Featured Project</h2>
+                <div class="bg-white dark:bg-neutral-900 rounded-2xl shadow-sm p-8 md:p-12 border border-gray-200 dark:border-neutral-800">
                     <h3 class="text-3xl font-bold mb-4">Semantic Visual Search for Creative Teams</h3>
                     
                     <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
@@ -181,15 +203,15 @@
                     <!-- Impact Metrics -->
                     <div class="grid md:grid-cols-3 gap-6 mb-8">
                         <div class="metric-card">
-                            <div class="text-3xl font-bold text-accent mb-2">15/30</div>
+                            <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">15/30</div>
                             <div class="text-sm text-gray-600 dark:text-gray-400">Target team members use daily</div>
                         </div>
                         <div class="metric-card">
-                            <div class="text-3xl font-bold text-accent mb-2">10x</div>
+                            <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">10x</div>
                             <div class="text-sm text-gray-600 dark:text-gray-400">Faster search experience</div>
                         </div>
                         <div class="metric-card">
-                            <div class="text-3xl font-bold text-accent mb-2">~40%</div>
+                            <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">~40%</div>
                             <div class="text-sm text-gray-600 dark:text-gray-400">Reduced lost-asset time</div>
                         </div>
                     </div>
@@ -197,7 +219,7 @@
                     <!-- What I Learned & Outcome - Side by Side -->
                     <div class="grid md:grid-cols-2 gap-6 mb-8">
                         <!-- What I Learned -->
-                        <div class="bg-accent/10 dark:bg-accent/20 border-l-4 border-accent rounded-r-lg p-6">
+                        <div class="bg-gray-100 dark:bg-zinc-800 border-l-4 border-gray-300 dark:border-l-zinc-600 rounded-r-lg p-6">
                             <h4 class="font-bold text-lg mb-3 flex items-center">
                                 <span class="text-2xl mr-2">🧠</span>
                                 What I Learned
@@ -220,14 +242,14 @@
                     
                     <!-- Screenshots -->
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="relative aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden cursor-pointer group" onclick="openGallery(0)">
-                            <img src="assets/projects/SS_Badge_Dark_Mode.png" alt="Sock Scout badge interface" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="relative aspect-video bg-gray-100 dark:bg-neutral-800 rounded-xl overflow-hidden cursor-pointer group border border-gray-200 dark:border-neutral-800 shadow-sm" onclick="openGallery(0)">
+                            <img src="assets/projects/SS_Badge_Dark_Mode.png" alt="Sock Scout badge interface" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
                             <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                                 <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">View Gallery</span>
                             </div>
                         </div>
-                        <div class="relative aspect-video bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden cursor-pointer group" onclick="openArchitectureModal()">
-                            <img src="assets/diagrams/sock-scout-architecture-diagram.PNG" alt="Sock Scout architecture diagram showing system components and data flow" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="relative aspect-video bg-gray-100 dark:bg-neutral-800 rounded-xl overflow-hidden cursor-pointer group border border-gray-200 dark:border-neutral-800 shadow-sm" onclick="openArchitectureModal()">
+                            <img src="assets/diagrams/sock-scout-architecture-diagram.PNG" alt="Sock Scout architecture diagram showing system components and data flow" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300">
                             <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
                                 <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">View Full Size</span>
                             </div>
@@ -239,14 +261,14 @@
     </section>
     
     <!-- What I Build Section -->
-    <section id="projects" class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
+    <section id="projects" class="py-16 md:py-24 px-6">
+        <div class="max-w-6xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-4xl font-bold mb-12 text-center">What I Build</h2>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-12 text-center">What I Build</h2>
                 
                 <!-- Work Projects -->
                 <div class="mb-16">
-                    <h3 class="text-2xl font-bold mb-6 text-accent">Work Projects</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Work Projects</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Email Triage AI Assistant -->
                         <div class="project-card">
@@ -285,7 +307,7 @@
                 
                 <!-- Personal Tools -->
                 <div>
-                    <h3 class="text-2xl font-bold mb-6 text-accent">Personal Tools & Experiments</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Personal Tools & Experiments</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- AI Button Share Generator -->
                         <div class="project-card">
@@ -354,10 +376,10 @@
     </section>
     
     <!-- About Me Section -->
-    <section id="about" class="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+    <section id="about" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03]">
         <div class="max-w-4xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-4xl font-bold mb-12 text-center">About Me</h2>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-12 text-center">About Me</h2>
                 
                 <div class="prose prose-lg dark:prose-invert max-w-none">
                     <p class="text-xl leading-relaxed mb-6">
@@ -387,38 +409,38 @@
                     <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
                         By prioritizing revealed behavior over stated needs, I ensure I'm building for the 20% of signals that drive 80% of the results. This prevents "feature bloat" and ensures the tools I build actually stick.
                     </p>
-                    
-                    <div class="text-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-                        <p class="text-2xl font-bold text-gray-900 dark:text-white">
-                            My goal: build leverage. Tools that make 10 people 10× faster.
-                        </p>
-                    </div>
+                </div>
+                
+                <div class="w-full mt-12 pt-8 border-t border-gray-200 dark:border-neutral-800 text-center">
+                    <p class="text-2xl font-bold text-gray-900 dark:text-white mx-auto max-w-3xl px-4">
+                        My goal: build leverage. Tools that make 10 people 10× faster.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Philosophy Section -->
-    <section id="philosophy" class="py-20 px-6">
+    <section id="philosophy" class="py-16 md:py-24 px-6">
         <div class="max-w-5xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-center">Approach / Philosophy</h2>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center">Approach / Philosophy</h2>
                 <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
                     How I think about building internal tools
                 </p>
                 
                 <!-- Desktop Table View -->
                 <div class="hidden md:block overflow-x-auto">
-                    <table class="w-full bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-                        <thead class="bg-accent text-white">
+                    <table class="w-full bg-white dark:bg-neutral-900 rounded-xl shadow-sm overflow-hidden border border-gray-200 dark:border-neutral-800">
+                        <thead class="bg-neutral-900 dark:bg-neutral-800 text-white">
                             <tr>
                                 <th class="px-6 py-4 text-left font-bold">Step</th>
                                 <th class="px-6 py-4 text-left font-bold">What I Do</th>
                                 <th class="px-6 py-4 text-left font-bold">Mindset</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                        <tbody class="divide-y divide-gray-200 dark:divide-neutral-800">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors">
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
                                         <span class="text-2xl mr-3">1️⃣</span>
@@ -432,7 +454,7 @@
                                     Behavior > Talk
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors">
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
                                         <span class="text-2xl mr-3">2️⃣</span>
@@ -446,7 +468,7 @@
                                     State-it-back test
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors">
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
                                         <span class="text-2xl mr-3">3️⃣</span>
@@ -460,7 +482,7 @@
                                     Judgment > Automation
                                 </td>
                             </tr>
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors">
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
                                         <span class="text-2xl mr-3">4️⃣</span>
@@ -480,13 +502,10 @@
                 
                 <!-- Mobile Card View -->
                 <div class="md:hidden space-y-6">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-6 border border-gray-200 dark:border-neutral-800 hover:shadow hover:-translate-y-0.5 transition-all duration-200">
                         <div class="flex items-center mb-4">
-                            <div class="relative mr-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center shadow-md">
-                                    <span class="text-white font-bold text-lg">1</span>
-                                </div>
-                                <div class="absolute inset-0 bg-gradient-to-br from-accent to-accent-dark rounded-full opacity-20 blur-sm"></div>
+                            <div class="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-sm">1</span>
                             </div>
                             <span class="font-bold text-xl text-gray-900 dark:text-white">Discover</span>
                         </div>
@@ -502,13 +521,10 @@
                         </div>
                     </div>
                     
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-6 border border-gray-200 dark:border-neutral-800 hover:shadow hover:-translate-y-0.5 transition-all duration-200">
                         <div class="flex items-center mb-4">
-                            <div class="relative mr-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center shadow-md">
-                                    <span class="text-white font-bold text-lg">2</span>
-                                </div>
-                                <div class="absolute inset-0 bg-gradient-to-br from-accent to-accent-dark rounded-full opacity-20 blur-sm"></div>
+                            <div class="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-sm">2</span>
                             </div>
                             <span class="font-bold text-xl text-gray-900 dark:text-white">Prototype</span>
                         </div>
@@ -524,13 +540,10 @@
                         </div>
                     </div>
                     
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-6 border border-gray-200 dark:border-neutral-800 hover:shadow hover:-translate-y-0.5 transition-all duration-200">
                         <div class="flex items-center mb-4">
-                            <div class="relative mr-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center shadow-md">
-                                    <span class="text-white font-bold text-lg">3</span>
-                                </div>
-                                <div class="absolute inset-0 bg-gradient-to-br from-accent to-accent-dark rounded-full opacity-20 blur-sm"></div>
+                            <div class="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-sm">3</span>
                             </div>
                             <span class="font-bold text-xl text-gray-900 dark:text-white">Validate</span>
                         </div>
@@ -546,13 +559,10 @@
                         </div>
                     </div>
                     
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-6 border border-gray-200 dark:border-neutral-800 hover:shadow hover:-translate-y-0.5 transition-all duration-200">
                         <div class="flex items-center mb-4">
-                            <div class="relative mr-4">
-                                <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent-dark rounded-full flex items-center justify-center shadow-md">
-                                    <span class="text-white font-bold text-lg">4</span>
-                                </div>
-                                <div class="absolute inset-0 bg-gradient-to-br from-accent to-accent-dark rounded-full opacity-20 blur-sm"></div>
+                            <div class="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-sm">4</span>
                             </div>
                             <span class="font-bold text-xl text-gray-900 dark:text-white">Scale or Kill</span>
                         </div>
@@ -573,21 +583,21 @@
     </section>
     
     <!-- AI Pair Programming Arsenal Section -->
-    <section id="ai-arsenal" class="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+    <section id="ai-arsenal" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03]">
         <div class="max-w-6xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-center">AI Pair Programming Arsenal</h2>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center">AI Pair Programming Arsenal</h2>
                 <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg max-w-3xl mx-auto">
                     The tools that make me 10× faster. My curated stack for AI-enhanced development, rapid prototyping, and intelligent automation.
                 </p>
                 
                 <!-- Development Core -->
                 <div class="mb-12">
-                    <h3 class="text-2xl font-bold mb-6 text-accent">🧠 AI Development Core</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">🧠 AI Development Core</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="tool-card">
                             <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
                                     <a href="https://cursor.com/home" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
                                         <img src="assets/logos/cursor-dark.svg" alt="Cursor" class="w-8 h-8 cursor-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                         <span class="text-2xl hidden">⌨️</span>
@@ -605,7 +615,7 @@
                         
                         <div class="tool-card">
                             <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
                                     <a href="https://cursor.com/bugbot" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
                                         <img src="assets/logos/cursor-dark.svg" alt="BugBot" class="w-8 h-8 cursor-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                         <span class="text-2xl hidden">🤖</span>
@@ -623,7 +633,7 @@
                         
                         <div class="tool-card">
                             <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
                                     <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
                                         <img src="assets/logos/openai-dark.svg" alt="ChatGPT" class="w-8 h-8 openai-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                         <span class="text-2xl hidden">🏗️</span>
@@ -643,11 +653,11 @@
                 
                 <!-- AI Infrastructure -->
                 <div class="mb-12">
-                    <h3 class="text-2xl font-bold mb-6 text-accent">⚡ AI Infrastructure</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">⚡ AI Infrastructure</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="tool-card">
                             <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
                                     <a href="https://pinecone.io" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
                                         <img src="assets/logos/pinecone-dark.svg" alt="Pinecone" class="w-8 h-8 pinecone-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                         <span class="text-2xl hidden">🔍</span>
@@ -665,7 +675,7 @@
                         
                         <div class="tool-card">
                             <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
                                     <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/embeddings/get-multimodal-embeddings" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
                                         <img src="assets/logos/vertex-ai.svg" alt="Vertex AI" class="w-8 h-8" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                         <span class="text-2xl hidden">🧮</span>
@@ -683,7 +693,7 @@
                         
                         <div class="tool-card">
                             <div class="flex items-center mb-3">
-                                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-4">
+                                <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
                                     <a href="https://n8n.io" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
                                         <img src="assets/logos/n8n-dark.svg" alt="n8n" class="w-8 h-8 n8n-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                         <span class="text-2xl hidden">🔗</span>
@@ -703,7 +713,7 @@
                 
                 <!-- Philosophy Statement -->
                 <div class="mt-16 text-center">
-                    <div class="bg-gradient-to-r from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/20 rounded-xl p-8 border border-accent/20">
+                    <div class="bg-gray-50 dark:bg-neutral-900 rounded-xl p-8 border border-gray-200 dark:border-neutral-800">
                         <p class="text-xl italic text-gray-700 dark:text-gray-300 leading-relaxed">
                             "The best AI tools are the ones that fade into the background. You focus on building, they handle the complexity."
                         </p>
@@ -714,53 +724,53 @@
     </section>
     
     <!-- Writing / Blog Section -->
-    <section id="writing" class="py-20 px-6">
+    <section id="writing" class="py-16 md:py-24 px-6">
         <div class="max-w-4xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-4xl font-bold mb-4 text-center">Writing</h2>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center">Writing</h2>
                 <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
                     Stories and frameworks from building tools, services, and products
                 </p>
                 
                 <div class="space-y-4">
-                    <a href="articles/semantic-search-engine.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors rounded-lg p-4">
+                    <a href="articles/semantic-search-engine.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors rounded-lg p-4">
                         <h3 class="font-bold text-lg mb-2">🌅 Building Semantic Search for 100k+ Creative Assets</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm">How I transformed a chaotic Dropbox archive into an AI powered search system that understands concepts instead of filenames.</p>
                         <div class="mt-2 flex items-center gap-2">
-                            <span class="inline-block bg-green-500/20 dark:bg-green-500/30 text-green-600 dark:text-green-400 px-3 py-1 rounded-full text-xs font-semibold border border-green-500/30">Latest</span>
-                            <span class="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">Published</span>
+                            <span class="inline-block bg-green-500/15 dark:bg-green-500/25 text-green-700 dark:text-green-400 px-3 py-1 rounded-md text-xs font-medium border border-green-500/20">Latest</span>
+                            <span class="inline-block bg-gray-200 dark:bg-zinc-800 text-gray-600 dark:text-zinc-400 px-3 py-1 rounded-md text-xs font-medium border border-gray-200 dark:border-zinc-800">Published</span>
                         </div>
                     </a>
                     
-                    <a href="articles/internal-tools-builder.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors rounded-lg p-4">
+                    <a href="articles/internal-tools-builder.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors rounded-lg p-4">
                         <h3 class="font-bold text-lg mb-2">🧠 Why Every Company Needs an Internal Tools Builder</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm">How "vibe coding," AI, and a new generation of builders are redefining how work scales inside organizations. Strategic insights on the future of operational leverage.</p>
                         <div class="mt-2">
-                            <span class="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">Published</span>
+                            <span class="inline-block bg-gray-200 dark:bg-zinc-800 text-gray-600 dark:text-zinc-400 px-3 py-1 rounded-md text-xs font-medium border border-gray-200 dark:border-zinc-800">Published</span>
                         </div>
                     </a>
                     
-                    <a href="articles/hubspot-productization.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors rounded-lg p-4">
+                    <a href="articles/hubspot-productization.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors rounded-lg p-4">
                         <h3 class="font-bold text-lg mb-2">⚙️ Transforming HubSpot Services into Productized Offerings</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm">How we turned one-off projects into scalable, recurring value. Learn the framework, challenges, and results from building Trujay's HubSpot Admin Program.</p>
                         <div class="mt-2">
-                            <span class="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">Published</span>
+                            <span class="inline-block bg-gray-200 dark:bg-zinc-800 text-gray-600 dark:text-zinc-400 px-3 py-1 rounded-md text-xs font-medium border border-gray-200 dark:border-zinc-800">Published</span>
                         </div>
                     </a>
                     
-                    <a href="articles/cx-systems-framework.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors rounded-lg p-4">
+                    <a href="articles/cx-systems-framework.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors rounded-lg p-4">
                         <h3 class="font-bold text-lg mb-2">🎯 Designing Customer Experience Systems</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm">A practical framework with real results from the HubSpot Admin Program. Learn how to map touchpoints, standardize delivery, automate processes, and measure outcomes.</p>
                         <div class="mt-2">
-                            <span class="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">Published</span>
+                            <span class="inline-block bg-gray-200 dark:bg-zinc-800 text-gray-600 dark:text-zinc-400 px-3 py-1 rounded-md text-xs font-medium border border-gray-200 dark:border-zinc-800">Published</span>
                         </div>
                     </a>
                     
-                    <a href="articles/fitness-apps-journey.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors rounded-lg p-4">
+                    <a href="articles/fitness-apps-journey.html" class="blog-post-preview block hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-colors rounded-lg p-4">
                         <h3 class="font-bold text-lg mb-2">🏋️‍♂️ Behind the Scenes: The Trials and Triumphs of Creating Fitness Apps</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm">The challenges faced and overcome while building my first startup. From Flexter to Toned (#13 top-grossing Health & Fitness app), learn how we went from zero experience to 300k+ downloads and $300k+ in sales.</p>
                         <div class="mt-2">
-                            <span class="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">Published</span>
+                            <span class="inline-block bg-gray-200 dark:bg-zinc-800 text-gray-600 dark:text-zinc-400 px-3 py-1 rounded-md text-xs font-medium border border-gray-200 dark:border-zinc-800">Published</span>
                         </div>
                     </a>
                     
@@ -780,14 +790,14 @@
     </section>
     
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 bg-gray-50 dark:bg-gray-800/50">
+    <section id="contact" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03]">
         <div class="max-w-3xl mx-auto text-center">
             <div class="fade-in">
-                <h2 class="text-4xl font-bold mb-6">Let's build something useful.</h2>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-6">Let's build something useful.</h2>
                 <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                     Whether it's AI-powered internal tools, workflow automation, or developer productivity systems, I love turning friction into leverage.
                 </p>
-                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                <p class="text-lg text-gray-500 dark:text-gray-500 mb-8">
                     👇 Reach out, I'd love to chat.
                 </p>
                 <p class="text-sm text-gray-500 dark:text-gray-500 mb-8">
@@ -795,7 +805,7 @@
                 </p>
                 
                 <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <a href="mailto:jameson.campbell.me@gmail.com" class="btn-primary">
+                    <a href="mailto:jameson.campbell.me@gmail.com" class="btn-secondary">
                         Email Me
                     </a>
                     <a href="https://www.linkedin.com/in/jameson-campbell/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
@@ -814,11 +824,11 @@
     </main>
     
     <!-- Footer -->
-    <footer class="py-12 px-6 border-t border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto">
+    <footer class="py-16 px-6 border-t border-gray-200 dark:border-neutral-800">
+        <div class="max-w-6xl mx-auto">
             <!-- Philosophy Card -->
             <div class="max-w-3xl mx-auto mb-8">
-                <div class="bg-gradient-to-r from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/20 rounded-xl p-8 border border-accent/20 text-center">
+                <div class="bg-gray-50 dark:bg-neutral-900 rounded-xl p-8 border border-gray-200 dark:border-neutral-800 text-center">
                     <p class="text-xl italic text-gray-700 dark:text-gray-300 leading-relaxed">
                         "I build quietly useful systems, the kind that make work feel smoother the day they launch."
                     </p>
@@ -836,31 +846,31 @@
     <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
         <div class="relative max-w-7xl max-h-full mx-4">
             <!-- Close Button -->
-            <button onclick="closeGallery()" class="absolute top-4 right-4 z-10 bg-black bg-opacity-60 hover:bg-opacity-80 rounded-full p-2 transition-all duration-200 backdrop-blur-sm">
+            <button onclick="closeGallery()" class="absolute top-4 right-4 z-10 bg-black/70 hover:bg-black/90 rounded-md p-2 transition-colors duration-200 backdrop-blur-sm border border-white/10">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
             
             <!-- Previous Button -->
-            <button onclick="previousImage()" class="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black bg-opacity-60 hover:bg-opacity-80 rounded-full p-3 transition-all duration-200 backdrop-blur-sm">
+            <button onclick="previousImage()" class="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 rounded-md p-3 transition-colors duration-200 backdrop-blur-sm border border-white/10">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
             
             <!-- Next Button -->
-            <button onclick="nextImage()" class="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black bg-opacity-60 hover:bg-opacity-80 rounded-full p-3 transition-all duration-200 backdrop-blur-sm">
+            <button onclick="nextImage()" class="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 rounded-md p-3 transition-colors duration-200 backdrop-blur-sm border border-white/10">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
             </button>
             
             <!-- Image -->
-            <img id="galleryImage" src="" alt="Sock Scout visual search interface" class="max-w-full max-h-full object-contain rounded-lg">
+            <img id="galleryImage" src="" alt="Sock Scout visual search interface" class="max-w-full max-h-full object-contain rounded-xl shadow-lg">
             
             <!-- Image Counter -->
-            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-3 py-1.5 rounded-md text-sm backdrop-blur-sm border border-white/10">
                 <span id="imageCounter">1 / 3</span>
             </div>
         </div>
@@ -870,14 +880,14 @@
     <div id="architectureModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
         <div class="relative max-w-7xl max-h-full mx-4">
             <!-- Close Button -->
-            <button onclick="closeArchitectureModal()" class="absolute top-4 right-4 z-10 bg-black bg-opacity-60 hover:bg-opacity-80 rounded-full p-2 transition-all duration-200 backdrop-blur-sm">
+            <button onclick="closeArchitectureModal()" class="absolute top-4 right-4 z-10 bg-black/70 hover:bg-black/90 rounded-md p-2 transition-colors duration-200 backdrop-blur-sm border border-white/10">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
             
             <!-- Architecture Diagram -->
-            <img src="assets/diagrams/sock-scout-architecture-diagram.PNG" alt="Sock Scout architecture diagram showing system components and data flow" class="max-w-full max-h-full object-contain rounded-lg">
+            <img src="assets/diagrams/sock-scout-architecture-diagram.PNG" alt="Sock Scout architecture diagram showing system components and data flow" class="max-w-full max-h-full object-contain rounded-xl shadow-lg">
         </div>
     </div>
 

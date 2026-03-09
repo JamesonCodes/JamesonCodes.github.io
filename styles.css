@@ -5,72 +5,289 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Custom Button Styles */
+/* Typography base – body and headings inherit from Tailwind font-sans */
+body {
+    line-height: 1.6;
+}
+
+/* Custom Button Styles – monochrome, high-contrast */
 .btn-primary {
-    @apply px-6 py-3 bg-accent hover:bg-accent-dark text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    border: none;
+    transition: opacity 0.2s;
+}
+/* Light: black bg, white text */
+.btn-primary {
+    background-color: #000000;
+    color: #ffffff;
+}
+.btn-primary:hover {
+    opacity: 0.9;
+}
+/* Dark: white bg, black text */
+.dark .btn-primary {
+    background-color: #ffffff;
+    color: #000000;
+}
+.dark .btn-primary:hover {
+    opacity: 0.9;
 }
 
 .btn-secondary {
-    @apply px-6 py-3 bg-transparent border-2 border-accent text-accent hover:bg-accent hover:text-white font-semibold rounded-lg transition-all duration-300;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+/* Light: gray border, dark text */
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #d4d4d8;
+    color: #27272a;
+}
+.btn-secondary:hover {
+    background-color: #f4f4f5;
+}
+/* Dark: zinc-800 border, off-white text, hover zinc-900 fill */
+.dark .btn-secondary {
+    background-color: transparent;
+    border: 1px solid #27272a;
+    color: #f4f4f5;
+}
+.dark .btn-secondary:hover {
+    background-color: #18181b;
 }
 
-/* Navigation Links */
+/* Navigation Links – muted gray, white on hover (dark) */
 .nav-link {
-    @apply text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors duration-200 font-medium;
+    color: #4b5563;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.nav-link:hover {
+    color: #111827;
+}
+.dark .nav-link {
+    color: #a1a1aa;
+}
+.dark .nav-link:hover {
+    color: #ffffff;
 }
 
 .nav-link-mobile {
-    @apply text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-colors duration-200 font-medium py-2;
+    color: #4b5563;
+    font-weight: 500;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    transition: color 0.2s;
+}
+.nav-link-mobile:hover {
+    color: #111827;
+}
+.dark .nav-link-mobile {
+    color: #a1a1aa;
+}
+.dark .nav-link-mobile:hover {
+    color: #ffffff;
 }
 
-/* Badge Styles */
+/* Active nav link – high contrast */
+.nav-link.active {
+    color: #111827;
+}
+.dark .nav-link.active {
+    color: #ffffff;
+}
+.nav-link-mobile.active {
+    color: #111827;
+}
+.dark .nav-link-mobile.active {
+    color: #ffffff;
+}
+
+/* Badge Styles – neutral/muted, no color */
 .badge {
-    @apply inline-block px-4 py-2 bg-accent/10 dark:bg-accent/20 text-accent dark:text-accent rounded-full text-sm font-medium border border-accent/20;
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    background-color: #f4f4f5;
+    color: #52525b;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    border: 1px solid #e4e4e7;
+}
+.dark .badge {
+    background-color: #27272a;
+    color: #a1a1aa;
+    border-color: #3f3f46;
 }
 
 .badge-sm {
-    @apply inline-block px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+}
+.dark .badge-sm {
+    background-color: #262626;
+    color: #a3a3a3;
+    border-color: #404040;
 }
 
 .badge-philosophy {
-    @apply inline-block px-5 py-2 bg-gradient-to-r from-accent/20 to-accent/10 dark:from-accent/30 dark:to-accent/20 text-accent dark:text-accent rounded-lg text-sm font-bold border border-accent/30;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+}
+.dark .badge-philosophy {
+    background-color: #262626;
+    color: #e5e5e5;
+    border-color: #404040;
 }
 
-/* Metric Cards */
+/* Metric Cards – soft treatment, no strong gradient */
 .metric-card {
-    @apply bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/20 rounded-lg p-6 text-center border border-accent/20;
+    background-color: #f9fafb;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+.dark .metric-card {
+    background-color: #171717;
+    border-color: #262626;
 }
 
-/* Project Cards */
+/* Project Cards – subtle shadow, 2px lift on hover */
 .project-card {
-    @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:-translate-y-1;
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+}
+.project-card:hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    border-color: #d1d5db;
+    transform: translateY(-2px);
+}
+.dark .project-card {
+    background-color: #171717;
+    border-color: #262626;
+}
+.dark .project-card:hover {
+    border-color: #404040;
+}
+@media (min-width: 768px) {
+    .project-card {
+        padding: 2rem;
+    }
 }
 
 /* Tool Cards */
 .tool-card {
-    @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:-translate-y-1 hover:border-accent/30 dark:hover:border-accent/30;
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+}
+.tool-card:hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    border-color: #d1d5db;
+    transform: translateY(-2px);
+}
+.dark .tool-card {
+    background-color: #171717;
+    border-color: #262626;
+}
+.dark .tool-card:hover {
+    border-color: #404040;
+}
+@media (min-width: 768px) {
+    .tool-card {
+        padding: 2rem;
+    }
 }
 
-/* Project Links */
+/* Project Links – white (high importance) in dark, dark in light */
 .project-link {
-    @apply inline-flex items-center text-accent hover:text-accent-dark transition-colors font-medium;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.project-link {
+    color: #111827;
+}
+.project-link:hover {
+    color: #374151;
+}
+.dark .project-link {
+    color: #ffffff;
+}
+.dark .project-link:hover {
+    color: #a1a1aa;
 }
 
 /* Stack Category */
 .stack-category {
-    @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border border-gray-200 dark:border-gray-700;
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+.dark .stack-category {
+    background-color: #171717;
+    border-color: #262626;
 }
 
 /* Blog Post Preview */
 .blog-post-preview {
-    @apply bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700 hover:border-accent dark:hover:border-accent transition-colors cursor-pointer;
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    border: 1px solid #e5e7eb;
+    transition: border-color 0.2s, background-color 0.2s;
+    cursor: pointer;
+}
+.blog-post-preview:hover {
+    border-color: #d1d5db;
+    background-color: #f9fafb;
+}
+.dark .blog-post-preview {
+    background-color: #171717;
+    border-color: #262626;
+}
+.dark .blog-post-preview:hover {
+    border-color: #404040;
+    background-color: #262626;
+}
+@media (min-width: 768px) {
+    .blog-post-preview {
+        padding: 1.5rem;
+    }
 }
 
-/* Fade In Animations */
+/* Fade In Animations – subtle, minimal */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .fade-in.visible {
@@ -87,9 +304,9 @@ html {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar – neutral for minimal feel */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -97,21 +314,20 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2E9DFB;
-    border-radius: 5px;
+    background: #9ca3af;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #1E7FC7;
+    background: #6b7280;
 }
 
-/* Dark mode scrollbar */
 .dark ::-webkit-scrollbar-thumb {
-    background: #2E9DFB;
+    background: #4b5563;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-    background: #3DAEFF;
+    background: #6b7280;
 }
 
 /* Responsive Table */
@@ -133,9 +349,10 @@ a:not(.btn-primary):not(.btn-secondary):not(.nav-link):not(.nav-link-mobile):not
     position: relative;
 }
 
-/* Prose styling for About section */
+/* Prose styling for About section – readability and rhythm */
 .prose {
     max-width: 65ch;
+    line-height: 1.7;
 }
 
 .prose p {
@@ -145,23 +362,17 @@ a:not(.btn-primary):not(.btn-secondary):not(.nav-link):not(.nav-link-mobile):not
 .prose h3 {
     margin-top: 1.5em;
     margin-bottom: 0.75em;
+    font-weight: 700;
 }
 
-/* Hero gradient background subtle effect */
+/* Hero – no overlay; uses same background as body for consistent monochrome */
 #hero {
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(46, 157, 251, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(46, 157, 251, 0.03) 0%, transparent 50%);
+    background: transparent;
 }
 
-.dark #hero {
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(46, 157, 251, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(46, 157, 251, 0.05) 0%, transparent 50%);
-}
-
-/* Smooth transitions for theme toggle */
-* {
+/* Smooth transitions – color/background/border only to avoid layout jank */
+html body,
+html body * {
     transition-property: background-color, border-color, color;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
@@ -172,20 +383,23 @@ a:not(.btn-primary):not(.btn-secondary):not(.nav-link):not(.nav-link-mobile):not
     transition: none !important;
 }
 
-/* Focus styles for accessibility */
+/* Focus styles for accessibility – high contrast */
 a:focus,
 button:focus {
-    outline: 2px solid #2E9DFB;
+    outline: 2px solid #71717a;
     outline-offset: 2px;
 }
-
-/* Selection color */
-::selection {
-    background-color: rgba(46, 157, 251, 0.3);
-    color: inherit;
+.dark a:focus,
+.dark button:focus {
+    outline-color: #a1a1aa;
 }
 
+/* Selection – subtle gray */
+::selection {
+    background-color: rgba(0, 0, 0, 0.15);
+    color: inherit;
+}
 .dark ::selection {
-    background-color: rgba(46, 157, 251, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
