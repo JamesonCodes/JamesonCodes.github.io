@@ -666,6 +666,24 @@
                                 I use Lovable to spin up functional, interactive prototypes that users can actually click through and test. It allows me to validate the user flow and interface in minutes, ensuring the logic is sound before I move the project into Cursor for custom engineering.
                             </p>
                         </div>
+                        
+                        <div class="tool-card">
+                            <div class="flex items-center mb-3">
+                                <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
+                                    <a href="https://n8n.io" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+                                        <img src="assets/logos/n8n-dark.svg" alt="n8n" class="w-8 h-8 n8n-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                        <span class="text-2xl hidden">🔗</span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">n8n</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Agentic Automation</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                Visual workflow automation with AI nodes. Perfect for building intelligent AI agents, agentic workflows, data pipelines and automated business processes.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 
@@ -949,7 +967,7 @@
             if (e.target === this) closeArchitectureModal();
         });
         
-        // Theme-aware logo switching for Cursor, OpenAI, Vercel, and Lovable logos
+        // Theme-aware logo switching for Cursor, OpenAI, Vercel, Lovable, and n8n logos
         function updateThemeLogos() {
             const isDark = document.documentElement.classList.contains('dark');
             
@@ -990,6 +1008,16 @@
                     logo.src = 'assets/logos/lovable-light.svg';
                 } else {
                     logo.src = 'assets/logos/lovable-dark.svg';
+                }
+            });
+            
+            // Update n8n logos
+            const n8nLogos = document.querySelectorAll('.n8n-logo');
+            n8nLogos.forEach(logo => {
+                if (isDark) {
+                    logo.src = 'assets/logos/n8n-light.svg';
+                } else {
+                    logo.src = 'assets/logos/n8n-dark.svg';
                 }
             });
         }
