@@ -634,18 +634,18 @@
                         <div class="tool-card">
                             <div class="flex items-center mb-3">
                                 <div class="w-12 h-12 bg-gray-200 dark:bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
-                                    <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
-                                        <img src="assets/logos/openai-dark.svg" alt="ChatGPT" class="w-8 h-8 openai-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                        <span class="text-2xl hidden">🏗️</span>
+                                    <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" class="transition-transform hover:scale-110">
+                                        <img src="assets/logos/vercel-icon-light.svg" alt="Vercel" class="w-8 h-8 vercel-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                        <span class="text-2xl hidden">▲</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-lg">ChatGPT</h4>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Architecture Decisions</p>
+                                    <h4 class="font-bold text-lg">Vercel</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Deployment & Next.js Stack</p>
                                 </div>
                             </div>
                             <p class="text-gray-700 dark:text-gray-300 text-sm">
-                                For system design, architectural decisions, and complex problem-solving. Think of it as having a senior architect on standby.
+                                My go-to for shipping and scaling. While I primarily use it for hosting Next.js apps, I'm actively integrating the Vercel AI SDK and exploring their newer agentic infrastructure like AI Gateway.
                             </p>
                         </div>
                     </div>
@@ -1012,6 +1012,16 @@
                     logo.src = 'assets/logos/openai-light.svg'; // Light logo on dark background
                 } else {
                     logo.src = 'assets/logos/openai-dark.svg'; // Dark logo on light background
+                }
+            });
+            
+            // Update Vercel logos
+            const vercelLogos = document.querySelectorAll('.vercel-logo');
+            vercelLogos.forEach(logo => {
+                if (isDark) {
+                    logo.src = 'assets/logos/vercel-icon-dark.svg';
+                } else {
+                    logo.src = 'assets/logos/vercel-icon-light.svg';
                 }
             });
             
