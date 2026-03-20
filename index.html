@@ -49,7 +49,10 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="favicon.svg">
     
-    <!-- Typography: Geist Sans + Geist Mono (Vercel design system) -->
+    <!-- Typography: Geist + Bricolage Grotesque -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,500;10..48,700;10..48,800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/geist-sans.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/geist-mono.css">
@@ -83,6 +86,7 @@
                     fontFamily: {
                         sans: ['Geist', 'Geist Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         mono: ['Geist Mono', 'SF Mono', 'Monaco', 'monospace'],
+                        display: ['Bricolage Grotesque', 'Geist', 'sans-serif'],
                     },
                     fontSize: {
                         'hero': ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '1.15' }],
@@ -99,11 +103,11 @@
 <body class="font-sans antialiased bg-white dark:bg-neutral-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-md z-50 border-b border-gray-200/80 dark:border-neutral-800 transition-all duration-300">
+    <nav id="navbar" class="site-nav fixed top-0 left-0 right-0 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-md z-50 border-b border-gray-200/80 dark:border-neutral-800 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 py-5">
             <div class="flex items-center justify-between">
                 <!-- Logo/Name -->
-                <a href="#hero" class="text-xl font-bold text-gray-900 dark:text-white hover:opacity-90 transition-opacity">
+                <a href="#hero" class="text-xl font-bold text-gray-900 dark:text-white hover:opacity-90 transition-opacity font-display tracking-tight">
                     Jameson Campbell
                 </a>
                 
@@ -128,7 +132,7 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Toggle mobile menu">
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -136,7 +140,7 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2" aria-hidden="true">
                 <div class="flex flex-col space-y-3">
                     <a href="#projects" class="nav-link-mobile">Projects</a>
                     <a href="#about" class="nav-link-mobile">About</a>
@@ -162,12 +166,12 @@
                 </div>
                 
                 <!-- Headline -->
-                <h1 class="text-hero font-bold text-gray-900 dark:text-white mb-6 px-4">
-                    I build AI-enabled internal tools & systems that help teams move faster.
+                <h1 class="text-hero font-bold text-gray-900 dark:text-white mb-6 px-4 font-display tracking-tight">
+                    I build AI-enabled internal tools & systems that help teams move&nbsp;faster.
                 </h1>
                 
                 <!-- Subheadline -->
-                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 leading-relaxed max-w-3xl mx-auto px-4">
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto px-4">
                     Sales Ops by title, Systems Builder by craft. I prototype, automate, and scale solutions that remove friction across marketing, sales, design, and ops.                </p>
                 
                 <!-- CTA Buttons -->
@@ -184,35 +188,38 @@
     </section>
     
     <!-- Featured Project Section -->
-    <section id="featured-project" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03]">
+    <section id="featured-project" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03] section-break">
         <div class="max-w-5xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center">Featured Project</h2>
-                <div class="bg-white dark:bg-neutral-900 rounded-2xl shadow-sm p-8 md:p-12 border border-gray-200 dark:border-neutral-800">
-                    <h3 class="text-3xl font-bold mb-4">Semantic Visual Search for Creative Teams</h3>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center font-display tracking-tight">Featured Project</h2>
+                <div class="surface-card rounded-2xl p-8 md:p-12">
+                    <h3 class="text-3xl font-bold mb-4 font-display tracking-tight">Semantic Visual Search for Creative Teams</h3>
                     
                     <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
                         Replaced chaotic Dropbox searches with a semantic, vibe-based search experience for 100k+ design assets.
                     </p>
                     
                     <!-- Stack -->
-                    <p class="text-gray-600 dark:text-gray-400 mb-8 font-mono text-sm">
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 font-mono text-sm">
                         <span class="font-semibold text-gray-700 dark:text-gray-300">Stack:</span> Next.js/React · TypeScript · FastAPI · Vertex AI · Pinecone · AWS
                     </p>
                     
                     <!-- Impact Metrics -->
                     <div class="grid md:grid-cols-3 gap-6 mb-8">
                         <div class="metric-card">
+                            <div class="metric-kicker">Adoption</div>
                             <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">15/30</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Target team members use daily</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Target team members use daily</div>
                         </div>
                         <div class="metric-card">
+                            <div class="metric-kicker">Speed</div>
                             <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">10x</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Faster search experience</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Faster search experience</div>
                         </div>
                         <div class="metric-card">
+                            <div class="metric-kicker">Efficiency</div>
                             <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">~40%</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Reduced lost-asset time</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Reduced lost-asset time</div>
                         </div>
                     </div>
                     
@@ -229,7 +236,7 @@
                         </div>
                         
                         <!-- Outcome -->
-                        <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 rounded-r-lg p-6">
+                        <div class="bg-emerald-50 dark:bg-emerald-900/20 border-l-4 border-emerald-500 rounded-r-lg p-6">
                             <h4 class="font-bold text-lg mb-3 flex items-center">
                                 <span class="text-2xl mr-2">✅</span>
                                 Outcome
@@ -255,6 +262,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mt-8 flex justify-end">
+                        <a href="#projects" class="inline-flex items-center project-link">See all projects -></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -264,11 +274,11 @@
     <section id="projects" class="py-16 md:py-24 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-12 text-center">What I Build</h2>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-12 text-center font-display tracking-tight">What I Build</h2>
                 
                 <!-- Work Projects -->
                 <div class="mb-16">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Work Projects</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white font-display">Work Projects</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Email Triage AI Assistant -->
                         <div class="project-card">
@@ -307,7 +317,7 @@
                 
                 <!-- Personal Tools -->
                 <div>
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Personal Tools & Experiments</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white font-display">Personal Tools & Experiments</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- AI Button Share Generator -->
                         <div class="project-card">
@@ -379,6 +389,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-10 flex justify-end">
+                    <a href="#writing" class="inline-flex items-center project-link">Read my frameworks -></a>
+                </div>
             </div>
         </div>
     </section>
@@ -387,7 +400,7 @@
     <section id="about" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03]">
         <div class="max-w-4xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-12 text-center">About Me</h2>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-12 text-center font-display tracking-tight">About Me</h2>
                 
                 <div class="prose prose-lg dark:prose-invert max-w-none">
                     <p class="text-xl leading-relaxed mb-6">
@@ -432,8 +445,8 @@
     <section id="philosophy" class="py-16 md:py-24 px-6">
         <div class="max-w-5xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center">Approach / Philosophy</h2>
-                <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center font-display tracking-tight">Approach / Philosophy</h2>
+                <p class="text-center text-gray-600 dark:text-gray-300 mb-12 text-lg">
                     How I think about building internal tools
                 </p>
                 
@@ -591,17 +604,17 @@
     </section>
     
     <!-- AI Development Arsenal Section -->
-    <section id="ai-arsenal" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03]">
+    <section id="ai-arsenal" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03] section-break">
         <div class="max-w-6xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center">AI Development Arsenal</h2>
-                <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg max-w-3xl mx-auto">
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center font-display tracking-tight">AI Development Arsenal</h2>
+                <p class="text-center text-gray-600 dark:text-gray-300 mb-12 text-lg max-w-3xl mx-auto">
                     The tools that make me 10× faster. My curated stack for AI-enhanced development, rapid prototyping, and intelligent automation.
                 </p>
                 
                 <!-- Development Core -->
                 <div class="mb-12">
-                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">🧠 AI Development Core</h3>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white font-display">🧠 AI Development Core</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="tool-card">
                             <div class="flex items-center mb-3">
@@ -711,8 +724,8 @@
     <section id="writing" class="py-16 md:py-24 px-6">
         <div class="max-w-4xl mx-auto">
             <div class="fade-in">
-                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center">Writing</h2>
-                <p class="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-4 text-center font-display tracking-tight">Writing</h2>
+                <p class="text-center text-gray-600 dark:text-gray-300 mb-12 text-lg">
                     Stories and frameworks from building tools, services, and products
                 </p>
                 
@@ -769,6 +782,9 @@
                         <p class="text-gray-600 dark:text-gray-400 text-sm">Coming soon...</p>
                     </div>
                 </div>
+                <div class="mt-10 flex justify-end">
+                    <a href="#contact" class="inline-flex items-center project-link">Start a conversation -></a>
+                </div>
             </div>
         </div>
     </section>
@@ -777,7 +793,7 @@
     <section id="contact" class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03]">
         <div class="max-w-3xl mx-auto text-center">
             <div class="fade-in">
-                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-6">Let's build something useful.</h2>
+                <h2 class="text-section font-bold text-gray-900 dark:text-white mb-6 font-display tracking-tight">Let's build something useful.</h2>
                 <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
                     Whether it's AI-powered internal tools, workflow automation, or developer productivity systems, I love turning friction into leverage.
                 </p>
@@ -975,7 +991,7 @@
             if (e.target === this) closeArchitectureModal();
         });
         
-        // Theme-aware logo switching for Cursor, OpenAI, Vercel, Lovable, and n8n logos
+        // Theme-aware asset switching utility for logos and project imagery
         function updateThemeLogos() {
             const isDark = document.documentElement.classList.contains('dark');
             
@@ -1029,33 +1045,27 @@
                 }
             });
         }
-        
-        // Update logos on page load
-        updateThemeLogos();
-        
-        // Update logos and featured project image when theme changes
+
         function updateFeaturedProjectImage() {
             const isDark = document.documentElement.classList.contains('dark');
             const featuredImage = document.querySelector('#featured-project img[alt*="Sock Scout"]');
             if (featuredImage) {
                 featuredImage.src = isDark ? 'assets/projects/SS_Badge_Dark_Mode.png' : 'assets/projects/SS_Badge_Light_Mode.png';
-                featuredImage.alt = isDark ? 'Sock Scout badge interface' : 'Sock Scout badge interface';
+                featuredImage.alt = 'Sock Scout badge interface';
             }
+        }
+
+        function applyThemeAssets() {
+            updateThemeLogos();
+            updateFeaturedProjectImage();
+            updateGalleryImage();
         }
         
         document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('theme-toggle');
-            if (themeToggle) {
-                themeToggle.addEventListener('click', function() {
-                    setTimeout(() => {
-                        updateThemeLogos();
-                        updateFeaturedProjectImage();
-                    }, 100); // Small delay to ensure theme class is applied
-                });
-            }
-            // Update featured project image on page load
-            updateFeaturedProjectImage();
+            applyThemeAssets();
         });
+
+        window.addEventListener('theme:changed', applyThemeAssets);
     </script>
 </body>
 </html>
