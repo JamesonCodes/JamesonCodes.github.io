@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A free 30-minute workflow audit template for Ops teams to identify repeated, painful workflows and leave with a ranked shortlist before building automations, internal tools, or AI agents.">
+    <title>Workflow Friction Audit | Workflow Audit Template | Jameson Campbell</title>
+
+    <meta name="keywords" content="workflow friction audit, workflow audit, process audit, workflow design, internal tools, automation consultant, RevOps, operations systems, AI agents">
+    <meta name="author" content="Jameson Campbell">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Workflow Friction Audit">
+    <meta property="og:description" content="A free 30-minute workflow audit to help Ops teams find the workflows worth fixing before building automations, internal tools, or AI agents.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jamesoncodes.github.io/workflow-friction-audit.html">
+    <meta property="og:image" content="https://jamesoncodes.github.io/assets/og/workflow-friction-audit-og.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Workflow Friction Audit">
+    <meta name="twitter:description" content="A free 30-minute workflow audit to help Ops teams find the workflows worth fixing before building automations, internal tools, or AI agents.">
+    <meta name="twitter:image" content="https://jamesoncodes.github.io/assets/og/workflow-friction-audit-og.png">
+
+    <link rel="canonical" href="https://jamesoncodes.github.io/workflow-friction-audit.html">
+
+    <script type="application/ld+json">
+	    {
+	      "@context": "https://schema.org",
+	      "@type": "WebPage",
+	      "name": "Workflow Friction Audit",
+	      "headline": "Workflow Friction Audit",
+	      "url": "https://jamesoncodes.github.io/workflow-friction-audit.html",
+	      "description": "A free workflow audit resource by Jameson Campbell to help teams identify repeated, painful, high-impact workflows before investing in automations, internal tools, or AI agents.",
+	      "primaryImageOfPage": "https://jamesoncodes.github.io/assets/og/workflow-friction-audit-og.png",
+	      "isPartOf": {
+	        "@type": "WebSite",
+	        "name": "Jameson Campbell",
+	        "url": "https://jamesoncodes.github.io/"
+	      },
+	      "mainEntity": {
+	        "@type": "CreativeWork",
+	        "name": "Workflow Friction Audit",
+	        "description": "A free 30-minute workflow audit template for Ops teams to identify repeated, painful workflows and leave with a ranked shortlist before building automations, internal tools, or AI agents.",
+	        "url": "https://jamesoncodes.github.io/workflow-friction-audit.html",
+	        "author": {
+	          "@type": "Person",
+	          "name": "Jameson Campbell",
+	          "url": "https://jamesoncodes.github.io/"
+	        },
+	        "about": [
+	          "Workflow audit",
+	          "Workflow design",
+	          "Internal tools",
+	          "Automation consulting",
+	          "RevOps"
+	        ],
+	        "audience": {
+	          "@type": "Audience",
+	          "audienceType": "Ops and RevOps teams"
+	        },
+	        "encodingFormat": "text/markdown",
+	        "associatedMedia": {
+	          "@type": "MediaObject",
+	          "contentUrl": "https://jamesoncodes.github.io/assets/resources/workflow-friction-audit-template.md",
+	          "encodingFormat": "text/markdown",
+	          "name": "Workflow Friction Audit Template"
+	        }
+	      },
+	      "author": {
+	        "@type": "Person",
+	        "name": "Jameson Campbell",
+        "url": "https://jamesoncodes.github.io/"
+      },
+      "about": [
+        "Workflow design",
+        "Process audits",
+        "Internal tools",
+        "Automation consulting",
+        "AI-enabled operations"
+      ]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,500;10..48,700;10..48,800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/geist-sans.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/geist-mono.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        white: '#FFFFFF',
+                        alabaster: '#FAFAFA',
+                        codGray: '#171717',
+                        zinc: {
+                            100: '#f4f4f5',
+                            400: '#a1a1aa',
+                            800: '#27272a',
+                            900: '#18181b',
+                        },
+                        neutral: {
+                            50: '#FAFAFA',
+                            800: '#262626',
+                            900: '#171717',
+                            950: '#171717',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Geist', 'Geist Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['Geist Mono', 'SF Mono', 'Monaco', 'monospace'],
+                        display: ['Bricolage Grotesque', 'Geist', 'sans-serif'],
+                    },
+                    fontSize: {
+                        'hero': ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '1.1' }],
+                        'section': ['clamp(1.75rem, 3vw, 2.25rem)', { lineHeight: '1.2' }],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans antialiased bg-white dark:bg-neutral-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <nav id="navbar" class="site-nav fixed top-0 left-0 right-0 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-md z-50 border-b border-gray-200/80 dark:border-neutral-800 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-5">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-xl font-bold text-gray-900 dark:text-white hover:opacity-90 transition-opacity font-display tracking-tight">
+                    Jameson Campbell
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#projects" class="nav-link">Projects</a>
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#philosophy" class="nav-link">Philosophy</a>
+                    <a href="index.html#ai-arsenal" class="nav-link">AI Arsenal</a>
+                    <a href="index.html#writing" class="nav-link">Writing</a>
+                    <a href="#resources" class="nav-link">Resources</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2" aria-hidden="true">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html#projects" class="nav-link-mobile">Projects</a>
+                    <a href="index.html#about" class="nav-link-mobile">About</a>
+                    <a href="index.html#philosophy" class="nav-link-mobile">Philosophy</a>
+                    <a href="index.html#ai-arsenal" class="nav-link-mobile">AI Arsenal</a>
+                    <a href="index.html#writing" class="nav-link-mobile">Writing</a>
+                    <a href="#resources" class="nav-link-mobile">Resources</a>
+                    <a href="index.html#contact" class="nav-link-mobile">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="resources" class="audit-page pt-32 pb-20 px-6 overflow-hidden">
+            <div class="max-w-6xl mx-auto">
+                <div class="lead-magnet-panel audit-hero rounded-[2rem] p-8 md:p-12 lg:p-14 fade-in">
+                    <div class="audit-hero-grid">
+                        <div class="audit-hero-copy">
+                            <div class="resource-kicker mb-6">Free workflow resource</div>
+                            <p class="audit-eyebrow">Workflow design / operations systems / internal tools</p>
+                            <h1 class="text-hero font-bold text-gray-900 dark:text-white font-display tracking-tight mb-6">
+                                Workflow Friction Audit
+                            </h1>
+                            <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mb-6">
+                                Find the workflows worth fixing before you invest in automations, internal tools, or AI agents.
+                            </p>
+                            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mb-8">
+                                In 30 minutes, this audit helps your team leave with a ranked shortlist of workflows worth redesigning, standardizing, automating, or removing.
+                            </p>
+                            <p class="text-base text-gray-500 dark:text-gray-400 leading-relaxed max-w-3xl mb-8">
+                                This workflow audit helps Ops teams identify which processes are worth redesigning before investing in automation.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="assets/resources/workflow-friction-audit-template.md" class="btn-primary" download>
+                                    Get the Template
+                                </a>
+                                <a href="mailto:jameson.campbell.me@gmail.com?subject=Workflow%20Design%20Inquiry" class="btn-secondary">
+                                    Talk About Workflow Design
+                                </a>
+                            </div>
+                            <div class="audit-hero-meta mt-10">
+                                <div class="audit-meta-card">
+                                    <span class="audit-meta-label">Session</span>
+                                    <span class="audit-meta-value">30 min</span>
+                                </div>
+                                <div class="audit-meta-card">
+                                    <span class="audit-meta-label">Outcome</span>
+                                    <span class="audit-meta-value">Ranked shortlist</span>
+                                </div>
+                                <div class="audit-meta-card">
+                                    <span class="audit-meta-label">Best fit</span>
+                                    <span class="audit-meta-value">Ops / RevOps</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="worksheet-shell audit-console rounded-[1.9rem] p-6 md:p-7">
+                            <div class="audit-console-head">
+                                <div>
+                                    <p class="audit-console-label">Audit console</p>
+                                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-2">What you leave with</h2>
+                                    <div class="console-chip-group audit-console-chips mt-3">
+                                        <span class="status-chip status-chip-high">High-fit</span>
+                                        <span class="status-chip status-chip-neutral">Operator-ready</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="console-shortlist">
+                                <div class="console-shortlist-header">
+                                    <span>Top workflows to fix</span>
+                                    <span>Priority index</span>
+                                </div>
+                                <div class="console-row console-row-primary">
+                                    <div class="console-row-rank">01</div>
+                                    <div class="console-row-body">
+                                        <div class="console-row-title">Sample request intake</div>
+                                        <div class="console-row-copy">High-friction request workflow with scattered context and strong automation potential.</div>
+                                    </div>
+                                    <div class="console-score">9.4</div>
+                                </div>
+                                <div class="console-row">
+                                    <div class="console-row-rank">02</div>
+                                    <div class="console-row-body">
+                                        <div class="console-row-title">Lead routing corrections</div>
+                                        <div class="console-row-copy">Frequent manual cleanup triggered by ownership logic and source-data gaps.</div>
+                                    </div>
+                                    <div class="console-score">8.8</div>
+                                </div>
+                                <div class="console-row">
+                                    <div class="console-row-rank">03</div>
+                                    <div class="console-row-body">
+                                        <div class="console-row-title">Forecast cleanup</div>
+                                        <div class="console-row-copy">Important weekly review prep with medium standardization and strong redesign value.</div>
+                                    </div>
+                                    <div class="console-score">7.6</div>
+                                </div>
+                            </div>
+
+                            <div class="console-grid">
+                                <div class="console-tile">
+                                    <div class="console-tile-kicker">Repeated work</div>
+                                    <p>The workflows your team does often enough to justify fixing.</p>
+                                </div>
+                                <div class="console-tile">
+                                    <div class="console-tile-kicker">Visible friction</div>
+                                    <p>The manual steps, delays, and context gaps slowing execution down.</p>
+                                </div>
+                                <div class="console-tile">
+                                    <div class="console-tile-kicker">Clear priorities</div>
+                                    <p>A shortlist of workflows worth improving, standardizing, or automating first.</p>
+                                </div>
+                                <div class="console-tile">
+                                    <div class="console-tile-kicker">Next actions</div>
+                                    <p>A better sense of what should be redesigned, automated, delegated, or removed.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="fade-in audit-editorial">
+                    <div class="audit-split-head">
+                        <p class="audit-section-kicker">Why this exists</p>
+                        <h2 class="audit-editorial-title">Most workflow problems get disguised as tooling problems.</h2>
+                    </div>
+                    <div class="audit-editorial-body">
+                        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Most teams do not start with a software problem. They start with work that is repeated, patched, and harder than it should be. This audit helps you identify the right workflow problems before you build around the wrong ones.
+                        </p>
+                        <div class="editorial-argument-grid">
+                            <article class="project-card editorial-panel">
+                                <div class="editorial-index">Signal 01</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Teams jump to tools too early</h3>
+                                <p class="text-gray-600 dark:text-gray-400">They reach for software before they understand where the workflow is actually breaking.</p>
+                            </article>
+                            <article class="project-card editorial-panel editorial-panel-offset">
+                                <div class="editorial-index">Signal 02</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Workflow drag compounds quietly</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Manual repetition, unclear handoffs, and missing context create more cost than teams usually measure.</p>
+                            </article>
+                            <article class="project-card editorial-panel">
+                                <div class="editorial-index">Signal 03</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Better prioritization creates better systems</h3>
+                                <p class="text-gray-600 dark:text-gray-400">A short list of high-friction, high-impact workflows is a stronger starting point than a long backlog of vague ideas.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03] section-break">
+            <div class="max-w-6xl mx-auto">
+                <div class="fade-in">
+                    <div class="audit-section-head">
+                        <p class="audit-section-kicker">What you get</p>
+                        <h2 class="text-section font-bold text-gray-900 dark:text-white font-display tracking-tight mb-4">What you get from the audit</h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+                            A simple working tool for operators, RevOps leads, and teams trying to decide what is actually worth fixing first.
+                        </p>
+                    </div>
+                    <div class="outcome-matrix">
+                        <div class="lead-magnet-card outcome-card outcome-card-wide">
+                            <div class="outcome-number">01</div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">A list of repeated workflows</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Capture the tasks your team repeats every day or week instead of relying on general complaints.</p>
+                            </div>
+                        </div>
+                        <div class="lead-magnet-card outcome-card">
+                            <div class="outcome-number">02</div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">A clearer view of friction</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Surface where work gets stuck, slowed down, handed off poorly, or done from scratch each time.</p>
+                            </div>
+                        </div>
+                        <div class="lead-magnet-card outcome-card">
+                            <div class="outcome-number">03</div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">A ranked shortlist</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Identify which workflows are the strongest candidates for redesign, standardization, or automation.</p>
+                            </div>
+                        </div>
+                        <div class="lead-magnet-card outcome-card outcome-card-wide">
+                            <div class="outcome-number">04</div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">A better next step</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Use the results to scope process changes, internal tools, scripts, or AI-assisted workflows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="fade-in">
+                    <div class="audit-process-layout">
+                        <div class="audit-process-intro">
+                            <p class="audit-section-kicker">How it works</p>
+                            <h2 class="text-section font-bold text-gray-900 dark:text-white font-display tracking-tight mb-4">Run the audit in three steps</h2>
+                            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                                Start with one question: what does your team do repeatedly that feels manual, slow, inconsistent, or more annoying than it should be?
+                            </p>
+                        </div>
+                        <div class="process-rail">
+                            <div class="surface-card process-step">
+                                <div class="process-step-index">Step 1</div>
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-3">List repeated work</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Write down the workflows your team handles often across sales support, RevOps, customer operations, or internal coordination.</p>
+                            </div>
+                            <div class="surface-card process-step">
+                                <div class="process-step-index">Step 2</div>
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-3">Score each workflow</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Rate each one by frequency, friction, business importance, and how standardizable it is.</p>
+                            </div>
+                            <div class="surface-card process-step">
+                                <div class="process-step-index">Step 3</div>
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-3">Choose the top priorities</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Focus on the workflows that are frequent, painful, important, and realistic to improve.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03] section-break">
+            <div class="max-w-6xl mx-auto">
+                <div class="fade-in">
+                    <div class="audit-section-head">
+                        <p class="audit-section-kicker">Scoring framework</p>
+                        <h2 class="text-section font-bold text-gray-900 dark:text-white font-display tracking-tight mb-4">Score each workflow across four criteria</h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+                            These four criteria help you separate everyday annoyances from workflows that are actually worth redesigning or automating.
+                        </p>
+                    </div>
+                    <div class="criteria-grid">
+                        <div class="project-card criteria-tile">
+                            <div class="criteria-label">Lens 01</div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Frequency</h3>
+                            <p class="text-gray-600 dark:text-gray-400">How often the workflow happens. Repeated work creates more leverage than occasional exceptions.</p>
+                        </div>
+                        <div class="project-card criteria-tile">
+                            <div class="criteria-label">Lens 02</div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Pain / Friction</h3>
+                            <p class="text-gray-600 dark:text-gray-400">How slow, manual, confusing, or error-prone the workflow feels to the people doing it.</p>
+                        </div>
+                        <div class="project-card criteria-tile">
+                            <div class="criteria-label">Lens 03</div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Business Importance</h3>
+                            <p class="text-gray-600 dark:text-gray-400">What happens if the workflow breaks. The stronger the downstream consequence, the more it matters.</p>
+                        </div>
+                        <div class="project-card criteria-tile">
+                            <div class="criteria-label">Lens 04</div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Standardization Potential</h3>
+                            <p class="text-gray-600 dark:text-gray-400">How consistently the workflow can be performed. Repeatable work is easier to systemize and automate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="fade-in">
+                    <div class="worksheet-header">
+                        <div class="max-w-3xl">
+                            <p class="audit-section-kicker">Worksheet preview</p>
+                            <h2 class="text-section font-bold text-gray-900 dark:text-white font-display tracking-tight mb-4">Preview the worksheet</h2>
+                            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                                Use the worksheet to run the audit in one sitting, or download it and adapt it to your own team. The goal is simple: leave with a shortlist, not a brainstorm.
+                            </p>
+                        </div>
+                        <a href="assets/resources/workflow-friction-audit-template.md" class="btn-secondary self-start lg:self-auto" download>
+                            Download Worksheet
+                        </a>
+                    </div>
+
+                    <div class="worksheet-shell worksheet-stage rounded-[1.9rem] p-5 md:p-7">
+                        <div class="worksheet-summary">
+                            <div class="worksheet-summary-item">
+                                <span class="worksheet-summary-label">Top workflow</span>
+                                <span class="worksheet-summary-value">Sample request intake</span>
+                            </div>
+                            <div class="worksheet-summary-item">
+                                <span class="worksheet-summary-label">Highest pain</span>
+                                <span class="worksheet-summary-value">5 / 5</span>
+                            </div>
+                            <div class="worksheet-summary-item">
+                                <span class="worksheet-summary-label">Best automation fit</span>
+                                <span class="worksheet-summary-value">High standardization</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-gray-200 dark:border-neutral-800 pb-5 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Workflow Friction Audit</h3>
+                                <p class="text-sm font-mono text-gray-500 dark:text-gray-400 mt-2">Team / Function: RevOps and sales support</p>
+                            </div>
+                            <div class="text-sm font-mono text-gray-500 dark:text-gray-400">
+                                Owner: Ops lead
+                            </div>
+                        </div>
+
+                        <div class="hidden lg:block overflow-x-auto">
+                            <table class="worksheet-table w-full text-sm border-separate border-spacing-y-3">
+                                <thead>
+                                    <tr class="text-left text-gray-500 dark:text-gray-400">
+                                        <th class="px-4 py-3 font-medium">Workflow</th>
+                                        <th class="px-4 py-3 font-medium">Frequency</th>
+                                        <th class="px-4 py-3 font-medium">Pain</th>
+                                        <th class="px-4 py-3 font-medium">Importance</th>
+                                        <th class="px-4 py-3 font-medium">Standardization</th>
+                                        <th class="px-4 py-3 font-medium">What makes it painful?</th>
+                                        <th class="px-4 py-3 font-medium">If it breaks, what happens?</th>
+                                        <th class="px-4 py-3 font-medium">Recommended action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="worksheet-row worksheet-row-secondary">
+                                        <td class="px-4 py-4 font-semibold text-gray-900 dark:text-white">Lead routing corrections</td>
+                                        <td class="px-4 py-4"><span class="status-chip status-chip-neutral">Daily</span></td>
+                                        <td class="px-4 py-4"><span class="score-badge">4</span></td>
+                                        <td class="px-4 py-4"><span class="score-badge score-badge-strong">5</span></td>
+                                        <td class="px-4 py-4"><span class="status-chip status-chip-high">High</span></td>
+                                        <td class="px-4 py-4 text-gray-600 dark:text-gray-400">Reps send manual Slack pings when ownership logic fails or source data is incomplete.</td>
+                                        <td class="px-4 py-4 text-gray-600 dark:text-gray-400">High-value leads sit untouched and attribution gets messy.</td>
+                                        <td class="px-4 py-4"><span class="status-chip status-chip-action">Improve / Automate</span></td>
+                                    </tr>
+                                    <tr class="worksheet-row worksheet-row-primary">
+                                        <td class="px-4 py-4 font-semibold text-gray-900 dark:text-white">Sample request intake</td>
+                                        <td class="px-4 py-4"><span class="status-chip status-chip-neutral">Daily</span></td>
+                                        <td class="px-4 py-4"><span class="score-badge score-badge-strong">5</span></td>
+                                        <td class="px-4 py-4"><span class="score-badge">4</span></td>
+                                        <td class="px-4 py-4"><span class="status-chip status-chip-high">High</span></td>
+                                        <td class="px-4 py-4 text-gray-600 dark:text-gray-400">Customer context lives across email threads, CRM notes, and spreadsheets.</td>
+                                        <td class="px-4 py-4 text-gray-600 dark:text-gray-400">Wrong details get submitted, which delays fulfillment and follow-up.</td>
+                                        <td class="px-4 py-4"><span class="status-chip status-chip-action">Standardize / Automate</span></td>
+                                    </tr>
+                                    <tr class="worksheet-row worksheet-row-tertiary">
+                                        <td class="px-4 py-4 font-semibold text-gray-900 dark:text-white">Weekly forecast cleanup</td>
+                                        <td class="px-4 py-4"><span class="status-chip status-chip-neutral">Weekly</span></td>
+                                        <td class="px-4 py-4"><span class="score-badge">3</span></td>
+                                        <td class="px-4 py-4"><span class="score-badge score-badge-strong">5</span></td>
+                                        <td class="px-4 py-4"><span class="status-chip status-chip-mid">Medium</span></td>
+                                        <td class="px-4 py-4 text-gray-600 dark:text-gray-400">Managers reconcile stale fields by hand before leadership reviews.</td>
+                                        <td class="px-4 py-4 text-gray-600 dark:text-gray-400">Forecast confidence drops and meeting time gets spent debugging data.</td>
+                                        <td class="px-4 py-4"><span class="status-chip status-chip-action">Improve / Delegate</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="worksheet-mobile grid gap-4 lg:hidden">
+                            <div class="lead-magnet-card worksheet-record">
+                                <div class="worksheet-record-head">
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">Lead routing corrections</h4>
+                                    <span class="status-chip status-chip-high">High priority</span>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Frequency: Daily · Pain: <span class="score-inline">4</span> · Importance: <span class="score-inline strong">5</span> · Standardization: High</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Pain: Reps manually chase ownership fixes in Slack when source data is incomplete.</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Action: <span class="status-chip status-chip-action">Improve / Automate</span></p>
+                            </div>
+                            <div class="lead-magnet-card worksheet-record worksheet-record-primary">
+                                <div class="worksheet-record-head">
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">Sample request intake</h4>
+                                    <span class="status-chip status-chip-high">Automation fit</span>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Frequency: Daily · Pain: <span class="score-inline strong">5</span> · Importance: <span class="score-inline">4</span> · Standardization: High</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Pain: Context is scattered across inboxes, CRM notes, and spreadsheets.</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Action: <span class="status-chip status-chip-action">Standardize / Automate</span></p>
+                            </div>
+                            <div class="lead-magnet-card worksheet-record">
+                                <div class="worksheet-record-head">
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">Weekly forecast cleanup</h4>
+                                    <span class="status-chip status-chip-mid">Needs redesign</span>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Frequency: Weekly · Pain: <span class="score-inline">3</span> · Importance: <span class="score-inline strong">5</span> · Standardization: Medium</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Pain: Managers reconcile stale fields by hand before reviews.</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Action: <span class="status-chip status-chip-action">Improve / Delegate</span></p>
+                            </div>
+                        </div>
+
+                        <div class="worksheet-footer grid md:grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-200 dark:border-neutral-800">
+                            <div>
+                                <p class="text-sm font-mono text-gray-500 dark:text-gray-400 mb-2">Top 3 workflows to fix</p>
+                                <ol class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                                    <li>1. Sample request intake</li>
+                                    <li>2. Lead routing corrections</li>
+                                    <li>3. Weekly forecast cleanup</li>
+                                </ol>
+                            </div>
+                            <div>
+                                <p class="text-sm font-mono text-gray-500 dark:text-gray-400 mb-2">Observations</p>
+                                <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                                    <li>Manual re-entry is a recurring root cause.</li>
+                                    <li>Ownership logic is unclear at key handoffs.</li>
+                                    <li>High-value workflows are split across too many tools.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-sm font-mono text-gray-500 dark:text-gray-400 mb-2">Next steps</p>
+                                <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                                    <li>Map current workflow in detail.</li>
+                                    <li>Identify quick wins and dependencies.</li>
+                                    <li>Decide whether to redesign, automate, or eliminate.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03] section-break">
+            <div class="max-w-6xl mx-auto">
+                <div class="fade-in">
+                    <div class="audit-section-head">
+                        <p class="audit-section-kicker">What to do next</p>
+                        <h2 class="text-section font-bold text-gray-900 dark:text-white font-display tracking-tight mb-4">Once the shortlist is clear, the work shifts from diagnosis to design.</h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+                            Once you identify the top workflows, the next step is not “automate everything.” It is designing the workflow properly.
+                        </p>
+                    </div>
+                    <div class="decision-grid">
+                        <div class="surface-card decision-card decision-card-left">
+                            <div class="decision-label">Diagnosis / mapping</div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Move from diagnosis to design</h3>
+                            <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                                <li>Map the current workflow in detail.</li>
+                                <li>Identify the inputs, outputs, dependencies, and handoffs.</li>
+                                <li>Standardize the process so it can be run consistently.</li>
+                            </ul>
+                        </div>
+                        <div class="surface-card decision-card decision-card-right">
+                            <div class="decision-label">Intervention / decision</div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Choose the right intervention</h3>
+                            <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                                <li>Redesign work that is structurally messy.</li>
+                                <li>Automate work that is repetitive and stable.</li>
+                                <li>Delegate work that belongs elsewhere.</li>
+                                <li>Remove work that no longer creates value.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="fade-in">
+                    <div class="lead-magnet-panel system-bridge rounded-[2rem] p-8 md:p-12">
+                        <div class="bridge-grid">
+                            <div>
+                                <p class="audit-section-kicker">How I work</p>
+                                <h2 class="text-section font-bold text-gray-900 dark:text-white font-display tracking-tight mb-5">
+                                    From messy workflows to better systems
+                                </h2>
+                                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-5">
+                                    This is the same way I approach internal systems work: start with the workflow, find the friction, standardize the logic, and then decide what should become a process change, automation, internal tool, or AI-assisted workflow.
+                                </p>
+                                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    I help teams move from messy workflows to clearer operating systems, then translate that design into internal tools, automations, scripts, and AI-enabled processes that stick.
+                                </p>
+                                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mt-5">
+                                    If a team wants help after the audit, this is the same workflow design approach I use in internal tools and automation consulting work.
+                                </p>
+                            </div>
+                            <div class="systems-ladder">
+                                <div class="systems-node">
+                                    <span class="systems-node-label">Workflow</span>
+                                    <span class="systems-node-body">Observe the work. Find the friction.</span>
+                                </div>
+                                <div class="systems-node">
+                                    <span class="systems-node-label">Operating system</span>
+                                    <span class="systems-node-body">Clarify the steps, roles, inputs, and rules.</span>
+                                </div>
+                                <div class="systems-node">
+                                    <span class="systems-node-label">Build layer</span>
+                                    <span class="systems-node-body">Turn the design into tools, automations, or AI support.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-24 px-6 bg-gray-50 dark:bg-white/[0.03] section-break">
+            <div class="max-w-4xl mx-auto">
+                <div class="fade-in">
+                    <div class="lead-magnet-panel closing-panel rounded-[2rem] p-8 md:p-12 text-center">
+                        <div class="resource-kicker mx-auto mb-6">Next step</div>
+                        <h2 class="text-section font-bold text-gray-900 dark:text-white font-display tracking-tight mb-5">
+                            Start with the audit. Fix the right workflows first.
+                        </h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+                            Download the worksheet to run the audit yourself, or reach out if you want help turning the shortlist into a redesigned workflow, internal tool, automation, or AI-supported operating system.
+                        </p>
+                        <div class="closing-actions">
+                            <a href="assets/resources/workflow-friction-audit-template.md" class="btn-primary" download>
+                                Get the Free Template
+                            </a>
+                            <a href="mailto:jameson.campbell.me@gmail.com?subject=Workflow%20Friction%20Audit%20Follow-up" class="btn-secondary">
+                                Talk About Workflow Design
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-16 px-6 border-t border-gray-200 dark:border-neutral-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="max-w-3xl mx-auto mb-8">
+                <div class="bg-gray-50 dark:bg-neutral-900 rounded-xl p-8 border border-gray-200 dark:border-neutral-800 text-center">
+                    <p class="text-xl italic text-gray-700 dark:text-gray-300 leading-relaxed">
+                        "The best internal systems start by understanding the work before trying to accelerate it."
+                    </p>
+                </div>
+            </div>
+            <div class="text-center text-gray-600 dark:text-gray-400">
+                <p>&copy; 2026 Jameson Campbell. Built with HTML, Tailwind CSS, and JavaScript.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

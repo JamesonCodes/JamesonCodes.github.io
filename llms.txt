@@ -17,6 +17,10 @@ Start here
   URL: https://jamesoncodes.github.io/
   Description: Overview of projects, philosophy, AI tools, and writing. Start here to understand the site's focus and explore featured work.
 
+* Workflow Friction Audit
+  URL: https://jamesoncodes.github.io/workflow-friction-audit.html
+  Description: A free resource to identify repeated, painful, high-impact workflows before you build automations, internal tools, or AI agents.
+
 * Building Semantic Search for 100k+ Creative Assets
   URL: https://jamesoncodes.github.io/articles/semantic-search-engine.html
   Description: How I transformed a chaotic Dropbox archive into an AI powered search system that understands concepts instead of filenames. A detailed case study on semantic search implementation.
@@ -38,6 +42,10 @@ Core topics
 
 Frameworks
 ----------
+
+* Workflow Friction Audit
+  URL: https://jamesoncodes.github.io/workflow-friction-audit.html
+  Description: A free resource to identify repeated, painful, high-impact workflows before you build automations, internal tools, or AI agents.
 
 * Designing Customer Experience Systems
   URL: https://jamesoncodes.github.io/articles/cx-systems-framework.html
@@ -79,4 +87,4 @@ Reference
 Last updated
 ------------
 
-This index was last updated on December 18, 2025.
+This index was last updated on March 21, 2026.
