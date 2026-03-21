@@ -567,7 +567,6 @@ a:not(.btn-primary):not(.btn-secondary):not(.nav-link):not(.nav-link-mobile):not
 
 .audit-console-head {
     display: flex;
-    justify-content: space-between;
     gap: 1rem;
     align-items: start;
     margin-bottom: 1.25rem;
@@ -578,6 +577,10 @@ a:not(.btn-primary):not(.btn-secondary):not(.nav-link):not(.nav-link-mobile):not
     display: flex;
     gap: 0.6rem;
     flex-wrap: wrap;
+}
+
+.audit-console-chips {
+    flex-wrap: nowrap;
 }
 
 .closing-actions {
