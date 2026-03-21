@@ -580,6 +580,10 @@ a:not(.btn-primary):not(.btn-secondary):not(.nav-link):not(.nav-link-mobile):not
     flex-wrap: wrap;
 }
 
+.closing-actions {
+    justify-content: center;
+}
+
 .status-chip {
     display: inline-flex;
     align-items: center;
