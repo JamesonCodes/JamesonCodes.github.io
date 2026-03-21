@@ -1,6 +1,6 @@
-# Jameson Campbell - Portfolio & Writing
+# Jameson Campbell - Portfolio, Writing, and Resources
 
-A modern, professional portfolio showcasing internal tools engineering, AI productivity projects, and thought leadership through detailed case studies and frameworks.
+A modern portfolio showcasing internal tools engineering, AI productivity projects, thought leadership through detailed case studies and frameworks, and focused resource pages for workflow design and operations systems.
 
 ## 🌐 Live Site
 
@@ -8,7 +8,7 @@ Visit the live site at: [jamesoncodes.github.io](https://jamesoncodes.github.io)
 
 ## 🎯 Purpose
 
-This website establishes credibility as a builder of internal tools and AI-enabled systems who connects business pain points to technical solutions. It demonstrates both technical execution and strategic thinking through detailed project case studies and actionable frameworks.
+This website establishes credibility as a builder of internal tools and AI-enabled systems who connects business pain points to technical solutions. It demonstrates both technical execution and strategic thinking through project case studies, actionable frameworks, and shareable resource pages designed to turn workflow friction into clearer systems.
 
 **Positioning:** Sales Operations Manager & Internal Tools Builder who bridges operations and engineering
 
@@ -42,17 +42,21 @@ Changes are live at `https://jamesoncodes.github.io` within minutes.
 
 ```
 /
-├── index.html              # Main portfolio site
-├── styles.css              # Custom CSS
-├── script.js               # JavaScript functionality
-├── articles/              # Blog posts and case studies
-├── assets/                # Images, diagrams, logos
-│   ├── projects/         # Theme-aware screenshots
-│   ├── diagrams/         # Architecture diagrams
-│   ├── og/               # Open Graph images
-│   └── logos/            # Brand logos
-├── sitemap.xml           # SEO sitemap
-└── robots.txt            # Search engine config
+├── index.html                     # Main portfolio site
+├── workflow-friction-audit.html   # Standalone resource landing page
+├── llm.html                       # Human-readable LLM/site index
+├── llms.txt                       # Plain-text LLM/site index
+├── styles.css                     # Custom CSS
+├── script.js                      # JavaScript functionality
+├── articles/                      # Blog posts and case studies
+├── assets/                        # Images, diagrams, logos, and resources
+│   ├── projects/                  # Theme-aware screenshots
+│   ├── diagrams/                  # Architecture diagrams
+│   ├── og/                        # Open Graph images
+│   ├── logos/                     # Brand logos
+│   └── resources/                 # Downloadable resource files
+├── sitemap.xml                    # SEO sitemap
+└── robots.txt                     # Search engine config
 ```
 
 ## ✨ Features
@@ -60,10 +64,18 @@ Changes are live at `https://jamesoncodes.github.io` within minutes.
 - **Responsive Design** - Mobile-first with dark mode support
 - **Theme-Aware Images** - Automatic dark/light mode switching
 - **Interactive Gallery** - Full-screen modals with keyboard navigation
+- **Resource Landing Pages** - Dedicated pages for downloadable frameworks and lead magnets
 - **SEO Optimized** - XML sitemap, Open Graph tags, meta tags
+- **LLM Discoverability** - `llm.html` and `llms.txt` indexes for humans and AI systems
 - **Performance Focused** - Debounced events, lazy loading, minimal dependencies
 
-## 📝 Published Articles
+## 📝 Published Content
+
+### Resources
+
+1. **[Workflow Friction Audit](workflow-friction-audit.html)** - Free 30-minute workflow audit template for Ops teams to identify repeated, painful workflows before building automations, internal tools, or AI agents
+
+### Articles
 
 1. **[🌅 Building Semantic Search for 100k+ Creative Assets](articles/semantic-search-engine.html)** - AI-powered semantic search system (Next.js, FastAPI, Vertex AI, Pinecone)
 
