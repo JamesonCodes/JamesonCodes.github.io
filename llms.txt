@@ -6,9 +6,9 @@ This file is intended as an index for both humans and AI systems to discover and
 What this site is
 -----------------
 
-This is the portfolio and writing site of Jameson Campbell, a Sales Operations Manager and Internal Tools Builder. The site focuses on building AI-powered tools that multiply team productivity, rapid prototyping, and systems integration.
+This is the portfolio and writing site of Jameson Campbell, a Sales Operations Manager and Agentic Internal Systems Builder. The site focuses on workflow systems, AI-assisted internal tools, operations design, and human-accountable automation.
 
-Content covers internal tools development, AI pair programming, automation workflows, customer experience systems, and practical frameworks for scaling operations. The site is designed for teams and individuals looking to build leverage through automation and AI.
+Content covers internal tools development, AI pair programming, automation workflows, customer experience systems, and practical frameworks for redesigning how work moves across people, tools, and handoffs.
 
 Start here
 ----------
@@ -87,4 +87,4 @@ Reference
 Last updated
 ------------
 
-This index was last updated on March 21, 2026.
+This index was last updated on May 4, 2026.

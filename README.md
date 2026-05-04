@@ -1,6 +1,6 @@
 # Jameson Campbell - Portfolio, Writing, and Resources
 
-A modern portfolio showcasing internal tools engineering, AI productivity projects, thought leadership through detailed case studies and frameworks, and focused resource pages for workflow design and operations systems.
+A modern portfolio showcasing workflow systems, AI-assisted internal tools, operations design, thought leadership through detailed case studies and frameworks, and focused resource pages for workflow design and operations systems.
 
 ## 🌐 Live Site
 
@@ -8,9 +8,9 @@ Visit the live site at: [jamesoncodes.github.io](https://jamesoncodes.github.io)
 
 ## 🎯 Purpose
 
-This website establishes credibility as a builder of internal tools and AI-enabled systems who connects business pain points to technical solutions. It demonstrates both technical execution and strategic thinking through project case studies, actionable frameworks, and shareable resource pages designed to turn workflow friction into clearer systems.
+This website establishes credibility as a workflow-first builder of AI-assisted internal systems who connects business pain points to practical technical solutions. It demonstrates both technical execution and strategic thinking through project case studies, actionable frameworks, and shareable resource pages designed to turn workflow friction into clearer, human-accountable systems.
 
-**Positioning:** Sales Operations Manager & Internal Tools Builder who bridges operations and engineering
+**Positioning:** Sales Operations Manager & Agentic Internal Systems Builder who bridges operations and engineering
 
 ## 🛠️ Tech Stack
 
@@ -66,7 +66,7 @@ Changes are live at `https://jamesoncodes.github.io` within minutes.
 - **Interactive Gallery** - Full-screen modals with keyboard navigation
 - **Resource Landing Pages** - Dedicated pages for downloadable frameworks and lead magnets
 - **SEO Optimized** - XML sitemap, Open Graph tags, meta tags
-- **LLM Discoverability** - `llm.html` and `llms.txt` indexes for humans and AI systems
+- **LLM Discoverability** - `llm.html` and `llms.txt` indexes for humans and AI systems, focused on workflow systems, AI-assisted internal tools, and operations design
 - **Performance Focused** - Debounced events, lazy loading, minimal dependencies
 
 ## 📝 Published Content
@@ -94,4 +94,4 @@ MIT License - Feel free to use this as inspiration for your own portfolio!
 ---
 
 **Built with precision by Jameson Campbell**  
-*Bridging operations and engineering through thoughtful tooling*
+*Bridging operations and engineering through workflow-first internal systems*
