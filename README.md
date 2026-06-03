@@ -8,9 +8,9 @@ Visit the live site at: [jamesoncodes.github.io](https://jamesoncodes.github.io)
 
 ## 🎯 Purpose
 
-This website establishes credibility as a workflow-first builder of AI-assisted internal systems who connects business pain points to practical technical solutions. It demonstrates both technical execution and strategic thinking through project case studies, actionable frameworks, and shareable resource pages designed to turn workflow friction into clearer, human-accountable systems.
+This website establishes credibility as a workflow-first builder of AI-assisted GTM and operations systems who connects business pain points to practical technical solutions. It demonstrates both technical execution and strategic thinking through project case studies, actionable frameworks, and shareable resource pages designed to turn workflow friction into clearer, human-accountable systems.
 
-**Positioning:** Sales Operations Manager & Agentic Internal Systems Builder who bridges operations and engineering
+**Positioning:** Sales Operations Manager & AI GTM Systems Builder who bridges operations and engineering
 
 ## 🛠️ Tech Stack
 
