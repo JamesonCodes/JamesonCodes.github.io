@@ -27,7 +27,7 @@ Start here
 
 * Why Every Company Needs an Internal Tools Builder
   URL: https://jamesoncodes.github.io/articles/internal-tools-builder.html
-  Description: How vibe coding, AI, and a new generation of builders are redefining how work scales inside organizations. Strategic insights on the future of operational leverage.
+  Description: How high-agency operators, vibe coding, and AI are redefining how work scales inside organizations. Strategic insights on the future of operational leverage.
 
 * Designing Customer Experience Systems
   URL: https://jamesoncodes.github.io/articles/cx-systems-framework.html
@@ -71,7 +71,7 @@ Philosophy
 
 * Why Every Company Needs an Internal Tools Builder
   URL: https://jamesoncodes.github.io/articles/internal-tools-builder.html
-  Description: How vibe coding, AI, and a new generation of builders are redefining how work scales inside organizations. Strategic insights on the future of operational leverage and why internal tools are essential for modern companies.
+  Description: How high-agency operators, vibe coding, and AI are redefining how work scales inside organizations. Strategic insights on the future of operational leverage and why internal tools are essential for modern companies.
 
 Reference
 ---------
