@@ -187,3 +187,115 @@ const debouncedHighlight = debounce(highlightNavigation, 100);
 window.removeEventListener('scroll', highlightNavigation);
 window.addEventListener('scroll', debouncedHighlight);
 
+// Circuit routes remap between safe, grid-aligned paths after each completed pass.
+// The constrained route library keeps the motion exploratory without crossing hero copy.
+const circuitRouteOptions = {
+    left: [
+        [[20, 180], [100, 180], [100, 260], [180, 260], [180, 340]],
+        [[20, 100], [60, 100], [60, 220], [140, 220], [140, 380], [220, 380]],
+        [[20, 260], [140, 260], [140, 180], [220, 180], [220, 420], [180, 420]]
+    ],
+    top: [
+        [[340, 100], [500, 100], [500, 180], [620, 180]],
+        [[300, 140], [420, 140], [420, 100], [580, 100], [580, 220], [700, 220]],
+        [[380, 220], [380, 140], [540, 140], [540, 100], [660, 100]]
+    ],
+    primary: [
+        [[1420, 180], [1340, 180], [1340, 300], [1260, 300], [1260, 460], [1180, 460], [1180, 580], [1260, 580], [1260, 700], [1140, 700], [1140, 820], [1380, 820]],
+        [[1420, 100], [1300, 100], [1300, 220], [1380, 220], [1380, 380], [1220, 380], [1220, 540], [1140, 540], [1140, 700], [1300, 700], [1300, 820], [1420, 820]],
+        [[1380, 140], [1260, 140], [1260, 260], [1180, 260], [1180, 420], [1300, 420], [1300, 580], [1220, 580], [1220, 740], [1380, 740], [1380, 860], [1140, 860]]
+    ],
+    bottom: [
+        [[20, 620], [100, 620], [100, 740], [220, 740], [220, 820], [420, 820]],
+        [[20, 700], [140, 700], [140, 620], [260, 620], [260, 780], [500, 780]],
+        [[60, 860], [60, 740], [180, 740], [180, 660], [340, 660], [340, 820], [500, 820]]
+    ],
+    mobile: [
+        [[940, 340], [900, 340], [900, 460], [940, 460], [940, 580], [900, 580], [900, 700], [940, 700]],
+        [[900, 300], [940, 300], [940, 420], [900, 420], [900, 620], [940, 620], [940, 740]],
+        [[940, 260], [900, 260], [900, 380], [940, 380], [940, 500], [900, 500], [900, 660], [940, 660]]
+    ]
+};
+
+const svgNamespace = 'http://www.w3.org/2000/svg';
+const reduceCircuitMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function circuitPathFromPoints(points) {
+    return points.reduce((path, [x, y], index) => {
+        if (index === 0) return `M${x} ${y}`;
+        const [previousX, previousY] = points[index - 1];
+        if (y === previousY) return `${path}H${x}`;
+        if (x === previousX) return `${path}V${y}`;
+        return `${path}L${x} ${y}`;
+    }, '');
+}
+
+function renderCircuitRoute(route, points, animateMapping = true) {
+    if (animateMapping) {
+        const activeOffsets = [...route.querySelectorAll('.circuit-flow-tail, .circuit-flow-core')]
+            .map(path => getComputedStyle(path).strokeDashoffset);
+        const previousRoute = route.cloneNode(true);
+        previousRoute.removeAttribute('data-circuit-route');
+        previousRoute.classList.remove('is-remapping');
+        previousRoute.classList.add('circuit-route-ghost');
+        previousRoute.querySelectorAll('.circuit-flow-tail, .circuit-flow-core').forEach((path, index) => {
+            path.style.animation = 'none';
+            path.style.strokeDashoffset = activeOffsets[index];
+        });
+        route.parentNode.insertBefore(previousRoute, route);
+        window.setTimeout(() => previousRoute.remove(), 900);
+    }
+
+    const pathData = circuitPathFromPoints(points);
+    route.querySelectorAll('path').forEach(path => path.setAttribute('d', pathData));
+    route.querySelectorAll('.circuit-node').forEach(node => node.remove());
+
+    points.forEach(([x, y], index) => {
+        const node = document.createElementNS(svgNamespace, 'circle');
+        node.classList.add('circuit-node');
+        node.setAttribute('cx', x);
+        node.setAttribute('cy', y);
+        node.setAttribute('r', '3');
+        node.style.setProperty('--node-order', index);
+        route.appendChild(node);
+    });
+
+    if (animateMapping) {
+        route.classList.remove('is-remapping');
+        void route.getBoundingClientRect();
+        route.classList.add('is-remapping');
+        window.setTimeout(() => route.classList.remove('is-remapping'), 1050);
+    }
+}
+
+function chooseNextCircuitRoute(route) {
+    const routeName = route.dataset.circuitRoute;
+    const options = circuitRouteOptions[routeName];
+    if (!options || options.length < 2) return;
+
+    const currentIndex = Number(route.dataset.routeIndex ?? 0);
+    let nextIndex = currentIndex;
+    while (nextIndex === currentIndex) {
+        nextIndex = Math.floor(Math.random() * options.length);
+    }
+
+    const nextPoints = [...options[nextIndex]];
+    if (Math.random() > 0.5) nextPoints.reverse();
+    route.dataset.routeIndex = nextIndex;
+    renderCircuitRoute(route, nextPoints);
+}
+
+if (!reduceCircuitMotion.matches) {
+    document.querySelectorAll('[data-circuit-route]').forEach(route => {
+        const options = circuitRouteOptions[route.dataset.circuitRoute];
+        const initialIndex = Math.floor(Math.random() * options.length);
+        const initialPoints = [...options[initialIndex]];
+        if (Math.random() > 0.5) initialPoints.reverse();
+        route.dataset.routeIndex = initialIndex;
+        renderCircuitRoute(route, initialPoints, false);
+
+        route.querySelector('.circuit-flow-core').addEventListener('animationiteration', () => {
+            chooseNextCircuitRoute(route);
+        });
+    });
+}

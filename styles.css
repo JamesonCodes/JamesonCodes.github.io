@@ -11,6 +11,10 @@
     --accent: #0f766e;
     --accent-soft: rgba(15, 118, 110, 0.12);
     --focus-ring: rgba(15, 118, 110, 0.45);
+    --circuit-dot: rgba(71, 85, 105, 0.18);
+    --circuit-guide: rgba(71, 85, 105, 0.22);
+    --circuit-flow: rgba(15, 118, 110, 0.78);
+    --circuit-tail: rgba(15, 118, 110, 0.22);
 }
 
 .dark {
@@ -24,6 +28,10 @@
     --accent: #5eead4;
     --accent-soft: rgba(94, 234, 212, 0.16);
     --focus-ring: rgba(94, 234, 212, 0.45);
+    --circuit-dot: rgba(148, 163, 184, 0.17);
+    --circuit-guide: rgba(148, 163, 184, 0.2);
+    --circuit-flow: rgba(94, 234, 212, 0.76);
+    --circuit-tail: rgba(94, 234, 212, 0.2);
 }
 
 /* Smooth Scrolling */
@@ -428,9 +436,177 @@ a:not(.btn-primary):not(.btn-secondary):not(.nav-link):not(.nav-link-mobile):not
     font-weight: 700;
 }
 
-/* Hero – no overlay; uses same background as body for consistent monochrome */
+/* Hero – dot grid with sequential circuit flow */
 #hero {
     background: transparent;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-circuit-grid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    overflow: visible;
+}
+
+.hero-dot-field {
+    opacity: 0;
+    animation: circuit-grid-reveal 0.9s ease-out forwards;
+}
+
+.hero-grid-dot {
+    fill: var(--circuit-dot);
+}
+
+.hero-profile-photo {
+    position: relative;
+    z-index: 1;
+    background: var(--surface-0);
+}
+
+.circuit-route {
+    fill: none;
+    vector-effect: non-scaling-stroke;
+}
+
+.circuit-guide {
+    stroke: var(--circuit-guide);
+    stroke-width: 1;
+    stroke-linejoin: round;
+}
+
+.circuit-node {
+    fill: var(--circuit-guide);
+    stroke: none;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.circuit-route.is-remapping .circuit-guide {
+    animation: circuit-guide-map 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.circuit-route.is-remapping {
+    animation: circuit-route-fade-in 0.85s ease-out both;
+}
+
+.circuit-route-ghost {
+    pointer-events: none;
+    animation: circuit-route-fade-out 0.85s ease-in-out both;
+}
+
+.circuit-route.is-remapping .circuit-node {
+    animation: circuit-node-map 0.5s ease-out both;
+    animation-delay: calc(var(--node-order, 0) * 45ms);
+}
+
+.circuit-flow-tail,
+.circuit-flow-core {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+
+.circuit-flow-tail {
+    stroke: var(--circuit-tail);
+    stroke-width: 3;
+    stroke-dasharray: 0.28 0.72;
+    stroke-dashoffset: 1.1;
+    animation: circuit-tail-flow 10s linear infinite;
+}
+
+.circuit-flow-core {
+    stroke: var(--circuit-flow);
+    stroke-width: 1.5;
+    stroke-dasharray: 0.11 0.89;
+    stroke-dashoffset: 1;
+    animation: circuit-core-flow 10s linear infinite;
+}
+
+.circuit-route-left .circuit-flow-tail,
+.circuit-route-left .circuit-flow-core {
+    animation-duration: 7s;
+    animation-delay: -2.5s;
+}
+
+.circuit-route-top .circuit-flow-tail,
+.circuit-route-top .circuit-flow-core {
+    animation-duration: 8s;
+    animation-delay: -5s;
+}
+
+.circuit-route-primary .circuit-flow-tail,
+.circuit-route-primary .circuit-flow-core {
+    animation-duration: 12s;
+    animation-delay: -7s;
+}
+
+.circuit-route-bottom .circuit-flow-tail,
+.circuit-route-bottom .circuit-flow-core {
+    animation-duration: 9s;
+    animation-delay: -4s;
+}
+
+.circuit-route-mobile {
+    display: none;
+}
+
+@keyframes circuit-grid-reveal {
+    to { opacity: 1; }
+}
+
+@keyframes circuit-tail-flow {
+    to { stroke-dashoffset: 0.1; }
+}
+
+@keyframes circuit-core-flow {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes circuit-route-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes circuit-route-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes circuit-guide-map {
+    from {
+        opacity: 0;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+    }
+    to {
+        opacity: 1;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes circuit-node-map {
+    from {
+        opacity: 0;
+        scale: 0.35;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
 }
 
 .hero-proof {
@@ -1329,6 +1505,27 @@ button:focus-visible {
     }
 }
 
+@media (max-width: 767px) {
+    .hero-circuit-grid {
+        opacity: 0.82;
+    }
+
+    .circuit-route-left,
+    .circuit-route-top,
+    .circuit-route-primary,
+    .circuit-route-bottom {
+        display: none;
+    }
+
+    .circuit-route-mobile {
+        display: initial;
+    }
+
+    .circuit-route-mobile .circuit-guide {
+        opacity: 0.68;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -1346,5 +1543,23 @@ button:focus-visible {
     .fade-in {
         opacity: 1;
         transform: none;
+    }
+
+    .hero-dot-field {
+        opacity: 1;
+    }
+
+    .circuit-flow-tail,
+    .circuit-flow-core {
+        animation: none;
+        stroke-dashoffset: 0;
+        opacity: 0.48;
+    }
+
+    .circuit-route.is-remapping .circuit-guide,
+    .circuit-route.is-remapping .circuit-node,
+    .circuit-route.is-remapping,
+    .circuit-route-ghost {
+        animation: none;
     }
 }

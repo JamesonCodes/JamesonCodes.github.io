@@ -158,11 +158,73 @@
     <main>
     <!-- Hero Section -->
     <section id="hero" class="pt-36 pb-24 md:py-28 px-6 min-h-screen flex items-center">
-        <div class="max-w-4xl mx-auto w-full text-center">
+        <svg class="hero-circuit-grid" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <defs>
+                <pattern id="hero-dot-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <circle class="hero-grid-dot" cx="20" cy="20" r="1.5" />
+                </pattern>
+            </defs>
+
+            <rect class="hero-dot-field" width="1440" height="900" fill="url(#hero-dot-pattern)" />
+
+            <g class="circuit-route circuit-route-left" data-circuit-route="left">
+                <path class="circuit-guide" pathLength="1" d="M20 180H100V260H180V340" />
+                <path class="circuit-flow-tail" pathLength="1" d="M20 180H100V260H180V340" />
+                <path class="circuit-flow-core" pathLength="1" d="M20 180H100V260H180V340" />
+                <circle class="circuit-node" cx="20" cy="180" r="3" />
+                <circle class="circuit-node" cx="100" cy="260" r="3" />
+                <circle class="circuit-node" cx="180" cy="340" r="3" />
+            </g>
+
+            <g class="circuit-route circuit-route-top" data-circuit-route="top">
+                <path class="circuit-guide" pathLength="1" d="M340 100H500V180H620" />
+                <path class="circuit-flow-tail" pathLength="1" d="M340 100H500V180H620" />
+                <path class="circuit-flow-core" pathLength="1" d="M340 100H500V180H620" />
+                <circle class="circuit-node" cx="340" cy="100" r="3" />
+                <circle class="circuit-node" cx="500" cy="180" r="3" />
+                <circle class="circuit-node" cx="620" cy="180" r="3" />
+            </g>
+
+            <g class="circuit-route circuit-route-primary" data-circuit-route="primary">
+                <path class="circuit-guide" pathLength="1" d="M1420 180H1340V300H1260V460H1180V580H1260V700H1140V820H1380" />
+                <path class="circuit-flow-tail" pathLength="1" d="M1420 180H1340V300H1260V460H1180V580H1260V700H1140V820H1380" />
+                <path class="circuit-flow-core" pathLength="1" d="M1420 180H1340V300H1260V460H1180V580H1260V700H1140V820H1380" />
+                <circle class="circuit-node" cx="1420" cy="180" r="3" />
+                <circle class="circuit-node" cx="1340" cy="300" r="3" />
+                <circle class="circuit-node" cx="1260" cy="460" r="3" />
+                <circle class="circuit-node" cx="1180" cy="580" r="3" />
+                <circle class="circuit-node" cx="1260" cy="700" r="3" />
+                <circle class="circuit-node" cx="1140" cy="820" r="3" />
+                <circle class="circuit-node" cx="1380" cy="820" r="3" />
+            </g>
+
+            <g class="circuit-route circuit-route-bottom" data-circuit-route="bottom">
+                <path class="circuit-guide" pathLength="1" d="M20 620H100V740H220V820H420" />
+                <path class="circuit-flow-tail" pathLength="1" d="M20 620H100V740H220V820H420" />
+                <path class="circuit-flow-core" pathLength="1" d="M20 620H100V740H220V820H420" />
+                <circle class="circuit-node" cx="20" cy="620" r="3" />
+                <circle class="circuit-node" cx="100" cy="740" r="3" />
+                <circle class="circuit-node" cx="220" cy="820" r="3" />
+                <circle class="circuit-node" cx="420" cy="820" r="3" />
+            </g>
+
+            <g class="circuit-route circuit-route-mobile" data-circuit-route="mobile">
+                <path class="circuit-guide" pathLength="1" d="M940 340H900V460H940V580H900V700H940" />
+                <path class="circuit-flow-tail" pathLength="1" d="M940 340H900V460H940V580H900V700H940" />
+                <path class="circuit-flow-core" pathLength="1" d="M940 340H900V460H940V580H900V700H940" />
+                <circle class="circuit-node" cx="940" cy="340" r="3" />
+                <circle class="circuit-node" cx="900" cy="460" r="3" />
+                <circle class="circuit-node" cx="940" cy="580" r="3" />
+                <circle class="circuit-node" cx="900" cy="700" r="3" />
+                <circle class="circuit-node" cx="940" cy="700" r="3" />
+            </g>
+        </svg>
+
+        <div class="hero-content max-w-4xl mx-auto w-full text-center">
             <div class="fade-in">
                 <!-- Profile Photo -->
                 <div class="mb-8 flex justify-center">
-                    <div class="w-28 h-28 rounded-full border-2 border-gray-200 dark:border-neutral-800 shadow-md overflow-hidden">
+                    <div class="hero-profile-photo w-28 h-28 rounded-full border-2 border-gray-200 dark:border-neutral-800 shadow-md overflow-hidden">
                         <img src="assets/profile.jpg" alt="Jameson Campbell" class="w-full h-full object-cover">
                     </div>
                 </div>
