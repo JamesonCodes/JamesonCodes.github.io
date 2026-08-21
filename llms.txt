@@ -6,16 +6,16 @@ This file is intended as an index for both humans and AI systems to discover and
 What this site is
 -----------------
 
-This is the portfolio and writing site of Jameson Campbell, a Sales Operations Manager and AI GTM Systems Builder. The site focuses on GTM systems, workflow systems, AI-assisted internal tools, operations design, and human-accountable automation.
+This is the portfolio and writing site of Jameson Campbell, a GTM engineer and Sales Operations leader building applied AI systems that protect revenue, reduce operating costs, and expand team capacity.
 
-Content covers internal tools development, AI pair programming, automation workflows, customer experience systems, and practical frameworks for redesigning how work moves across people, tools, and handoffs.
+Content covers internal tools, automation workflows, customer experience systems, and practical frameworks that connect better workflow design to measurable business impact.
 
 Start here
 ----------
 
 * Homepage
   URL: https://jamesoncodes.github.io/
-  Description: Overview of projects, philosophy, AI tools, and writing. Start here to understand the site's focus and explore featured work.
+  Description: Explore projects and frameworks for building AI-assisted systems that improve revenue flow, operating cost, and team capacity.
 
 * Workflow Friction Audit
   URL: https://jamesoncodes.github.io/workflow-friction-audit.html
@@ -87,4 +87,4 @@ Reference
 Last updated
 ------------
 
-This index was last updated on May 4, 2026.
+This index was last updated on August 21, 2026.
