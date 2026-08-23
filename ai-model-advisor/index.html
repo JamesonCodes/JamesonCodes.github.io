@@ -17,11 +17,11 @@
       <img src="logo.svg" alt="AI Model Advisor logo">
     </section>
     <section class="grid" aria-label="Key features">
-      <article class="card"><h2>Chat-friendly</h2><p>Use it in ordinary ChatGPT or Claude conversations. The recommendation workflow does not require an IDE or MCP server.</p></article>
+      <article class="card"><h2>Chat-friendly</h2><p>Use it in ordinary ChatGPT or Claude conversations. Optional OpenRouter MCP research improves freshness, while web and provisional fallbacks keep it usable without a connector.</p></article>
       <article class="card"><h2>Costed</h2><p>Reproducible low, base, and high estimates make the least-cost likely-sufficient option visible.</p></article>
       <article class="card"><h2>Evidence-aware</h2><p>Technical compatibility, likely sufficiency, and workflow validation remain deliberately separate.</p></article>
     </section>
-    <section><h2>Install</h2><p>Download <code>choose-ai-model-claude.zip</code> for Claude's Customize → Skills upload. Use <code>ai-model-advisor-plugin.zip</code> on supported ChatGPT, Codex, or Claude plugin surfaces. Public directory listings remain subject to platform review.</p><h2>No required service account</h2><p>The default workflow researches public catalogs and official documentation using the chat host's browsing capability. An OpenRouter or direct-provider credential is needed only when you choose to fetch an authenticated structured catalog or run live task-specific model calls.</p></section>
+    <section><h2>Install</h2><p>Download <code>choose-ai-model-claude.zip</code> for Claude's Customize → Skills upload. Use <code>ai-model-advisor-plugin.zip</code> on supported ChatGPT, Codex, or Claude plugin surfaces. Public directory listings remain subject to platform review.</p><h2>Optional live OpenRouter research</h2><p>The plugin can connect through OAuth to OpenRouter's remote MCP server for current model, endpoint, price, benchmark, documentation, and provider lookups. It permits six research-only tools and forbids inference, credits, generation history, and popularity rankings. Users who skip the connection retain web/API/provisional fallbacks.</p><p>OpenRouter exposes its complete toolbox after connection. In clients with individual tool controls, disable <code>send-message</code>, <code>get-credits</code>, <code>get-generation</code>, <code>list-daily-model-rankings</code>, and <code>list-app-rankings</code>. AI Model Advisor does not operate a hosted filtering proxy.</p></section>
   </main>
   <footer><div class="shell">MIT licensed · Maintained by <a href="https://github.com/JamesonCodes">JamesonCodes</a></div></footer>
 </body>
