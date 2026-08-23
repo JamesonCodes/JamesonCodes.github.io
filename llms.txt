@@ -21,6 +21,10 @@ Start here
   URL: https://jamesoncodes.github.io/workflow-friction-audit.html
   Description: A free resource to identify repeated, painful, high-impact workflows before you build automations, internal tools, or AI agents.
 
+* AI Model Advisor
+  URL: https://jamesoncodes.github.io/ai-model-advisor/
+  Description: A cross-platform Agent Skill for choosing a likely-sufficient AI model and access route using sourced capability, privacy, cost, and evaluation evidence.
+
 * Building Semantic Search for 100k+ Creative Assets
   URL: https://jamesoncodes.github.io/articles/semantic-search-engine.html
   Description: How I transformed a chaotic Dropbox archive into an AI powered search system that understands concepts instead of filenames. A detailed case study on semantic search implementation.
@@ -87,4 +91,4 @@ Reference
 Last updated
 ------------
 
-This index was last updated on August 21, 2026.
+This index was last updated on August 23, 2026.

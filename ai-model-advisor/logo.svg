@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">AI Model Advisor</title>
+  <desc id="desc">Three model choices converging on a checked recommendation.</desc>
+  <rect width="512" height="512" rx="112" fill="#111827"/>
+  <circle cx="148" cy="156" r="42" fill="#93C5FD"/>
+  <circle cx="256" cy="116" r="42" fill="#C4B5FD"/>
+  <circle cx="364" cy="156" r="42" fill="#67E8F9"/>
+  <path d="M148 208L230 290M256 168V276M364 208L282 290" fill="none" stroke="#F8FAFC" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="256" cy="336" r="88" fill="#2563EB"/>
+  <path d="M216 337l27 28 56-62" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
