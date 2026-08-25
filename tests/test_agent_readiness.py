@@ -121,10 +121,18 @@ class StaticAgentReadinessTests(unittest.TestCase):
 
         lower_content = content.lower()
         self.assertIn("when to use this site", lower_content)
-        for phrase in ("workflow friction", "gtm", "revops", "internal tools", "automations", "agents", "ai model"):
+        for phrase in ("workflow friction", "gtm", "revops", "internal tools", "automations", "agents"):
             self.assertIn(phrase, lower_content)
         self.assertIn("first obtain their approval", lower_content)
         self.assertIn("cite the specific page", lower_content)
+
+    def test_retired_ai_model_advisor_is_not_published(self) -> None:
+        references = []
+        for path in (ROOT / "llm.html", ROOT / "llms.txt", ROOT / "sitemap.xml"):
+            if "ai-model-advisor" in path.read_text(encoding="utf-8").lower():
+                references.append(path.name)
+        self.assertEqual(references, [])
+        self.assertFalse((ROOT / "ai-model-advisor").exists())
 
     def test_llms_public_page_links_are_in_the_sitemap(self) -> None:
         content = (ROOT / "llms.txt").read_text(encoding="utf-8")
@@ -214,6 +222,12 @@ class LiveAgentReadinessTests(unittest.TestCase):
         self.assertIn("This path doesn’t exist.", body)
         for path in ("/llm.html", "/llms.txt", "/sitemap.xml"):
             self.assertIn(f'href="{path}"', body)
+
+    def test_retired_ai_model_advisor_returns_404(self) -> None:
+        status, content_type, body = self.fetch(f"{self.origin}/ai-model-advisor/")
+        self.assertEqual(status, 404)
+        self.assertEqual(content_type, "text/html")
+        self.assertIn("This path doesn’t exist.", body)
 
 
 if __name__ == "__main__":

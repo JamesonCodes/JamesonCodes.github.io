@@ -42,22 +42,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://jamesoncodes.github.io/ai-model-advisor/</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jamesoncodes.github.io/ai-model-advisor/privacy/</loc>
-    <lastmod>2026-08-23</lastmod>
-  </url>
-  <url>
-    <loc>https://jamesoncodes.github.io/ai-model-advisor/terms/</loc>
-    <lastmod>2026-08-23</lastmod>
-  </url>
-  <url>
-    <loc>https://jamesoncodes.github.io/ai-model-advisor/support/</loc>
-    <lastmod>2026-08-23</lastmod>
-  </url>
 </urlset>
