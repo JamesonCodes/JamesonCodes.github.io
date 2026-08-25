@@ -169,6 +169,29 @@ class StaticAgentReadinessTests(unittest.TestCase):
         me_links = [anchor for anchor in parser.anchors if "me" in anchor.get("rel", "").split()]
         self.assertEqual({link["href"] for link in me_links}, set(person["sameAs"]))
 
+    def test_llm_html_uses_homepage_design_system(self) -> None:
+        source = (ROOT / "llm.html").read_text(encoding="utf-8")
+        styles = (ROOT / "styles.css").read_text(encoding="utf-8")
+        parser = parse_html(ROOT / "llm.html")
+
+        for marker in (
+            "content-index-page",
+            "content-index-hero",
+            "font-display",
+            "Bricolage+Grotesque",
+            "geist-sans.css",
+            "geist-mono.css",
+            "styles.css?v=20260825-content-index",
+        ):
+            self.assertIn(marker, source)
+        self.assertNotIn("#2E9DFB", source)
+        self.assertIn(".content-index-page", styles)
+        self.assertIn(".content-index-card-grid", styles)
+
+        hrefs = {anchor.get("href") for anchor in parser.anchors}
+        self.assertIn("index.html#ai-arsenal", hrefs)
+        self.assertIn("workflow-friction-audit.html", hrefs)
+
     def test_sitemap_and_robots_reference_real_public_files(self) -> None:
         urls = sitemap_urls()
         self.assertEqual(len(urls), len(set(urls)))
