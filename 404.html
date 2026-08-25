@@ -134,6 +134,31 @@
         li a:hover { transform: translateY(-2px); border-color: var(--muted); }
         li a:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
 
+        .agent-map {
+            margin-top: 1.5rem;
+            padding: 1rem 1.125rem;
+            border: 1px dashed var(--border);
+            border-radius: 0.8rem;
+            color: var(--muted);
+        }
+
+        .agent-map-title {
+            margin: 0 0 0.65rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        pre {
+            margin: 0;
+            overflow-wrap: anywhere;
+            white-space: pre-wrap;
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.75rem;
+            line-height: 1.65;
+        }
+
         footer { color: var(--muted); font-size: 0.875rem; }
     </style>
 </head>
@@ -157,6 +182,13 @@
                     <li><a href="/sitemap.xml" type="application/xml">Inspect the XML sitemap</a></li>
                 </ul>
             </nav>
+            <aside class="agent-map" aria-label="Markdown recovery map">
+                <p class="agent-map-title">Agent recovery map</p>
+                <pre><code># 404: Resource not found
+- [Site index](https://jamesoncodes.github.io/llm.html)
+- [Agent instructions](https://jamesoncodes.github.io/llms.txt)
+- [XML sitemap](https://jamesoncodes.github.io/sitemap.xml)</code></pre>
+            </aside>
         </section>
     </main>
 

@@ -95,6 +95,10 @@ class StaticAgentReadinessTests(unittest.TestCase):
         self.assertEqual(describedby[0].get("href"), f"{CANONICAL_ORIGIN}/llms.txt")
         self.assertIn("width: min(calc(100% - 3rem), 72rem);", source)
         self.assertRegex(source, r"\.error-card\s*\{\s*width: 100%;")
+        self.assertIn("# 404: Resource not found", source)
+        self.assertIn("- [Site index](https://jamesoncodes.github.io/llm.html)", source)
+        self.assertIn("- [Agent instructions](https://jamesoncodes.github.io/llms.txt)", source)
+        self.assertIn("- [XML sitemap](https://jamesoncodes.github.io/sitemap.xml)", source)
 
     def test_llms_txt_follows_v2_shape_and_contains_actionable_guidance(self) -> None:
         content = (ROOT / "llms.txt").read_text(encoding="utf-8")
