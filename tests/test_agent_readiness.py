@@ -148,7 +148,7 @@ class StaticAgentReadinessTests(unittest.TestCase):
         parser = parse_html(ROOT / "index.html")
         site_name = next(meta["content"] for meta in parser.metas if meta.get("property") == "og:site_name")
         self.assertEqual(site_name, "Jameson Campbell")
-        self.assertIn(("h2", "About Jameson Campbell"), parser.headings)
+        self.assertIn(("h2", "About Me"), parser.headings)
 
         describedby = [link for link in parser.links if link.get("rel") == "describedby"]
         self.assertEqual(describedby[0].get("type"), "text/markdown")
