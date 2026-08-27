@@ -16,6 +16,7 @@ Use the linked frameworks and case studies as primary sources for Jameson Campbe
 
 ## Case studies
 
+- [Building an AI-Native Email System, One Job at a Time](https://jamesoncodes.github.io/articles/ai-native-email-system.html): In-progress build journal on a job-based AI email system at Sock Club, including shadow-mode routing, Portal+ Assist, 500+ submissions, human-reviewed evaluations, and earned autonomy.
 - [Building Semantic Search for 100k+ Creative Assets](https://jamesoncodes.github.io/articles/semantic-search-engine.html): Technical case study on turning a Dropbox archive into concept-aware search with Vertex AI and Pinecone.
 - [Transforming HubSpot Services into Productized Offerings](https://jamesoncodes.github.io/articles/hubspot-productization.html): Framework and implementation lessons from turning one-off HubSpot projects into a scalable recurring program.
 - [Designing Customer Experience Systems](https://jamesoncodes.github.io/articles/cx-systems-framework.html): Practical framework for mapping touchpoints, standardizing delivery, automating processes, and measuring outcomes.

@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import struct
 import unittest
 import urllib.error
 import urllib.request
@@ -18,6 +19,15 @@ from urllib.parse import urljoin, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_ORIGIN = "https://jamesoncodes.github.io"
 SITEMAP_NAMESPACE = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+AI_EMAIL_ARTICLE_PATH = ROOT / "articles" / "ai-native-email-system.html"
+AI_EMAIL_ARTICLE_URL = f"{CANONICAL_ORIGIN}/articles/ai-native-email-system.html"
+AI_EMAIL_ARTICLE_TITLE = "Building an AI-Native Email System, One Job at a Time"
+AI_EMAIL_ARTICLE_DESCRIPTION = (
+    "How I'm building an AI-native email system at Sock Club using job-based workflows, "
+    "shadow mode, human review, and evaluation datasets."
+)
+AI_EMAIL_ARTICLE_DATE = "2026-08-27"
+AI_EMAIL_IMAGE_URL = f"{CANONICAL_ORIGIN}/assets/og/ai-native-email-system-og.png"
 
 
 class DocumentParser(HTMLParser):
@@ -28,10 +38,12 @@ class DocumentParser(HTMLParser):
         self.metas: list[dict[str, str]] = []
         self.headings: list[tuple[str, str]] = []
         self.json_ld: list[str] = []
+        self.title = ""
         self._heading_tag: str | None = None
         self._heading_text: list[str] = []
         self._json_ld_script = False
         self._script_text: list[str] = []
+        self._title_tag = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = {key: value or "" for key, value in attrs}
@@ -41,6 +53,8 @@ class DocumentParser(HTMLParser):
             self.links.append(attributes)
         elif tag == "meta":
             self.metas.append(attributes)
+        elif tag == "title":
+            self._title_tag = True
         elif tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
             self._heading_tag = tag
             self._heading_text = []
@@ -53,6 +67,8 @@ class DocumentParser(HTMLParser):
             self.headings.append((tag, "".join(self._heading_text).strip()))
             self._heading_tag = None
             self._heading_text = []
+        elif tag == "title":
+            self._title_tag = False
         elif tag == "script" and self._json_ld_script:
             self.json_ld.append("".join(self._script_text).strip())
             self._json_ld_script = False
@@ -61,6 +77,8 @@ class DocumentParser(HTMLParser):
     def handle_data(self, data: str) -> None:
         if self._heading_tag:
             self._heading_text.append(data)
+        if self._title_tag:
+            self.title += data
         if self._json_ld_script:
             self._script_text.append(data)
 
@@ -76,7 +94,117 @@ def sitemap_urls() -> list[str]:
     return [node.text or "" for node in root.findall("sm:url/sm:loc", SITEMAP_NAMESPACE)]
 
 
+def sitemap_entries() -> dict[str, str]:
+    root = ET.parse(ROOT / "sitemap.xml").getroot()
+    entries: dict[str, str] = {}
+    for node in root.findall("sm:url", SITEMAP_NAMESPACE):
+        location = node.findtext("sm:loc", default="", namespaces=SITEMAP_NAMESPACE)
+        last_modified = node.findtext("sm:lastmod", default="", namespaces=SITEMAP_NAMESPACE)
+        entries[location] = last_modified
+    return entries
+
+
 class StaticAgentReadinessTests(unittest.TestCase):
+    def test_ai_email_article_has_consistent_seo_metadata_and_schema(self) -> None:
+        parser = parse_html(AI_EMAIL_ARTICLE_PATH)
+        source = AI_EMAIL_ARTICLE_PATH.read_text(encoding="utf-8")
+
+        self.assertEqual(parser.title.strip(), AI_EMAIL_ARTICLE_TITLE)
+        self.assertEqual(
+            [heading for tag, heading in parser.headings if tag == "h1"],
+            [AI_EMAIL_ARTICLE_TITLE],
+        )
+
+        canonical = [link for link in parser.links if link.get("rel") == "canonical"]
+        self.assertEqual(canonical, [{"rel": "canonical", "href": AI_EMAIL_ARTICLE_URL}])
+        describedby = [link for link in parser.links if link.get("rel") == "describedby"]
+        self.assertEqual(
+            describedby,
+            [{"rel": "describedby", "href": f"{CANONICAL_ORIGIN}/llms.txt", "type": "text/markdown"}],
+        )
+
+        meta_by_name = {meta["name"]: meta["content"] for meta in parser.metas if meta.get("name")}
+        meta_by_property = {
+            meta["property"]: meta["content"] for meta in parser.metas if meta.get("property")
+        }
+        for value in (
+            meta_by_name["description"],
+            meta_by_name["twitter:description"],
+            meta_by_property["og:description"],
+        ):
+            self.assertEqual(value, AI_EMAIL_ARTICLE_DESCRIPTION)
+        self.assertEqual(meta_by_property["og:site_name"], "Jameson Campbell")
+        self.assertEqual(meta_by_property["og:locale"], "en_US")
+        self.assertEqual(meta_by_property["og:image"], AI_EMAIL_IMAGE_URL)
+        self.assertEqual(meta_by_name["twitter:image"], AI_EMAIL_IMAGE_URL)
+        self.assertEqual(meta_by_name["twitter:image:alt"], meta_by_property["og:image:alt"])
+        robots_directives = {item.strip() for item in meta_by_name["robots"].lower().split(",")}
+        self.assertEqual(robots_directives, {"index", "follow", "max-image-preview:large"})
+
+        schemas = [json.loads(block) for block in parser.json_ld]
+        article = next(schema for schema in schemas if schema.get("@type") == "BlogPosting")
+        breadcrumb = next(schema for schema in schemas if schema.get("@type") == "BreadcrumbList")
+        self.assertEqual(article["@id"], f"{AI_EMAIL_ARTICLE_URL}#article")
+        self.assertEqual(article["url"], AI_EMAIL_ARTICLE_URL)
+        self.assertEqual(article["headline"], AI_EMAIL_ARTICLE_TITLE)
+        self.assertEqual(article["description"], AI_EMAIL_ARTICLE_DESCRIPTION)
+        self.assertEqual(article["datePublished"][:10], AI_EMAIL_ARTICLE_DATE)
+        self.assertEqual(article["dateModified"][:10], AI_EMAIL_ARTICLE_DATE)
+        self.assertEqual(article["inLanguage"], "en-US")
+        self.assertEqual(article["isPartOf"]["@id"], f"{CANONICAL_ORIGIN}/#website")
+        self.assertEqual(article["author"]["@id"], f"{CANONICAL_ORIGIN}/#person")
+        self.assertEqual(article["publisher"]["@id"], f"{CANONICAL_ORIGIN}/#person")
+        self.assertEqual(article["mainEntityOfPage"]["@id"], AI_EMAIL_ARTICLE_URL)
+        self.assertEqual(
+            article["image"],
+            {"@type": "ImageObject", "url": AI_EMAIL_IMAGE_URL, "width": 1200, "height": 630},
+        )
+        self.assertEqual(len(breadcrumb["itemListElement"]), 3)
+        self.assertIn(
+            f'<time datetime="{AI_EMAIL_ARTICLE_DATE}">August 27, 2026</time>',
+            source,
+        )
+
+    def test_ai_email_article_preserves_launch_content_and_image_contract(self) -> None:
+        source = AI_EMAIL_ARTICLE_PATH.read_text(encoding="utf-8")
+        image_path = ROOT / "assets" / "og" / "ai-native-email-system-og.png"
+        image_header = image_path.read_bytes()[:24]
+
+        self.assertTrue(image_path.is_file())
+        self.assertEqual(image_header[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual(struct.unpack(">II", image_header[16:24]), (1200, 630))
+        self.assertIn("500+", source)
+        self.assertNotIn("400+", source)
+        self.assertNotIn("—", source)
+        self.assertIn('href="https://custom.sockclub.com/"', source)
+        self.assertIn('href="../workflow-friction-audit.html"', source)
+
+    def test_ai_email_article_is_synchronized_across_discovery_surfaces(self) -> None:
+        homepage = (ROOT / "index.html").read_text(encoding="utf-8")
+        internal_tools = (ROOT / "articles" / "internal-tools-builder.html").read_text(encoding="utf-8")
+        llm_html = (ROOT / "llm.html").read_text(encoding="utf-8")
+        llms_txt = (ROOT / "llms.txt").read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        sitemap = sitemap_entries()
+
+        self.assertIn('href="articles/ai-native-email-system.html"', homepage)
+        self.assertIn("human-reviewed evaluations", homepage)
+        self.assertIn('href="ai-native-email-system.html"', internal_tools)
+        self.assertGreaterEqual(llm_html.count('/articles/ai-native-email-system.html'), 2)
+        for phrase in ("500+", "24-second median", "human-reviewed evaluation datasets"):
+            self.assertIn(phrase, llm_html)
+        for phrase in ("500+ submissions", "human-reviewed evaluations", "earned autonomy"):
+            self.assertIn(phrase, llms_txt)
+        for phrase in ("500+ submissions", "24-second median", "evaluation datasets"):
+            self.assertIn(phrase, readme)
+        self.assertEqual(sitemap[AI_EMAIL_ARTICLE_URL], AI_EMAIL_ARTICLE_DATE)
+        for url in (
+            f"{CANONICAL_ORIGIN}/",
+            f"{CANONICAL_ORIGIN}/llm.html",
+            f"{CANONICAL_ORIGIN}/llms.txt",
+        ):
+            self.assertEqual(sitemap[url], AI_EMAIL_ARTICLE_DATE)
+
     def test_custom_404_has_machine_recovery_contract(self) -> None:
         source = (ROOT / "404.html").read_text(encoding="utf-8")
         parser = parse_html(ROOT / "404.html")
@@ -237,6 +365,29 @@ class LiveAgentReadinessTests(unittest.TestCase):
                 status, content_type, _ = self.fetch(urljoin(f"{self.origin}/", path.lstrip("/")))
                 self.assertEqual(status, 200)
                 self.assertEqual(content_type, expected_machine_types.get(path, "text/html"))
+
+    def test_ai_email_article_deploys_with_its_canonical_contract(self) -> None:
+        status, content_type, body = self.fetch(f"{self.origin}/articles/ai-native-email-system.html")
+        parser = DocumentParser()
+        parser.feed(body)
+
+        self.assertEqual(status, 200)
+        self.assertEqual(content_type, "text/html")
+        canonical = [link for link in parser.links if link.get("rel") == "canonical"]
+        self.assertEqual(canonical[0].get("href"), AI_EMAIL_ARTICLE_URL)
+        self.assertIn("500+", body)
+
+    def test_ai_email_social_preview_image_is_public(self) -> None:
+        request = urllib.request.Request(
+            f"{self.origin}/assets/og/ai-native-email-system-og.png",
+            headers={"User-Agent": "JamesonCodes-agent-readiness-test/1.0"},
+        )
+        with urllib.request.urlopen(request, timeout=20) as response:
+            image_header = response.read(24)
+            self.assertEqual(response.status, 200)
+            self.assertEqual(response.headers.get_content_type(), "image/png")
+            self.assertEqual(image_header[:8], b"\x89PNG\r\n\x1a\n")
+            self.assertEqual(struct.unpack(">II", image_header[16:24]), (1200, 630))
 
     def test_missing_path_returns_recoverable_404(self) -> None:
         status, content_type, body = self.fetch(f"{self.origin}/agent-readiness-deployment-20260825-not-found")

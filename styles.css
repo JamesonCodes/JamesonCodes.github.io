@@ -1406,7 +1406,7 @@ a:not(.btn-primary):not(.btn-secondary):not(.nav-link):not(.nav-link-mobile):not
     border-color: var(--border-soft);
 }
 
-/* Agent-readable content index — shares the homepage's editorial system */
+/* Agent-readable content index that shares the homepage's editorial system */
 .content-index-hero {
     position: relative;
     overflow: hidden;
@@ -1557,6 +1557,1327 @@ a:focus-visible,
 button:focus-visible {
     outline: 2px solid var(--focus-ring);
     outline-offset: 2px;
+}
+
+/* AI-native email build journal */
+.ai-email-article {
+    --journal-accent: #0f766e;
+    --journal-accent-soft: rgba(15, 118, 110, 0.1);
+    --journal-risk: #c63f36;
+    --journal-risk-soft: rgba(198, 63, 54, 0.1);
+    --journal-paper: #fbf7f2;
+    --journal-ink: #18181b;
+}
+
+.dark .ai-email-article {
+    --journal-accent: #5eead4;
+    --journal-accent-soft: rgba(94, 234, 212, 0.14);
+    --journal-risk: #ff766e;
+    --journal-risk-soft: rgba(255, 118, 110, 0.14);
+    --journal-paper: #151515;
+    --journal-ink: #fafafa;
+}
+
+.ai-email-header {
+    position: relative;
+}
+
+.ai-email-header::before {
+    content: "";
+    position: absolute;
+    top: 3.5rem;
+    right: 0;
+    width: 5rem;
+    height: 5rem;
+    border-top: 1px solid var(--border-strong);
+    border-right: 1px solid var(--border-strong);
+    pointer-events: none;
+}
+
+.ai-email-series-mark {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+    color: var(--journal-accent);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.ai-email-byline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-soft);
+    color: var(--text-muted);
+    font-size: 0.82rem;
+}
+
+.ai-email-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+    font-family: "Geist Mono", monospace;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ai-email-status > span {
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 50%;
+    background: var(--journal-accent);
+    box-shadow: 0 0 0 4px var(--journal-accent-soft);
+}
+
+.ai-email-journal-note {
+    margin-top: 2rem;
+    padding: 1.25rem 1.35rem;
+    background: var(--journal-paper);
+    border-left: 3px solid var(--journal-accent);
+    color: var(--text-muted);
+}
+
+.ai-email-journal-note p {
+    margin: 0;
+}
+
+.ai-email-journal-note strong {
+    color: var(--text-primary);
+}
+
+.ai-email-prose {
+    max-width: none;
+    line-height: 1.78;
+}
+
+.ai-email-prose > p,
+.ai-email-prose > h2,
+.ai-email-prose > ul {
+    max-width: 68ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ai-email-prose > p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    font-size: 1.08rem;
+}
+
+.ai-email-prose > p a {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--journal-accent);
+    text-underline-offset: 0.2em;
+}
+
+.ai-email-prose > h2 {
+    margin-top: 4.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-size: clamp(1.75rem, 4vw, 2.3rem);
+    font-weight: 750;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+
+.ai-email-prose .ai-email-lede {
+    color: var(--text-primary);
+    font-size: clamp(1.35rem, 3vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+}
+
+.ai-email-kicker,
+.ai-email-figure figcaption > span,
+.ai-email-principle > span,
+.ai-email-series-nav span {
+    color: var(--journal-accent);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.67rem;
+    font-weight: 750;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.ai-email-contrast {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 68ch;
+    margin: 2.5rem auto;
+    border: 1px solid var(--border-soft);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.ai-email-contrast > div {
+    padding: 1.5rem;
+    background: var(--surface-0);
+}
+
+.ai-email-contrast > div + div {
+    background: var(--journal-paper);
+    border-left: 1px solid var(--border-soft);
+}
+
+.ai-email-contrast strong {
+    display: block;
+    margin: 0.7rem 0 0.45rem;
+    color: var(--text-primary);
+    font-size: 1.05rem;
+}
+
+.ai-email-contrast p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.ai-email-principle {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+    max-width: 68ch;
+    margin: 2.75rem auto;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--journal-accent);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.ai-email-principle p {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 650;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+}
+
+.ai-email-figure {
+    width: min(72rem, calc(100vw - 3rem));
+    margin: 3rem 50%;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    transform: translateX(-50%);
+    background: var(--journal-paper);
+    border: 1px solid var(--border-soft);
+    border-radius: 1.2rem;
+    box-shadow: 0 24px 55px -48px rgba(15, 23, 42, 0.75);
+}
+
+.dark .ai-email-figure {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.ai-email-figure figcaption {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.6rem;
+}
+
+.ai-email-figure figcaption strong {
+    max-width: 32rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    text-align: right;
+}
+
+.ai-email-pipeline {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.55rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ai-email-pipeline li {
+    position: relative;
+    min-height: 9rem;
+    padding: 1rem 0.8rem;
+    background: var(--surface-0);
+    border: 1px solid var(--border-soft);
+    border-radius: 0.7rem;
+}
+
+.ai-email-pipeline li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -0.57rem;
+    z-index: 1;
+    width: 0.57rem;
+    border-top: 1px solid var(--journal-accent);
+}
+
+.ai-email-pipeline .is-context {
+    border-color: var(--journal-accent);
+    box-shadow: inset 0 3px 0 var(--journal-accent);
+}
+
+.ai-email-pipeline span,
+.tier-number {
+    display: block;
+    margin-bottom: 1.7rem;
+    color: var(--journal-accent);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.ai-email-pipeline strong,
+.ai-email-pipeline small {
+    display: block;
+}
+
+.ai-email-pipeline strong {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    line-height: 1.25;
+}
+
+.ai-email-pipeline small {
+    margin-top: 0.45rem;
+    color: var(--text-muted);
+    font-size: 0.73rem;
+    line-height: 1.35;
+}
+
+.ai-email-feedback {
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px dashed var(--border-strong);
+    color: var(--text-muted);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.7rem;
+}
+
+.ai-email-feedback span {
+    margin-right: 0.5rem;
+    color: var(--journal-accent);
+}
+
+.ai-email-shadow-loop-figure {
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-email-shadow-loop-figure::after {
+    content: "";
+    position: absolute;
+    right: -5rem;
+    bottom: -7rem;
+    width: 15rem;
+    height: 15rem;
+    border: 1px solid var(--journal-accent);
+    border-radius: 50%;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.ai-email-readonly-boundary {
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem;
+    background: var(--journal-accent-soft);
+    border: 1px solid var(--journal-accent);
+    border-radius: 0.7rem;
+}
+
+.ai-email-readonly-boundary strong,
+.ai-email-readonly-boundary small {
+    display: block;
+}
+
+.ai-email-readonly-boundary strong {
+    color: var(--text-primary);
+    font-size: 0.78rem;
+}
+
+.ai-email-readonly-boundary small {
+    margin-top: 0.15rem;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+}
+
+.ai-email-lock {
+    position: relative;
+    flex: 0 0 auto;
+    width: 1.15rem;
+    height: 0.9rem;
+    margin-top: 0.3rem;
+    background: var(--journal-accent);
+    border-radius: 0.2rem;
+}
+
+.ai-email-lock::before {
+    content: "";
+    position: absolute;
+    bottom: 0.72rem;
+    left: 0.22rem;
+    width: 0.67rem;
+    height: 0.55rem;
+    border: 2px solid var(--journal-accent);
+    border-bottom: 0;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.ai-email-current-scope {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+}
+
+.ai-email-current-scope span {
+    padding: 0.3rem 0.45rem;
+    background: var(--journal-accent);
+    border-radius: 0.3rem;
+    color: var(--surface-0);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.58rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.dark .ai-email-current-scope span {
+    color: #0a0a0b;
+}
+
+.ai-email-current-scope strong {
+    color: var(--text-primary);
+    font-size: 0.72rem;
+}
+
+.ai-email-learning-loop {
+    display: grid;
+    grid-template-columns: 0.9fr 1.25fr 0.9fr 1.25fr 1.05fr;
+    gap: 0.65rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ai-email-learning-loop > li {
+    position: relative;
+    min-width: 0;
+    min-height: 12.5rem;
+    padding: 1rem 0.85rem;
+    background: var(--surface-0);
+    border: 1px solid var(--border-soft);
+    border-radius: 0.75rem;
+}
+
+.ai-email-learning-loop > li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 2.1rem;
+    right: -0.68rem;
+    z-index: 2;
+    width: 0.68rem;
+    border-top: 1px solid var(--journal-accent);
+}
+
+.ai-email-learning-loop > li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: calc(2.1rem - 3px);
+    right: -0.68rem;
+    z-index: 3;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 4px solid var(--journal-accent);
+}
+
+.ai-email-loop-number {
+    display: block;
+    margin-bottom: 2.6rem;
+    color: var(--journal-accent);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.66rem;
+    font-weight: 750;
+}
+
+.ai-email-learning-loop > li > strong,
+.ai-email-learning-loop > li > small {
+    display: block;
+}
+
+.ai-email-learning-loop > li > strong {
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    line-height: 1.25;
+}
+
+.ai-email-learning-loop > li > small {
+    margin-top: 0.45rem;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    line-height: 1.42;
+}
+
+.ai-email-learning-loop .is-triage {
+    border-color: var(--journal-accent);
+    box-shadow: inset 0 3px 0 var(--journal-accent);
+}
+
+.ai-email-unknown-branch {
+    margin-top: 1rem;
+    padding: 0.65rem;
+    background: var(--journal-risk-soft);
+    border: 1px dashed var(--journal-risk);
+    border-radius: 0.45rem;
+}
+
+.ai-email-unknown-branch span,
+.ai-email-unknown-branch strong,
+.ai-email-unknown-branch small {
+    display: block;
+}
+
+.ai-email-unknown-branch span {
+    color: var(--journal-risk);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.55rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ai-email-unknown-branch strong {
+    margin-top: 0.25rem;
+    color: var(--text-primary);
+    font-size: 0.72rem;
+}
+
+.ai-email-unknown-branch small {
+    margin-top: 0.2rem;
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    line-height: 1.35;
+}
+
+.ai-email-loopback {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-top: 1px dashed var(--journal-accent);
+}
+
+.ai-email-loopback > span {
+    color: var(--journal-accent);
+    font-size: 1.2rem;
+}
+
+.ai-email-loopback strong,
+.ai-email-loopback small {
+    display: block;
+}
+
+.ai-email-loopback strong {
+    color: var(--text-primary);
+    font-size: 0.76rem;
+}
+
+.ai-email-loopback small {
+    margin-top: 0.1rem;
+    color: var(--text-muted);
+    font-size: 0.68rem;
+}
+
+.ai-email-next-layer {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.9rem 1rem;
+    background: var(--surface-0);
+    border: 1px dashed var(--border-strong);
+    border-radius: 0.65rem;
+}
+
+.ai-email-next-layer > span {
+    color: var(--text-muted);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.58rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ai-email-next-layer > div {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    min-width: 0;
+}
+
+.ai-email-next-layer strong {
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
+.ai-email-next-layer i {
+    color: var(--journal-accent);
+    font-style: normal;
+}
+
+.ai-email-next-layer small {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    line-height: 1.35;
+}
+
+.ai-email-jobs-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border-soft);
+    border-radius: 0.8rem;
+}
+
+.ai-email-jobs-table {
+    width: 100%;
+    min-width: 58rem;
+    border-collapse: collapse;
+    background: var(--surface-0);
+    font-size: 0.72rem;
+}
+
+.ai-email-jobs-table th,
+.ai-email-jobs-table td {
+    padding: 0.8rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.ai-email-jobs-table th {
+    background: var(--journal-accent);
+    color: var(--surface-0);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.dark .ai-email-jobs-table th {
+    color: #0a0a0b;
+}
+
+.ai-email-jobs-table tbody tr + tr {
+    border-top: 1px solid var(--border-soft);
+}
+
+.ai-email-jobs-table tbody tr:nth-child(even) {
+    background: var(--surface-1);
+}
+
+.ai-email-jobs-table td,
+.ai-email-jobs-table td a {
+    color: var(--text-primary);
+}
+
+.ai-email-jobs-table td:first-child strong,
+.ai-email-jobs-table td:first-child a,
+.ai-email-jobs-table td:first-child small {
+    display: block;
+}
+
+.ai-email-jobs-table td:first-child small {
+    margin-top: 0.18rem;
+    color: var(--text-muted);
+    font-size: 0.58rem;
+}
+
+.impact,
+.job-status {
+    display: inline-block;
+    min-width: 4.5rem;
+    padding: 0.28rem 0.5rem;
+    border-radius: 999px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.impact.is-low,
+.job-status.is-backlog { background: rgba(56, 189, 248, 0.18); color: #0369a1; }
+.impact.is-medium { background: rgba(245, 158, 11, 0.2); color: #92400e; }
+.impact.is-high { background: var(--journal-risk-soft); color: var(--journal-risk); }
+.impact.is-tbd { background: var(--surface-2); color: var(--text-muted); }
+.job-status.is-live { background: var(--journal-accent-soft); color: var(--journal-accent); }
+.job-status.is-assist { background: var(--journal-accent-soft); color: var(--journal-accent); }
+.job-status.is-manual { background: var(--surface-2); color: var(--text-muted); }
+.job-status.is-shadow { background: rgba(168, 85, 247, 0.16); color: #7e22ce; }
+.job-status.is-discovery { border: 1px dashed var(--journal-accent); color: var(--journal-accent); }
+
+.ai-email-jobs-table tr.is-additional-job {
+    background: var(--journal-accent-soft);
+    border-top: 1px dashed var(--journal-accent);
+}
+
+.dark .impact.is-low,
+.dark .job-status.is-backlog { color: #7dd3fc; }
+.dark .impact.is-medium { color: #fbbf24; }
+.dark .job-status.is-shadow { color: #d8b4fe; }
+
+.ai-email-figure-note {
+    margin: 1.2rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.76rem;
+    line-height: 1.5;
+}
+
+.ai-email-prose > h3 {
+    margin: 3rem 0 1rem;
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.ai-email-tier-key {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.6rem;
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+}
+
+.ai-email-tier-key li {
+    min-height: 8.5rem;
+    padding: 0.85rem;
+    background: var(--surface-0);
+    border: 1px solid var(--border-soft);
+    border-radius: 0.65rem;
+}
+
+.ai-email-tier-key span,
+.ai-email-tier-key strong,
+.ai-email-tier-key small {
+    display: block;
+}
+
+.ai-email-tier-key span {
+    margin-bottom: 1.4rem;
+    color: var(--journal-accent);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.6rem;
+    font-weight: 750;
+    text-transform: uppercase;
+}
+
+.ai-email-tier-key strong {
+    color: var(--text-primary);
+    font-size: 0.78rem;
+    line-height: 1.35;
+}
+
+.ai-email-tier-key small {
+    margin-top: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    line-height: 1.4;
+}
+
+.ai-email-autonomy-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border-soft);
+    border-radius: 0.8rem;
+}
+
+.ai-email-autonomy-table {
+    width: 100%;
+    min-width: 72rem;
+    border-collapse: collapse;
+    background: var(--surface-0);
+    font-size: 0.7rem;
+}
+
+.ai-email-autonomy-table th,
+.ai-email-autonomy-table td {
+    padding: 0.8rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.ai-email-autonomy-table th {
+    background: var(--journal-accent);
+    color: var(--surface-0);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.dark .ai-email-autonomy-table th { color: #0a0a0b; }
+.ai-email-autonomy-table tbody tr + tr { border-top: 1px solid var(--border-soft); }
+.ai-email-autonomy-table tbody tr:nth-child(even) { background: var(--surface-1); }
+.ai-email-autonomy-table tr.is-additional-job { background: var(--journal-accent-soft); border-top: 1px dashed var(--journal-accent); }
+.ai-email-autonomy-table td { color: var(--text-muted); line-height: 1.4; }
+.ai-email-autonomy-table td:first-child { color: var(--text-primary); }
+
+.tier-pill {
+    display: inline-block;
+    padding: 0.3rem 0.55rem;
+    background: var(--journal-accent-soft);
+    border-radius: 999px;
+    color: var(--journal-accent);
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.tier-pill.is-manual { background: var(--surface-2); color: var(--text-muted); }
+
+.shadow-target {
+    display: inline-block;
+    padding: 0.3rem 0.55rem;
+    background: var(--surface-2);
+    border-radius: 999px;
+    color: var(--text-muted);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.shadow-target.is-active {
+    background: rgba(168, 85, 247, 0.16);
+    color: #7e22ce;
+}
+
+.dark .shadow-target.is-active { color: #d8b4fe; }
+
+.ai-email-video-placeholder {
+    padding: clamp(1rem, 2vw, 1.4rem);
+}
+
+.ai-email-video-frame {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    min-height: 16rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background: linear-gradient(135deg, #0f172a, #123f3b);
+    border-radius: 0.85rem;
+    color: #fff;
+}
+
+.ai-email-play-mark {
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: 50%;
+}
+
+.ai-email-play-mark::after {
+    content: "";
+    display: block;
+    margin: 1.05rem 0 0 1.3rem;
+    border-top: 0.55rem solid transparent;
+    border-bottom: 0.55rem solid transparent;
+    border-left: 0.8rem solid #fff;
+}
+
+.ai-email-video-frame span,
+.ai-email-video-frame strong,
+.ai-email-video-frame small { display: block; }
+.ai-email-video-frame span { color: #5eead4; font-family: "Geist Mono", monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.ai-email-video-frame strong { margin-top: 0.45rem; font-size: clamp(1.35rem, 3vw, 2rem); }
+.ai-email-video-frame small { margin-top: 0.45rem; color: #cbd5e1; }
+
+.ai-email-results-section {
+    display: grid;
+    grid-template-columns: 13rem 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-soft);
+}
+
+.ai-email-results-label p {
+    margin: 0.8rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.77rem;
+    line-height: 1.45;
+}
+
+.ai-email-evidence-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.55rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-family: "Geist Mono", monospace;
+    font-size: 0.62rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ai-email-evidence-tag.is-measured {
+    color: #16825d;
+}
+
+.dark .ai-email-evidence-tag.is-measured {
+    color: #4adea3;
+}
+
+.ai-email-evidence-tag.is-projected {
+    color: var(--journal-accent);
+}
+
+.ai-email-measured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+
+.ai-email-result-card,
+.ai-email-projection-card {
+    padding: 1.1rem;
+    background: var(--surface-0);
+    border: 1px solid var(--border-soft);
+    border-radius: 0.7rem;
+}
+
+.ai-email-result-card strong,
+.ai-email-projection-card strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+}
+
+.ai-email-result-card span,
+.ai-email-projection-card span {
+    display: block;
+    margin-top: 0.75rem;
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.ai-email-result-card p,
+.ai-email-projection-card p {
+    margin: 0.45rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.74rem;
+    line-height: 1.45;
+}
+
+.ai-email-result-card.is-rework {
+    border-color: var(--journal-risk);
+}
+
+.ai-email-projection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+
+.ai-email-projection-card {
+    background: var(--journal-accent-soft);
+}
+
+.ai-email-projection-card span {
+    margin: 0 0 0.8rem;
+    color: var(--journal-accent);
+    font-family: "Geist Mono", monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ai-email-open-questions {
+    max-width: 68ch;
+    margin: 2.5rem auto;
+    padding: 1.5rem;
+    background: var(--journal-paper);
+    border: 1px solid var(--border-soft);
+    border-radius: 0.8rem;
+}
+
+.ai-email-open-questions ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    border-top: 1px solid var(--border-soft);
+}
+
+.ai-email-open-questions li {
+    padding: 1rem 1rem 1rem 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.ai-email-open-questions li:nth-child(even) {
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-soft);
+}
+
+.ai-email-series-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 68ch;
+    margin: 3rem auto;
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    border-radius: 0.8rem;
+}
+
+.ai-email-series-nav > div {
+    padding: 1.25rem;
+}
+
+.ai-email-series-nav .is-next {
+    background: var(--journal-paper);
+    border-left: 1px solid var(--border-soft);
+}
+
+.ai-email-series-nav strong {
+    display: block;
+    margin-top: 0.6rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.ai-email-series-nav .is-next strong {
+    color: var(--text-muted);
+}
+
+.ai-email-cta {
+    position: relative;
+    max-width: 68ch;
+    margin: 5rem auto 1rem;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    overflow: hidden;
+    background: var(--text-primary);
+    border-radius: 1rem;
+    color: var(--surface-0);
+}
+
+.ai-email-cta::after {
+    content: "";
+    position: absolute;
+    top: -4rem;
+    right: -4rem;
+    width: 9rem;
+    height: 9rem;
+    border: 1px solid var(--journal-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1.5rem transparent, 0 0 0 1.55rem var(--journal-accent), 0 0 0 3rem transparent, 0 0 0 3.05rem var(--journal-accent);
+    opacity: 0.7;
+}
+
+.ai-email-cta h2 {
+    position: relative;
+    z-index: 1;
+    max-width: 30rem;
+    margin: 0.8rem 0 1rem;
+    color: var(--surface-0);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.dark .ai-email-cta h2 {
+    color: #0a0a0b;
+}
+
+.ai-email-cta p {
+    position: relative;
+    z-index: 1;
+    max-width: 34rem;
+    margin: 0 0 1.5rem;
+    color: var(--surface-2);
+}
+
+.dark .ai-email-cta p {
+    color: #3f3f46;
+}
+
+.ai-email-cta .btn-primary {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    background: var(--surface-0);
+    color: var(--text-primary);
+}
+
+.dark .ai-email-cta .btn-primary {
+    background: #0a0a0b;
+    color: #fafafa;
+}
+
+@media (max-width: 900px) {
+    .ai-email-pipeline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .ai-email-pipeline li:nth-child(3)::after {
+        display: none;
+    }
+
+    .ai-email-results-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .ai-email-header::before {
+        display: none;
+    }
+
+    .ai-email-byline,
+    .ai-email-figure figcaption {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .ai-email-figure figcaption strong {
+        text-align: left;
+    }
+
+    .ai-email-contrast,
+    .ai-email-series-nav,
+    .ai-email-projection-grid,
+    .ai-email-open-questions ul {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-email-contrast > div + div,
+    .ai-email-series-nav .is-next,
+    .ai-email-open-questions li:nth-child(even) {
+        border-top: 1px solid var(--border-soft);
+        border-left: 0;
+    }
+
+    .ai-email-principle {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
+
+    .ai-email-pipeline {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-email-pipeline li {
+        min-height: auto;
+    }
+
+    .ai-email-pipeline li:not(:last-child)::after {
+        top: auto;
+        right: auto;
+        bottom: -0.57rem;
+        left: 1.2rem;
+        width: auto;
+        height: 0.57rem;
+        border-top: 0;
+        border-left: 1px solid var(--journal-accent);
+    }
+
+    .ai-email-pipeline li:nth-child(3)::after {
+        display: block;
+    }
+
+    .ai-email-pipeline span {
+        margin-bottom: 0.6rem;
+    }
+
+    .ai-email-learning-loop {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-email-learning-loop > li {
+        min-height: auto;
+    }
+
+    .ai-email-learning-loop > li:not(:last-child)::after {
+        top: auto;
+        right: auto;
+        bottom: -0.68rem;
+        left: 1.15rem;
+        width: auto;
+        height: 0.68rem;
+        border-top: 0;
+        border-left: 1px solid var(--journal-accent);
+    }
+
+    .ai-email-learning-loop > li:not(:last-child)::before {
+        top: auto;
+        right: auto;
+        bottom: -0.68rem;
+        left: calc(1.15rem - 3px);
+        border-top: 4px solid var(--journal-accent);
+        border-right: 3px solid transparent;
+        border-bottom: 0;
+        border-left: 3px solid transparent;
+    }
+
+    .ai-email-loop-number {
+        margin-bottom: 1.25rem;
+    }
+
+    .ai-email-readonly-boundary {
+        align-items: flex-start;
+    }
+
+    .ai-email-next-layer {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+    }
+
+    .ai-email-next-layer > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
+
+    .ai-email-next-layer i {
+        margin-left: 0.25rem;
+        transform: rotate(90deg);
+    }
+
+    .ai-email-measured-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-email-jobs-table-wrap {
+        overflow: visible;
+        border: 0;
+    }
+
+    .ai-email-jobs-table,
+    .ai-email-jobs-table tbody,
+    .ai-email-jobs-table tr,
+    .ai-email-jobs-table td {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .ai-email-jobs-table thead {
+        display: none;
+    }
+
+    .ai-email-jobs-table tbody tr {
+        padding: 0.65rem;
+        border: 1px solid var(--border-soft);
+        border-radius: 0.7rem;
+    }
+
+    .ai-email-jobs-table tbody tr + tr {
+        margin-top: 0.65rem;
+    }
+
+    .ai-email-jobs-table td {
+        display: grid;
+        grid-template-columns: 7.25rem 1fr;
+        gap: 0.75rem;
+        align-items: center;
+        padding: 0.45rem;
+    }
+
+    .ai-email-jobs-table td::before {
+        content: attr(data-label);
+        color: var(--text-muted);
+        font-family: "Geist Mono", monospace;
+        font-size: 0.56rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    .ai-email-jobs-table td:first-child small {
+        grid-column: 2;
+        margin-top: -0.35rem;
+    }
+
+    .ai-email-tier-key {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ai-email-autonomy-table-wrap {
+        overflow: visible;
+        border: 0;
+    }
+
+    .ai-email-autonomy-table,
+    .ai-email-autonomy-table tbody,
+    .ai-email-autonomy-table tr,
+    .ai-email-autonomy-table td {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .ai-email-autonomy-table thead { display: none; }
+
+    .ai-email-autonomy-table tbody tr {
+        padding: 0.65rem;
+        border: 1px solid var(--border-soft);
+        border-radius: 0.7rem;
+    }
+
+    .ai-email-autonomy-table tbody tr + tr { margin-top: 0.65rem; }
+
+    .ai-email-autonomy-table td {
+        display: grid;
+        grid-template-columns: 7.25rem 1fr;
+        gap: 0.75rem;
+        padding: 0.45rem;
+    }
+
+    .ai-email-autonomy-table td::before {
+        content: attr(data-label);
+        color: var(--text-muted);
+        font-family: "Geist Mono", monospace;
+        font-size: 0.56rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    .ai-email-video-frame {
+        align-items: flex-start;
+        flex-direction: column;
+        min-height: 14rem;
+    }
+
+    .ai-email-open-questions li:nth-child(even) {
+        padding-left: 0;
+    }
 }
 
 #mobile-menu {

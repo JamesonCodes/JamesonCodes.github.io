@@ -77,15 +77,17 @@ Changes are live at `https://jamesoncodes.github.io` within minutes.
 
 ### Articles
 
-1. **[🌅 Building Semantic Search for 100k+ Creative Assets](articles/semantic-search-engine.html)** - AI-powered semantic search system (Next.js, FastAPI, Vertex AI, Pinecone)
+1. **[Building an AI-Native Email System, One Job at a Time](articles/ai-native-email-system.html)** - In-progress build journal covering Portal+ Assist, 500+ submissions at a 24-second median, shadow-mode routing, and human-reviewed evaluation datasets for earned autonomy
 
-2. **[🧠 Why Every Company Needs an Internal Tools Builder](articles/internal-tools-builder.html)** - Strategic framework on the emerging Internal Tools Builder role
+2. **[🌅 Building Semantic Search for 100k+ Creative Assets](articles/semantic-search-engine.html)** - AI-powered semantic search system (Next.js, FastAPI, Vertex AI, Pinecone)
 
-3. **[⚙️ Transforming HubSpot Services into Productized Offerings](articles/hubspot-productization.html)** - Complete productization methodology with real implementation
+3. **[🧠 Why Every Company Needs an Internal Tools Builder](articles/internal-tools-builder.html)** - Strategic framework on the emerging Internal Tools Builder role
 
-4. **[🎯 Designing Customer Experience Systems](articles/cx-systems-framework.html)** - 5-step quarterly framework for CX optimization
+4. **[⚙️ Transforming HubSpot Services into Productized Offerings](articles/hubspot-productization.html)** - Complete productization methodology with real implementation
 
-5. **[🏋️‍♂️ Behind the Scenes: The Trials and Triumphs of Creating Fitness Apps](articles/fitness-apps-journey.html)** - Startup journey from zero to #13 top-grossing Health & Fitness app
+5. **[🎯 Designing Customer Experience Systems](articles/cx-systems-framework.html)** - 5-step quarterly framework for CX optimization
+
+6. **[🏋️‍♂️ Behind the Scenes: The Trials and Triumphs of Creating Fitness Apps](articles/fitness-apps-journey.html)** - Startup journey from zero to #13 top-grossing Health & Fitness app
 
 ## 📄 License
 
