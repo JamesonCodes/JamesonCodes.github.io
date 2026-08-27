@@ -27,7 +27,7 @@ AI_EMAIL_ARTICLE_DESCRIPTION = (
     "shadow mode, human review, and evaluation datasets."
 )
 AI_EMAIL_ARTICLE_DATE = "2026-08-27"
-AI_EMAIL_IMAGE_URL = f"{CANONICAL_ORIGIN}/assets/og/ai-native-email-system-og.png"
+AI_EMAIL_IMAGE_URL = f"{CANONICAL_ORIGIN}/assets/og/ai-native-email-system-og-v2.png"
 
 
 class DocumentParser(HTMLParser):
@@ -167,7 +167,7 @@ class StaticAgentReadinessTests(unittest.TestCase):
 
     def test_ai_email_article_preserves_launch_content_and_image_contract(self) -> None:
         source = AI_EMAIL_ARTICLE_PATH.read_text(encoding="utf-8")
-        image_path = ROOT / "assets" / "og" / "ai-native-email-system-og.png"
+        image_path = ROOT / "assets" / "og" / "ai-native-email-system-og-v2.png"
         image_header = image_path.read_bytes()[:24]
 
         self.assertTrue(image_path.is_file())
@@ -379,7 +379,7 @@ class LiveAgentReadinessTests(unittest.TestCase):
 
     def test_ai_email_social_preview_image_is_public(self) -> None:
         request = urllib.request.Request(
-            f"{self.origin}/assets/og/ai-native-email-system-og.png",
+            f"{self.origin}/assets/og/ai-native-email-system-og-v2.png",
             headers={"User-Agent": "JamesonCodes-agent-readiness-test/1.0"},
         )
         with urllib.request.urlopen(request, timeout=20) as response:
