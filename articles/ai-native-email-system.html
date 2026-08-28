@@ -202,7 +202,7 @@
 
                 <p>I started this project because I wanted the system to carry more of that load. The term people have started using for this kind of system is an “AI-native email system.” In practice, that means it can read a conversation, recognize the work inside it, and either handle the next step or prepare a teammate to take it from there.</p>
 
-                <p>The first live test is New Design Requests, where a teammate can turn a customer conversation into a reviewed design task in a median of 24 seconds.</p>
+                <p>The first live step is New Design Requests. Portal+ Assist turns customer context into a structured design task for a teammate to review and submit. It solves a real job today while creating a path to greater autonomy if the evidence supports it.</p>
 
                 <h2>Why I'm careful with “AI-native”</h2>
 
@@ -407,31 +407,27 @@
                     <p class="ai-email-figure-note">Sanitized working view. Promotion criteria and permanent human boundaries are negotiated separately for every job.</p>
                 </figure>
 
-                <h2>What New Design Requests taught me</h2>
+                <h2>A live bridge to bounded autonomy</h2>
 
-                <p>New Design Request is the first job I moved into a live, job-specific workflow. It gave me a concrete place to test what AI assistance should look like inside the work rather than beside it.</p>
+                <p>New Design Request makes the autonomy tiers concrete. It is live at Tier 1 and shows me what the system needs before it can take on more.</p>
 
-                <p>The sales team spends most of its day in Front, but many of the internal actions required to move a deal forward happen somewhere else. A teammate has to leave the conversation, open another system, and re-enter context that already exists in the email thread. The cost is larger than the extra clicks. Manual transcription introduces errors, handoffs slow execution, and important context gets thinner each time the work changes hands.</p>
+                <p>Sales works in Front, while design requests are submitted in Portal+, our internal system for this work. Portal+ Assist brings the request into the conversation so teammates no longer have to switch systems and re-enter the customer’s context.</p>
 
-                <p>The job I wanted to improve was straightforward: help a teammate move from customer intent to design task delivery with less context switching, manual transcription, and coordination overhead.</p>
+                <h3>The interface is part of the path</h3>
 
-                <p>Portal+ is the internal system where the team creates and submits work such as design requests. Portal+ Assist is the Front plugin I built around this job. It brings a defined set of Portal+ workflows into the place where the customer context already lives.</p>
+                <p>Portal+ Assist supports New Design Requests, Revision Requests, and General Revision Requests. New Design Request is the only AI-assisted path. The plugin prepares a structured draft; a teammate reviews, edits, and submits it. This is Tier 1: the system prepares the work, but nothing executes without approval.</p>
 
-                <h3>Useful artifacts before autonomy</h3>
+                <p>Revision Requests and General Revision Requests use the same interface but remain manual because I have not completed the job exercise for either one.</p>
 
-                <p>Portal+ Assist supports New Design Requests, Revision Requests, and General Revision Requests. New Design Request is currently the only AI-assisted path. For that workflow, the plugin interprets the conversation and prepares a structured design task draft. A teammate reviews the information, makes any necessary changes, and decides whether to submit it. Nothing executes without explicit approval.</p>
+                <p>The draft carries an explicit standard. I turned our Director of Design Operations’ description of the ideal new design request into the system prompt that produces it. In practice, every New Design Request is structured to give designers the best possible direction.</p>
 
-                <p>Revision Requests and General Revision Requests use the same plugin, but those workflows are manual. I have not completed the job exercise for either one yet, so I am not treating them as AI-assisted simply because they share an interface with the New Design Request flow.</p>
+                <p>Working from that standard changed how I defined the job. I once thought Sales Support was simply relaying the customer’s message to Design. In practice, they add the context a designer needs to get the first pass right. The draft made missing context and rework visible in a way a process map could not.</p>
 
-                <p>Creating the draft inside Front keeps the context attached to the work, reduces transcription between systems, and leaves submission with the teammate who owns the request.</p>
+                <p>That also changed how I measure the workflow. A fast intake that creates another design cycle only moves the cost to a different team.</p>
 
-                <p>The New Design Request path is currently Tier 1 because a teammate initiates the assistance. Tier 2 would begin when the system recognizes the job and prepares the draft before someone has to ask for it. A person would still review and submit the task.</p>
+                <p>The draft creates a path forward too. Its fields define the eventual API payload. Teammate edits reveal missing context, while submissions and rework show whether the job is ready for more autonomy.</p>
 
-                <p>Once the team started using the workflow, I saw effects I had not planned for. The structured draft exposed missing context, made rework easier to see, and created a new measurement point. I could feed those outcomes back into the job definition and context layer. I would not have found those effects in a process map. They surfaced when the workflow met real work.</p>
-
-                <p>Before I sat with designers, I would have described the job as relaying the customer's message to Design. Watching the work changed that definition. Sales Support also has to add the context a designer needs to produce something useful on the first pass.</p>
-
-                <p>That changed how I measure the workflow. Submission speed is useful, but a fast intake that creates another design cycle only moves the cost to a different team.</p>
+                <p>At Tier 2, the Unified Context Layer recognizes the job and prepares the payload before anyone asks. A person still reviews and submits it. If the evidence supports bounded autonomy, Tier 3 would let the system complete the job on its own, from recognition through submission, within defined quality thresholds and policy checks. Customer communication and creative approval sit outside this job and remain human.</p>
 
                 <figure id="new-design-results" class="ai-email-figure ai-email-results-figure">
                     <figcaption>
@@ -485,7 +481,7 @@
                     <p class="ai-email-figure-note">FTE-equivalent describes capacity. It isn't a staffing-reduction target. These projections will be updated as the reporting window grows.</p>
                 </figure>
 
-                <p>At this point, the one-in-five rework signal interests me more than shaving another few seconds from the form. That number points me toward the next piece of work: improving the context Design receives so more requests succeed on the first pass.</p>
+                <p>The 24-second median proves the workflow is useful. The one-in-five rework signal shows it is not ready for more autonomy. The next step is improving the context Design receives so more requests succeed on the first pass.</p>
 
                 <h2>What comes next</h2>
 
