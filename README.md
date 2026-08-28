@@ -77,7 +77,7 @@ Changes are live at `https://jamesoncodes.github.io` within minutes.
 
 ### Articles
 
-1. **[Building an AI-Native Email System, One Job at a Time](articles/ai-native-email-system.html)** - In-progress build journal covering Portal+ Assist, 500+ submissions at a 24-second median, shadow-mode routing, and human-reviewed evaluation datasets for earned autonomy
+1. **[Building an AI-Native Email System, One Job at a Time](articles/ai-native-email-system.html)** - In-progress build journal covering job-based workflows, Portal+ Assist, shadow-mode routing, and human-reviewed evaluations for earned autonomy
 
 2. **[🌅 Building Semantic Search for 100k+ Creative Assets](articles/semantic-search-engine.html)** - AI-powered semantic search system (Next.js, FastAPI, Vertex AI, Pinecone)
 
