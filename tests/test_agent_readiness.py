@@ -262,13 +262,15 @@ class StaticAgentReadinessTests(unittest.TestCase):
         self.assertEqual(references, [])
         self.assertFalse((ROOT / "ai-model-advisor").exists())
 
-    def test_llms_public_page_links_are_in_the_sitemap(self) -> None:
+    def test_llms_local_public_page_links_are_in_the_sitemap(self) -> None:
         content = (ROOT / "llms.txt").read_text(encoding="utf-8")
         links = re.findall(r"\[[^]]+\]\((https://[^)]+)\)", content)
         indexed = set(sitemap_urls())
         allowed_discovery_files = {f"{CANONICAL_ORIGIN}/robots.txt", f"{CANONICAL_ORIGIN}/sitemap.xml"}
         for link in links:
             parsed = urlparse(link)
+            if parsed.netloc != urlparse(CANONICAL_ORIGIN).netloc:
+                continue
             without_fragment = parsed._replace(fragment="").geturl()
             self.assertIn(without_fragment, indexed | allowed_discovery_files)
 
